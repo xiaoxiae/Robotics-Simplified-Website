@@ -1,0 +1,14 @@
+# Jekyll files
+.sass-cache
+_site
+bin/
+
+# Ruby files
+*.gemspec
+*.gem
+Gemfile.lock
+node_modules
+.bundle
+
+# Other folders
+script/
