@@ -11,14 +11,14 @@ permalink: motor-controllers/dead-reckoning/
 ## Introduction
 One of the simplest ways of controlling the robot autonomously is using dead reckoning.
 
-It is essentially what you would do on one of the first physics classes: measure the average speed over a certain distance. Once you have that, you can then calculate how long it would take to drive some other distance.
+It is essentially what most people do in their very first physics class: measure the average speed of something. We can then calculate, how much time would it take for the something (in our case the robot) to drive that distance.
 
-Say your robot drives an average of `v = 2.5m/s`. You have a `d = 10m` that you want the robot to drive. To calculate, how long it should take the robot, all you have to do is divide distance by speed: `t = d / v = 10 / 2.5 = 4s`.
+Let's look at an example: say your robot drives an average of `v = 2.5m/s`. You have a distance of `d = 10m` that you want the robot to drive. To calculate, how long it should take the robot, all you have to do is divide distance by speed: `t = d/v = 10/2.5 = 4s`.
 
 ---
 
 ## Implementation
-There are two things that the controller needs: the **average speed** of the robot and a way to measure how much time had passed. Taking this into consideration, this is how a dead reckoning controller implementation could look like:
+There are two things that the controller needs: the average speed of the robot and a way to measure how much time had passed. Taking this into consideration, this is how a dead reckoning controller implementation could look like:
 
 ```python
 class DeadReckoning:
@@ -39,16 +39,37 @@ class DeadReckoning:
 
     def get_value(self):
         """Return the current value the controller is returning."""
-        # at what time should we reach the destination (t=t_0 + s/v)
-        arrival_time = self.start_time + self.goal / self.speed
+        # at what time should we reach the destination (d=d_0 + s/v)
+        arrival_time = self.start_time + (self.goal / self.speed)
 
-        # return +-1 if we should have reached the destination and 0 if not
+        # if current time is less than the arrival time, we should be driving
         if self.get_current_time() < arrival_time:
-            return 1 if self.goal > 0 else -1
+            return 1
         else:
             return 0
 ```
 
-**ADD AN EXAMPLE***
+Let's implement the example mentioned above to make the robot drive 10 meters:
 
-Although this is quite a simple controller to implement, you might realize that it is not too accurate. If the robot hits a bump on the road or changes heading, there is nothing it can do to correct itself, since it doesn't know where it's going.
+```python
+# create robot's motors and the joystick
+l_motor = Motor(1)
+r_motor = Motor(2)
+joystick = Joystick()
+
+# create the controller object
+# time is a function that returns current time when called
+controller = DeadReckoning(2.5, time)
+
+# set the goal for the controller (10 meters)
+controller.set_goal(10)
+
+# while the controller is telling us to drive forward, run both motors
+while controller.get_value():
+    l_motor(1)
+    r_motor(1)
+```
+
+Although this is quite a simple controller to implement, you might realize that it is not too accurate. If the robot hits a bump on the road or slips on a banana peel, there is nothing it can do to correct the error (since it doesn't know where it's going).
+
+We'll be focusing on improving accuracy in the next few upcoming chapters by incorporating real-time data from the robot in our controllers.

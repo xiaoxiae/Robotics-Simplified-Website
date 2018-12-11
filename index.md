@@ -5,15 +5,18 @@ nav_order: 1
 permalink: /
 ---
 
+**IMPORTANT NOTICE:** This website is in **very early stages of development** and all of the content is therefore **subject to change**.
+{: .fs-6 .fw-300 .text-center }
+
+---
 
 # Welcome to Robotics Simplified!
 {: .fs-9 }
 
 Learn all about robotics in a simple, intuitive way.
-{: .fs-6 .fw-300 }
+{: .fs-6 .fw-300 .text-center }
 
-NOTE THAT THE PROJECT IS IN VERY EARLY STAGES OF DEVELOPMENT AND ALL OF THE CONTENT ON THE WEBSITE IS SUBJECT TO CHANGE.
-{: .fs-6 .fw-300 }
+<p style="text-align:center;"><img src="{{site.url}}/assets/images/logo.png" width="70%"></p>
 
 ---
 
@@ -29,7 +32,9 @@ When I joined an FRC team and started learning about robotics, I didn't find man
 
 That, in a nutshell, is the reason for the creation of this website - to serve as a resource for people wanting to learn the concepts of robotics with no prior knowledge.
 
+Another reason is to be able to participate in [SOČ](http://www.soc.cz/) for the year 2018-19.
+
 ---
 
 ## Contributions
-I accept any and all recommendations/suggestions about both the content on the website and the website itself, so if you have anything you think is incorrect/broken/could be done better, feel free to let me know either by email (found in the [About]({{site.baseurl }}about/) sction), or by starting an issue on the [official GitHub page](https://github.com/xiaoxiae/Robotics-Simplified) of the project.
+I accept any and all recommendations/suggestions about anything you see on the website or on the GitHub repository, so if you have anything you think is incorrect/broken/could be done better, feel free to let me know either by email (found in the [About]({{site.baseurl }}about/) section), or by starting an issue on the [official GitHub page](https://github.com/xiaoxiae/Robotics-Simplified) of the project.

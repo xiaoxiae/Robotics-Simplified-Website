@@ -26,11 +26,10 @@ Links to resources used in writing this project.
 
 ### PID
 - Sample [PID source code](https://github.com/ivmech/ivPID)
-- [Wikipedia article](https://en.wikipedia.org/wiki/PID_controller) about PID.
 
 ## Drivetrain Control
-- [Arcade drive](https://www.chiefdelphi.com/media/papers/2661)
-- [Mecanum drive](http://controls.coderedrobotics.com/programminglessons/11.html)
+- [Arcade drive](https://www.chiefdelphi.com/media/papers/2661) explained
+- [Mecanum drive](http://controls.coderedrobotics.com/programminglessons/11.html) explained
 
 ## Odometry
 - [Differential Steering System of Robot Wheel Actuators](http://rossum.sourceforge.net/papers/DiffSteer/)

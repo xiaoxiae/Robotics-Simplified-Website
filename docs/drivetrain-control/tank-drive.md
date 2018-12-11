@@ -12,7 +12,7 @@ permalink: drivetrain-control/tank-drive/
 
 Tank drive is a method of controlling the motors of a robot using two axes of a controller, where each of the axes operates motors on one side of the robot (see image below or [a video](https://www.youtube.com/watch?v=vK2CGj8gAWc)).
 
-![Tank Drive]({{site.url}}/assets/images/drivetrain-control/Tank Drive.png "Tank Drive")
+![Tank Drive]({{site.url}}/assets/images/drivetrain-control/tank-drive.png "Tank Drive")
 
 ---
 
@@ -41,12 +41,12 @@ joystick = Joystick()
 
 # continuously set motors to the values on the axes
 while True:
-  # get axis values
-  y1 = joystick.get_y1()
-  y2 = joystick.get_y2()
+    # get axis values
+    y1 = joystick.get_y1()
+    y2 = joystick.get_y2()
 
-  # drive the robot using tank drive
-  tank_drive(y1, y2, l_motor, r_motor)
+    # drive the robot using tank drive
+    tank_drive(y1, y2, l_motor, r_motor)
 ```
 
 And that's it! Now you have a robot controlled with a joystick using tank drive.

@@ -28,9 +28,9 @@ class SampleControllerClass:
         pass
 ```
 
-Let's break it down piece by piece:
-- `__init__` is a method called when we want to create the controller object.
-- `set_goal` will be called to set the goal that the controller should aim for.
-- `get_value` will return the value that the controller thinks we should set the motors to.
+Let's break it down function by function:
+- `__init__` is called when we want to create the controller object. In the actual controller implementations, `...` will be replaced by the parameters that the controller takes.
+- `set_goal` is called to set the controller's goal. This needs to happen _before_ we call `get_value`, or things will start to break.
+- `get_value` will return the value that the controller thinks we should set the motors to, to achieve our goal.
 
 This will make more sense once you see the actual classes of controllers, but it's a good resource to refer to when you need it.
