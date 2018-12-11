@@ -1,0 +1,17 @@
+title: Robotics Simplified
+description: Explanation of robotics concepts using Python.
+baseurl: "/" # site subpath
+# url: "" # the base hostname & protocol for the site
+
+permalink: pretty
+exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"]
+
+# Enable or disable the site search
+search_enabled: true
+
+# Aux links for the upper right navigation
+aux_links:
+  "GitHub":
+    - "https://github.com/xiaoxiae/Autonomous-Robot-Motion"
+
+color_scheme: nil
