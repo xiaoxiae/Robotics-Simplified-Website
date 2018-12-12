@@ -20,6 +20,8 @@ It's nice to be able to drive around with the robot using a motor configuration 
 A controller is essentially a box that takes some information about the robot in and a goal that we want the robot to achieve (drive a certain distance / turn a certain angle...) and spits out values it thinks the robot should set its motors to, to achieve that goal.
 
 The are a lot of controllers to choose from. They could differ in a lot of ways, such as:
-- **Accuracy** - how accurately the controller controls the robot.
-- **Input** - what sorts of information the controller needs to function.
-- **Complexity** - how difficult is it to correctly implement/configure the controller.
+- **Accuracy** - how accurate is the controller in getting the robot where it needs to be?
+- **Input** - what of information does the controller needs to function properly (and accurately)?
+- **Complexity** - how difficult is it to implement/configure the controller?
+
+Although there is a whole field of study called [control theory](https://en.wikipedia.org/wiki/Control_theory) that examines the controllers in great lengths, we're going to talk about only a select few (namely the most frequently used ones in FRC).

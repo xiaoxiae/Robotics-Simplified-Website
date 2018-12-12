@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Sample Motor Controller Class
+title: Sample Controller Class
 nav_order: 1
 parent: Motor Controllers
-permalink: motor-controllers/sample-motor-controller-class/
+permalink: motor-controllers/sample-controller-class/
 ---
 
-# Sample controller class
+# Sample Controller Class
 Let's look at how classes of each of the controllers described in the sections above will look like:
 
 ```python
@@ -30,7 +30,7 @@ class SampleControllerClass:
 
 Let's break it down function by function:
 - `__init__` is called when we want to create the controller object. In the actual controller implementations, `...` will be replaced by the parameters that the controller takes.
-- `set_goal` is called to set the controller's goal. This needs to happen _before_ we call `get_value`, or things will start to break.
-- `get_value` will return the value that the controller thinks we should set the motors to, to achieve our goal.
+- `set_goal` is called to set the controller's goal. Goal can be any number. Note that we need to call this function before we try to get a value from the controller, or things will start to break.
+- `get_value` will return the value that the controller thinks we should set the motors to to achieve our goal. **All controllers will return a value from -1 to 1.**
 
-This will make more sense once you see the actual classes of controllers, but it's a good resource to refer to when you need it.
+For this to make more sense, let's look at some concrete examples of popular motor controllers.

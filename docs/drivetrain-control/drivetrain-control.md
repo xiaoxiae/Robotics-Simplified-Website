@@ -17,8 +17,6 @@ Algorithms and techniques used to control the motors of the robot's **[drivetrai
 ---
 
 ## Introduction
-The drivetrain of a vehicle is a group of components that deliver power to the driving wheels.
+The drivetrain of a vehicle is a group of components that deliver power to the driving wheels, hold them together and allow them to move. Here is a [resource](http://www.simbotics.org/resources/mobility/drivetrain-selection) describing various types of drivetrains.
 
-They are those parts of a robot that hold the motors and wheels in place and allow them to move. Here is a [resource](http://www.simbotics.org/resources/mobility/drivetrain-selection) describing various types of drivetrains.
-
-For the purpose of this guide, however, we will only be discussing some of the most frequently used drivetrains and the methods to operate on them.
+For the purpose of this guide, however, we will only be discussing some of the most frequently used drivetrains and the methods to operate them.
