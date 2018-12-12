@@ -11,7 +11,9 @@ search_enabled: true
 
 # Aux links for the upper right navigation
 aux_links:
-  "GitHub":
-    - "https://github.com/xiaoxiae/Autonomous-Robot-Motion"
+  "Website GitHub":
+    - "https://github.com/xiaoxiae/Robotics-Simplified-Website"
+  "Robotics Simplified GitHub":
+    - "https://github.com/xiaoxiae/Robotics-Simplified"
 
 color_scheme: nil
