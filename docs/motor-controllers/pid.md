@@ -9,7 +9,7 @@ permalink: motor-controllers/pid/
 # PID ([wiki](https://en.wikipedia.org/wiki/PID_controller))
 
 ## Introduction
-Our previous attempt at creating a controller that used feedback from the robot could be further improved by considering how the feedback value that the robot returns changes over time.
+Our previous attempt at creating a controller that used feedback from the robot could be further improved by considering how the feedback value that the robot returns changes over time. For motivation, here is a [great video](https://www.youtube.com/watch?v=4Y7zG48uHRo) demonstrating the power of a correctly configured PID.
 
 Let's introduce a new term called **error.** Error is the difference between feedback value and the goal. It tells us, how far off we are from the goal (what our error is).
 
@@ -172,3 +172,6 @@ while True:
     # drive/turn using arcade drive
     arcade_drive(turn_value, drive_value, left_motor, right_motor)
 ```
+
+## Closing remarks
+PID is one of the most widely used controllers not just in robotics, but in many industries. There is a decent chance that the temperature of the water in your boiler / the thermostat in your living room / is controlled using PID.
