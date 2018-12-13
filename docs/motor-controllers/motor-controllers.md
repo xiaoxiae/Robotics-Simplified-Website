@@ -15,13 +15,13 @@ Autonomous control of the robot using [motor controllers](https://en.wikipedia.o
 ---
 
 ## Introduction
-It's nice to be able to drive around with the robot using a motor configuration of our choosing, but it would be much nicer to program it to drive autonomously (without external assistance). This is where controllers come in.
+It's nice to be able to drive around with the robot _using an algorithm to control the drivetrain_ of our choosing, but it would be much nicer if the robot could drive **autonomously** (without any external assistance). This is where controllers come in.
 
-A controller is essentially a box that takes some information about the robot in and a goal that we want the robot to achieve (drive a certain distance / turn a certain angle...) and spits out values it thinks the robot should set its motors to, to achieve that goal.
+A controller is essentially a box that takes in information about the robot and a goal that we want the robot to achieve (like drive a certain distance / turn a certain angle...) and, when asked, spits out values it thinks the robot should set its motors to to achieve that goal.
 
-The are a lot of controllers to choose from. They could differ in a lot of ways, such as:
-- **Accuracy** - how accurate is the controller in getting the robot where it needs to be?
+The are a lot of various controllers to choose from that differ in many ways such as:
+- **Accuracy** - how accurate is the controller in getting the robot where it needs to be? How error-prone is it to unexpected situations (hitting a bump on the road, for ex.).
 - **Input** - what of information does the controller needs to function properly (and accurately)?
-- **Complexity** - how difficult is it to implement/configure the controller?
+- **Complexity** - how difficult is it to implement/configure said controller?
 
-Although there is a whole field of study called [control theory](https://en.wikipedia.org/wiki/Control_theory) that examines the controllers in great lengths, we're going to talk about only a select few (namely the most frequently used ones in FRC).
+Although there is a whole field of study called [control theory](https://en.wikipedia.org/wiki/Control_theory) that examines the controllers at great lengths, we're going to talk about only a select few (namely the most frequently used ones in FRC).

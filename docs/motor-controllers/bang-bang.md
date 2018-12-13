@@ -9,11 +9,11 @@ permalink: motor-controllers/bang-bang/
 # Bang–bang ([wiki](https://en.wikipedia.org/wiki/Bang%E2%80%93bang_control))
 
 ## Introduction
-Although our previous controller was quite easy to implement and explain, there is no way for it to know, whether it reached the target or not.
+Although our previous controller was quite easy to implement and explain, there is no way for it to know, whether it reached the target or not. It pretty much just turns the motors on for a while and hopes for the best.
 
 Bang-bang aims to fix this problem by using [`feedback`](https://en.wikipedia.org/wiki/Feedback) from our robot. Feedback could be values from its [encoders](https://en.wikipedia.org/wiki/Encoder) (how far it has gone), [gyro](https://en.wikipedia.org/wiki/Gyroscope) (where it's pointing), or really anything else that we want to control. The important thing is that the data are `real-time` - the robot constantly gives feedback about what it's doing and the controller acts accordingly.
 
-Bang-bang is pretty much the very first idea that comes to mind when we have real-time position of the robot: return 1, until we pass the goal (and return 0 from the on)!
+Bang-bang is pretty much the very first idea that comes to mind when we have real-time data. When asked and we haven't passed the goal yet, return 1; else return 0.
 
 ---
 
@@ -44,16 +44,14 @@ class Bangbang:
 ```
 
 ## Examples
-For this example, we need to measure, how far the robot drove, to serve as the feedback function for our controller. We will use the `Encoder` class and call its objects to get that information.
-
-For the purpose of this example, the `Encoder` object will return the average of the distance driven by the left wheel and by the right wheel.
+For this example, we need an `Encoder` class to measure how far the robot has driven. The objects of this class will return the average of the distance driven by the left wheel and by the right wheel.
 
 With that in mind, this is what a program that drives the robot 10 meters will look like:
 
 ```python
 # create robot's motors and the encoder
 left_motor = Motor(1)
-left_motor = Motor(2)
+right_motor = Motor(2)
 encoder = Encoder()
 
 # create the controller object
@@ -67,11 +65,11 @@ while controller.get_value() == 1:
     tank_drive(1, 1, left_motor, right_motor)
 ```
 
-Notice that pretty much nothing changed between this and the dead reckoning example. This is the main advantage of all of the controllers having the exact same functions - after creating a controller object, we can use them almost interchangeably, which makes it easier to try out and compare the accuracy of each of the controllers.
+Notice that pretty much nothing changed between this and the dead reckoning example. This is the main advantage of all of the controllers having the exact same functions - we can use controller objects almost interchangeably, allowing us to easily try out and compare the accuracies of each of the controllers.
 
 ## Closing remarks
-Accuracy this is already markedly better than our previous dead reckoning approach, but it is still relatively inaccurate, thanks to robot's inertia when the controller tells it that it shouldn't be driving anymore.
+This is already markedly better than our previous dead reckoning approach, but it is still relatively inaccurate: the robot's inertia will make the robot drive a little extra distance when the controller tells it that it shouldn't be driving anymore, which means it will overshoot.
 
-We could try to fix this by saying that once it passes the goal, it should start driving back, but the only thing you'd get is a robot that drives back and forward across the goal (which may be amusing, but not very helpful).
+We could try to fix this by saying that once it passes the goal, it should start driving back, but the only thing you'd get is a robot that drives back and forward across the goal (which may be amusing, but not very helpful). I encourage to think about other possible solutions to this problem.
 
 In the next chapters, we will try to improve our approach and create controllers that don't just return 1 for driving and 0 for standing still, but also values in-between (when the robot should be driving slower and when faster).
