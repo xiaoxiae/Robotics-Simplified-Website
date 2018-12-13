@@ -5,7 +5,7 @@ nav_order: 1
 permalink: /
 ---
 
-**IMPORTANT NOTICE:** This website is in **very early stages of development** and all of the content is therefore **subject to change**.
+**IMPORTANT NOTICE:** This website is in **early stages of development** and all of the content is therefore subject to change.
 {: .fs-6 .fw-300 .text-center }
 
 ---
@@ -23,9 +23,11 @@ Learn all about robotics in a simple, intuitive way.
 ## Introduction
 The purpose of this projects is to provide resources for learning about concepts and algorithms used in robotics, without any prior robotics knowledge.
 
-After reading through the articles, you should have a solid understanding of the principles on which robots (like the ones in [FRC](https://www.firstinspires.org/robotics/frc)/[FTC](https://www.firstinspires.org/robotics/ftc)) operate.
+After reading through the articles on this website, you should have a solid understanding of the principles on which robots (like the ones in [FRC](https://www.firstinspires.org/robotics/frc)/[FTC](https://www.firstinspires.org/robotics/ftc)) operate, and be able to implement them to use them in practice.
 
 ---
 
 ## Contributions
-I accept any and all recommendations/suggestions about anything you see on the website or on the GitHub repository, so if you have anything you think is incorrect/broken/an interesting topic that could be added, feel free to let me know either by email (found in the [About]({{site.baseurl }}about/) section), or by starting an issue on the [official GitHub page](https://github.com/xiaoxiae/Robotics-Simplified) of the project.
+I accept any and all recommendations/suggestions about anything would like to see changed. If there is anything you think should be changed or you have a topic that you wish there was an article about, feel free to let me know.
+
+You can do so either by email found in the [About]({{site.baseurl }}about/) section, or by starting an issue on either of the GitHub pages (see links in the top right of this page).
