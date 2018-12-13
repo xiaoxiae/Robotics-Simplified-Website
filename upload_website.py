@@ -10,8 +10,8 @@ def remove_content():
         if content not in permanent_content:
             if "." in content:
                 # if it's a file, delete it immediately
-                print("DELETED FILE: "+ftp.pwd()+content)
                 ftp.delete(content)
+                print("DELETED FILE: "+ftp.pwd()+"/"+content)
             else:
                 # move down to the directory and call remove_content
                 ftp.cwd(content)
@@ -20,7 +20,7 @@ def remove_content():
                 # move up a directory and delete the folder
                 ftp.cwd("..")
                 ftp.rmd(content)
-                print("DELETED FOLDER: "+ftp.pwd()+content)
+                print("DELETED FOLDER: "+ftp.pwd()+"/"+content)
 
 
 def add_content():
