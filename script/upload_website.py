@@ -26,7 +26,7 @@ def remove_content():
 def add_content():
     "Recursively adds the content from the _site folder to the website."
     # move to the _site
-    os.chdir("_site")
+    os.chdir("../_site")
 
     # get all directories
     directories = []

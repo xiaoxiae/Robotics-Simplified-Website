@@ -9,6 +9,3 @@ bin/
 Gemfile.lock
 node_modules
 .bundle
-
-# Other folders
-script/
