@@ -4,8 +4,6 @@ _site
 bin/
 
 # Ruby files
-*.gemspec
 *.gem
-Gemfile.lock
 node_modules
 .bundle
