@@ -29,6 +29,12 @@ If you don't know programming at all (and don't have the time to learn) but are 
 Throughout the project, there will be a lot of made-up classes like `Motor`, `Joystick` and `Gyro`. They are only used as placeholders for real classes that you would (likely) have if you were implementing some of the concepts covered on this website.
 
 
+## About comments
+There are a LOT of comments in the examples of code that you are about to see. Way, way more than there should be. I agree that this is considered bad practice for practical purposes and that if you are a relative beginner, you shouldn't write code in a similar fashion.
+
+However, since the purpose of the code on this website is more to clarify concepts and less to serve as a part of a codebase, I would argue that it is fine to use them to such extent.
+
+
 ## Running the code
 All of the code on this website has been tested on a [VEX EDR](https://www.vexrobotics.com/vexedr) robot programmed in Python using [RobotMesh](https://www.robotmesh.com/). If you want to try out the code, doing the same would be easiest - all you'd have to do is substitute the made-up classes and methods for real ones from the vex library and run the code.
 
