@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Robot Position
-nav_order: 4
+title: Odometry
+nav_order: 5
 has_children: true
-permalink: robot-position/
+permalink: odometry/
 ---
 
-# Robot position
+# Odometry
 {:.no_toc}
 
 Tracking the position of the robot.

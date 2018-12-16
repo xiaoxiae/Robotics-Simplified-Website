@@ -2,8 +2,8 @@
 layout: default
 title: Line Approximation
 nav_order: 1
-parent: Robot Position
-permalink: robot-position/line-approximation/
+parent: Odometry
+permalink: odometry/line-approximation/
 ---
 
 # Line Approximation
