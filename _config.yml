@@ -13,7 +13,7 @@ search_enabled: true
 aux_links:
   "Website GitHub":
     - "https://github.com/xiaoxiae/Robotics-Simplified-Website"
-  "Robotics Simplified GitHub":
+  "Project GitHub":
     - "https://github.com/xiaoxiae/Robotics-Simplified"
 
 color_scheme: nil
