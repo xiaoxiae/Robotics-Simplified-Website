@@ -9,24 +9,21 @@ permalink: motor-controllers/pid/
 # PID ([wiki](https://en.wikipedia.org/wiki/PID_controller))
 
 ## Introduction
-Our previous attempt at creating a controller that used feedback from the robot could be further improved by considering how the feedback value that the robot returns changes over time. For motivation, here is a [great video](https://www.youtube.com/watch?v=4Y7zG48uHRo) demonstrating the power of a correctly configured PID.
+Our previous attempt at creating a controller that used feedback from the robot could be further improved by considering how the feedback value that the robot returns changes over time. For motivation, here is a [great video](https://www.youtube.com/watch?v=4Y7zG48uHRo) demonstrating the power of a correctly configured PID SampleControllerClass.
 
 Let's introduce a new term called **error.** Error is the difference between feedback value and the goal. It tells us, how far off we are from the goal (what our error is).
 
-Let's break down that the terms P, I and D mean in our PID controller using our newly defined error:
+With error in mind, let's talk about that the terms P, I and D mean:
 - `P` stands for **proportional** - how large is the error now (in the **present**).
 - `I` stands for **integral** - how large the error (accumulatively) was in the **past.**
 - `D` stands for **derivative** - what will the error likely be in the **future.**
 
-The controller takes into account what happened, what is happening now, and what will likely happen and produces a value based on that information.
+The controller takes into account what happened, what is happening, and what will likely happen and produces a value based on that information. To do this, it needs the `p`, `i` and `d` constants to determine, how important each of the aforementioned parts (proportional, integral, derivative) are.
 
-To do this, it will need the `p`, `i` and `d` constants to determine, **how important** are each of the aforementioned parts (proportional, integral, derivative).
+Besides the constants, the controller will also need the feedback function and, to correctly calculate the integral and derivative, a function that returns the current time.
+
 
 ## Implementation
-Besides the constants, the controller will also (obviously) need the feedback function, and, to correctly calculate the integral and derivative, a function that returns the current time.
-
-To fully understand how the controller works, I suggest you closely examine the `get_value()` function.
-
 ```python
 class PID:
     """A class implementing a PID controller."""
@@ -63,11 +60,14 @@ class PID:
         delta_time = time - self.previous_time
         delta_error = error - self.previous_error
 
-        # calculate proportional and integral
+        # calculate proportional (just error times the p constant)
         self.proportional = self.p * error
+
+        # calculate integral (error accumulated over time times the constant)
         self.integral += error * delta_time * self.i
 
-        # if time delta isn't zero, calculate derivative
+        # calculate derivative (rate of change of the error)
+        # for the rate of change, delta_time can't be 0 (divison by zero...)
         self.derivative = 0
         if delta_time > 0:
             self.derivative = delta_error / delta_time * self.d
@@ -75,8 +75,10 @@ class PID:
         # update previous error and previous time values to the current values
         self.previous_time, self.previous_error = time, error
 
-        # return the PID value (adjusted to [-1; 1])
+        # add past, present and future
         pid = self.proportional + self.integral + self.derivative
+
+        # return pid adjusted to values from -1 to +1
         return 1 if pid > 1 else -1 if pid < -1 else pid
 
 
@@ -86,19 +88,21 @@ class PID:
         self.reset()
 ```
 
-Notice a new function called `reset`, that we haven't seen in the function specification. It is called every time we set the goal because the controller accumulates error over time, which would be a problem if we wanted to set a different goal.
+To fully understand how the controller works, I suggest you closely examine the `get_value()` function - that's where all the magic happens.
 
-It is not necessary to call it manually in order for the controller to function properly. It doesn't change the versatility of the controller classes, it just a useful function to have.
+Notice a new function called `reset`, that we haven't seen in any of the other controllers. It is called every time we set the goal. This is because the controller accumulates error over time and wouldn't otherwise reset it if we set a different goal. It is not necessary to call it manually in order for the controller to function properly. It doesn't change the versatility of the controller classes, it just a useful function to have.
 
-## Configuring the controller
-PID is the first discussed controller that needs to be configured properly to function well, because if you set the constants to the wrong values, the controller will start to behave unpredictably.
 
-There is a [whole section](https://en.wikipedia.org/wiki/PID_controller#Loop_tuning) on Wikipedia about tuning PID. We won't go into details (read through the Wikipedia article if you're interested), but it is just something to keep in mind when using PID.
+## Tuning the controller
+PID is the first discussed controller that needs to be configured (tuned) properly to perform well, because if you set the constants to the wrong values, the controller will not behave in a way you intended.
+
+There is a [whole section](https://en.wikipedia.org/wiki/PID_controller#Loop_tuning) on Wikipedia about PID tuning. We won't go into details (read through the Wikipedia article if you're interested), but it is just something to keep in mind when using PID.
+
 
 ## Examples
 
 ### Driving a distance
-Here is the first example that makes the robot drive 10 meters forward. The constants are sample values that I used on the VEX EDR robot that I built to test the PID code (you will have to come up with your own):
+Here is the first example that makes the robot drive 10 meters forward. The constants are sample values that I used on the VEX EDR robot that I built to test the PID code, you will likely have to use different ones:
 
 ```python
 # create robot's motors, gyro and the encoder
@@ -106,10 +110,9 @@ left_motor = Motor(1)
 right_motor = Motor(2)
 encoder = Encoder()
 
-# create the PID controller with encoder being the feedback function
+# create the PID controller (with encoder being the feedback function)
+# and set its goal
 controller = PID(0.07, 0.001, 0.002, time, encoder)
-
-# set goal
 controller.set_goal(10)
 
 while True:
@@ -118,12 +121,13 @@ while True:
     tank_drive(value, value, left_motor, right_motor)
 ```
 
+
 ### Auto-correct heading
-Auto-correcting the heading of a robot is something PID is great for. What we want is to program the robot so that if something (like an evil human) pushes it, the robot changes its heading back where it was before the push.
+Auto-correcting the heading of a robot is something PID is great for. What we want is to program the robot so that if something (like an evil human) pushes it, the robot adjusts itself to head the way it was heading before the push.
 
-We could either use values from the encoders on the left and the right side, but a more elegant solution is to use a gyro. Let's assume that we have a `Gyro` class whose objects give us the current heading of the robot when called.
+We could either use values from the encoders on the left and the right side to calculate the angle, but a more elegant (and accurate) solution is to use a gyro. Let's therefore assume that we have a `Gyro` class whose objects give us the current heading of the robot.
 
-One thing we have to think about is what to set the motors to when we get the value from the controller. Luckily, `arcade_drive` will be our savior: we can plug our PID values directly into the turning part of arcade drive (the `x` axis) to steer the robot. Refer back to the article about **Arcade drive** (especially the visualization) if you need to.
+One thing we have to think about is what to set the motors to when we get the value from the controller, because to turn the robot, both of the motors will be going in opposite directions. Luckily, `arcade_drive` is our savior: we can plug our PID values directly into the turning part of arcade drive (the `x` axis) to steer the robot. Refer back to the article about Arcade drive (especially the visualization) if you are unsure about what this means.
 
 ```python
 # create robot's motors and the gyro
@@ -133,21 +137,21 @@ gyro = Gyro()
 
 # create the PID controller with gyro being the feedback function
 controller = PID(0.2, 0.002, 0.015, time, gyro)
-
-# we want to stay at the 0° angle
-controller.set_goal(0)
+controller.set_goal(0)  # the goal is 0 - we want the heading to be 0
 
 while True:
     # set the turning component of arcade drive to controller value
+    value = controller.get_value()
     arcade_drive(controller.get_value(), 0, left_motor, right_motor)
 ```
+
 
 ### Two controller combination
 What's even nicer is that we can combine the two examples that we just implemented into ONE - a robot that drives forward and corrects itself when it isn't heading the right way.
 
 We will create two controllers - one for driving straight by a certain distance and one for turning to correct possible heading errors.
 
-Arcade drive will again be our dear friend, since we can plug values from the controller that controls driving directly into the driving part of arcade drive, and the controller that controls turning directly into the turning part of arcade drive:
+Arcade drive will again be our dear friend, since we can plug values from the controller that controls driving directly into the driving part of arcade drive, and the controller that controls heading directly into the turning part of arcade drive:
 
 ```python
 # create robot's motors, gyro and the encoder
@@ -174,4 +178,4 @@ while True:
 ```
 
 ## Closing remarks
-PID is one of the most widely used controllers not just in robotics, but in many industries. There is a decent chance that the temperature of the water in your boiler / the thermostat in your living room / is controlled using PID.
+PID is one of the most widely used controllers not just in robotics, but in many industries (controlling a boiler/thermostat).
