@@ -13,6 +13,7 @@ Arcade drive is a method of controlling the motors of a robot using two axes of 
 
 ![Arcade Drive]({{site.url}}/assets/images/drivetrain-control/arcade-drive.png "Arcade Drive")
 
+
 ## Implementation
 Suppose that we have a joystick with an `x` (horizontal) and a `y` (vertical) axis.
 
@@ -43,6 +44,7 @@ def arcade_drive(rotate, drive, left_motor, right_motor):
             right_motor(difference)
 ```
 
+
 ## Examples
 Here's a program that makes the robot drive using the values from the joystick:
 
@@ -61,6 +63,7 @@ while True:
     # drive the robot using tank drive
     arcade_drive(x, y, left_motor, right_motor)
 ```
+
 
 ## Visualization
 Here is a quick interactive visualization of the sorts of values our function sets the motors to for different values of `x` and `y`:
@@ -172,6 +175,7 @@ Here is a quick interactive visualization of the sorts of values our function se
     resizeCanvas(width, width);
   }
   </script>
+
 
 ## Closing remarks
 If you are interested in reading more about this topic, I would suggest looking at [this thread on Chief Delphi](https://www.chiefdelphi.com/media/papers/2661), where I learned most of the information about the theory behind arcade drive.

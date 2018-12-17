@@ -14,7 +14,6 @@ Autonomous control of the robot using [motor controllers](https://en.wikipedia.o
 
 ---
 
-## Introduction
 It's nice to be able to drive around with the robot _using an algorithm to control the drivetrain_ of our choosing, but it would be much nicer if the robot could drive **autonomously** (without any external assistance). This is where controllers come in.
 
 A controller is essentially a box that takes in information about the robot and a goal that we want the robot to achieve (like drive a certain distance / turn a certain angle...) and, when asked, spits out values it thinks the robot should set its motors to to achieve that goal.

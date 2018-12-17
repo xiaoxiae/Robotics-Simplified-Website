@@ -13,6 +13,7 @@ Tank drive is a method of controlling the motors of a robot using two axes of a 
 
 ![Tank Drive]({{site.url}}/assets/images/drivetrain-control/tank-drive.png "Tank Drive")
 
+
 ## Implementation
 Suppose that we have objects of the `Motor` class that set the speed of the motors by calling them with values from -1 to 1. We also have a `Joystick` object that returns the values of the axes `y1` and `y2`.
 
@@ -24,6 +25,7 @@ def tank_drive(l_motor_speed, r_motor_speed, left_motor, right_motor):
     left_motor(l_motor_speed)
     right_motor(r_motor_speed)
 ```
+
 
 ## Examples
 Here's a program that makes the robot drive using the values from the joystick:
@@ -43,6 +45,7 @@ while True:
     # drive the robot using tank drive
     tank_drive(y1, y2, left_motor, right_motor)
 ```
+
 
 ## Closing remarks
 Tank drive is a very basic and easy way to control the robot. When it comes to FRC, it is a frequently used method for its simplicity, and because it is easier for some drivers to control the robot this way, compared to the other discussed methods.
