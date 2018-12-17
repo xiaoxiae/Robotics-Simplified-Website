@@ -9,8 +9,24 @@ permalink: motor-controllers/polynomial-function/
 # Polynomial Function
 
 ## Introduction
-I'm going to come clean: I haven't seen this type of a controller anywhere else, but I thought it would be a cool concept to explore.
+Another way that we can get values that aren't just 1 and 0 (like from dead reckoning and bang-bang) is to model a function from a set of points and get the speed of the robot from it - for example: let's say that we start at speed 0.2, drive at full speed when we're at half the distance and slow down to 0 when we're at the end.
 
+Polynomial function is a great candidate for this task. We can pick points that we want the function to pass through and then use [polynomial regression](https://en.wikipedia.org/wiki/Polynomial_regression) to get the coefficients of the function. [MyCurveFit.com](https://mycurvefit.com/) is a great website to use for this exact purpose. Here is how a modeled polynomial function could look like:
+
+![Polynomial function]({{site.url}}/assets/images/motor-controllers/polynomial-function.png "Polynomial function")
+
+
+## [Horner's method](https://en.wikipedia.org/wiki/Horner%27s_method)
+When it comes to programming, computing and exponential tends to be quite imprecise and slow. Horner's method is a neat solution to this problem. The concept is simple - change the expression so there is no exponentiation (only multiplication and addition) using algebraic operations:
+
+![](http://mathurl.com/ybo55usq.png)
+{: .text-center }
+
+This trick can be performed on a polynomial of any size, this is just an example of how the method works.
+
+
+## Implementation
+The controller only needs the coefficients of the polynomial that we modeled, and a feedback function. Here is how the implementation would look like with Horner's method:
 
 ```python
 class PolynomialFunction:
@@ -33,7 +49,7 @@ class PolynomialFunction:
         for i in range(1, len(self.coefficients)):
             value = x * value + self.coefficients[i]
 
-        # make sure that value isn't above 1
+        # if the value is over 1, set it to be 1
         if value > 1:
             value = 1
 
@@ -44,4 +60,26 @@ class PolynomialFunction:
     def set_goal(self, goal):
         """Sets the goal of the controller."""
         self.goal = goal
+```
+
+
+## Examples
+
+### Driving a distance
+Once again, the code is almost the same as the examples of nearly all of the other controllers, the only difference is that a `PolynomialFunction` controller takes a list of coefficients of the polynomial to calculate the controller value.
+
+```python
+# create robot's motors, gyro and the encoder
+left_motor = Motor(1)
+right_motor = Motor(2)
+encoder = Encoder()
+
+# create the controller (with encoder as the feedback function)
+controller = PolynomialFunction([-15.69, 30.56, -21.97, 6.91, 0.2], encoder)
+controller.set_goal(10)
+
+while True:
+    # get the controller value and set it on both motors
+    value = controller.get_value()
+    tank_drive(value, value, left_motor, right_motor)
 ```
