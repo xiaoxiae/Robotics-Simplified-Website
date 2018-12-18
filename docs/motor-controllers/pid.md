@@ -115,7 +115,7 @@ controller = PID(0.07, 0.001, 0.002, time, encoder)
 controller.set_goal(10)
 
 while True:
-    # get the controller value and set it on both motors
+    # get the speed from the controller and apply it using tank drive
     value = controller.get_value()
     tank_drive(value, value, left_motor, right_motor)
 ```
@@ -139,8 +139,10 @@ controller = PID(0.2, 0.002, 0.015, time, gyro)
 controller.set_goal(0)  # the goal is 0 - we want the heading to be 0
 
 while True:
-    # set the turning component of arcade drive to controller value
+    # get the value from the controller
     value = controller.get_value()
+    
+    # set the turning component of arcade drive to the controller value
     arcade_drive(controller.get_value(), 0, left_motor, right_motor)
 ```
 

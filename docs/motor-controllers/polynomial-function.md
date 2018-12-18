@@ -49,7 +49,7 @@ class PolynomialFunction:
         for i in range(1, len(self.coefficients)):
             value = x * value + self.coefficients[i]
 
-        # if the value is over 1, set it to be 1
+        # if the value is over 1, set it to 1
         if value > 1:
             value = 1
 
@@ -66,7 +66,7 @@ class PolynomialFunction:
 ## Examples
 
 ### Driving a distance
-Once again, the code is almost the same as the examples of nearly all of the other controllers, the only difference is that a `PolynomialFunction` controller takes a list of coefficients of the polynomial to calculate the controller value.
+Once again, the code is almost the exact same as the examples from nearly all of the other controllers, the only difference is that a `PolynomialFunction` controller takes a list of coefficients of the polynomial to calculate the controller value, compared to the inputs of other controllers:
 
 ```python
 # create robot's motors, gyro and the encoder
@@ -79,7 +79,7 @@ controller = PolynomialFunction([-15.69, 30.56, -21.97, 6.91, 0.2], encoder)
 controller.set_goal(10)
 
 while True:
-    # get the controller value and set it on both motors
+    # get the speed from the controller and apply it using tank drive 
     value = controller.get_value()
     tank_drive(value, value, left_motor, right_motor)
 ```
