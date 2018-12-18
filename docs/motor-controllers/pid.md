@@ -111,7 +111,6 @@ right_motor = Motor(2)
 encoder = Encoder()
 
 # create the PID controller (with encoder being the feedback function)
-# and set its goal
 controller = PID(0.07, 0.001, 0.002, time, encoder)
 controller.set_goal(10)
 
