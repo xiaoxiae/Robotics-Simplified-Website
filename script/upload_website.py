@@ -50,7 +50,7 @@ def add_content():
         print("CREATED FILE: "+file)
 
 
-permanent_content = ["info.php", "subdom", "domains", ".htaccess"]
+permanent_content = ["info.php", "subdom", "domains", ".htaccess", ".gitkeep"]
 
 # connect to the server
 with FTP("89.221.213.4", input("Login: "), getpass.getpass("Password: ")) as ftp:
