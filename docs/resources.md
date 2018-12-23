@@ -13,7 +13,13 @@ Links to resources used in writing this project.
 
 ---
 
-## Jekyll and p5.js
+## Website resources
+
+### Math
+- [MathURL](http://mathurl.com/) - convert LaTex equations to images
+- [MathJax](https://www.mathjax.org/) for rendering equations on the website
+
+### Jekyll and p5.js
 - [Usage of p5.js with Jekyll](https://raw.githubusercontent.com/KevinWorkman/HappyCoding/gh-pages/examples/p5js/_posts/2018-07-04-fireworks.md) (a sample .md file).
 - [p5.js web editor](https://editor.p5js.org/) - used to edit the Processing sketches used on this website.
 
