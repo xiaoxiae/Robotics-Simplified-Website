@@ -16,7 +16,7 @@ permalink: /
 Learn all about robotics in a simple, intuitive way.
 {: .fs-6 .fw-300 .text-center }
 
-<p style="text-align:center;"><img src="{{site.url}}/assets/images/logo.png" width="70%"></p>
+<img src="{{site.url}}/assets/images/logo.png">
 
 ---
 
