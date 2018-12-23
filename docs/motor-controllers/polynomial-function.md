@@ -7,8 +7,6 @@ permalink: motor-controllers/polynomial-function/
 ---
 
 # Polynomial Function
-
-## Introduction
 Another way that we can get values that aren't just 1's and 0's is to model a function from points and get the speed of the robot from it - for example: let's say that we start at speed 0.2, drive at full speed when we're at half the distance and slow down to 0 when we're at the end.
 
 Polynomial function is a great candidate for this task. We can pick points that we want the function to pass through and then use [polynomial regression](https://en.wikipedia.org/wiki/Polynomial_regression) to get the coefficients of the function. [MyCurveFit.com](https://mycurvefit.com/) is a great website to use for this exact purpose. Here is how a modeled polynomial function could look like:

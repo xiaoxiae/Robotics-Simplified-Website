@@ -7,8 +7,6 @@ permalink: odometry/line-approximation/
 ---
 
 # Line Approximation
-
-## Introduction
 For our first approximation, let's make an assumption that will simplify our equations: instead of an arc, the robot will first turn an angle `ω`, and only then drive the distance `d` in a straight line:
 
 ![Line Approximation]({{site.url}}/assets/images/odometry/line-approximation.png "Line Approximation")

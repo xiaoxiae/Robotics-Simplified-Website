@@ -7,8 +7,6 @@ permalink: drivetrain-control/arcade-drive/
 ---
 
 # Arcade drive
-
-## Introduction
 Arcade drive is a method of controlling the motors of a robot using two axes of a controller, where one of the axes operates the "turning" component of the robot, and one the "driving" component of the robot (as if you were playing a game at an *arcade*).
 
 ![Arcade Drive]({{site.url}}/assets/images/drivetrain-control/arcade-drive.png "Arcade Drive")

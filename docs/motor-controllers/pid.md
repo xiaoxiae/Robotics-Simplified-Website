@@ -7,8 +7,6 @@ permalink: motor-controllers/pid/
 ---
 
 # PID ([wiki](https://en.wikipedia.org/wiki/PID_controller))
-
-## Introduction
 Our previous attempt at creating a controller that used feedback from the robot could be further improved by considering how the feedback value that the robot returns changes over time. For motivation, here is a [great video](https://www.youtube.com/watch?v=4Y7zG48uHRo) demonstrating the power of a correctly configured PID controller.
 
 Let's introduce a new term called **error.** Error is the difference between feedback value and the goal and tells us, how far off the robot is from the goal.
