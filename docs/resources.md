@@ -39,7 +39,6 @@ Links to resources used in writing this project.
 
 ## Odometry
 - [Differential Steering System of Robot Wheel Actuators](http://rossum.sourceforge.net/papers/DiffSteer/)
-- [Robot Kinematics](http://www.cs.bham.ac.uk/internal/courses/int-robot/2014/lectures/14-ir-kinematics.pdf)
 - [Kinematics Equations for Differential Drive and Articulated Steering](http://www8.cs.umu.se/kurser/5DV122/HT13/material/Hellstrom-ForwardKinematics.pdf)
 - [Position Estimation](http://people.scs.carleton.ca/~lanthier/teaching/COMP4807/Notes/5%20-%20PositionEstimation.pdf)
 
