@@ -21,11 +21,9 @@ The robot just moved a distance `d` and we measured that it is currently at an a
 
 One of the ways to do this is to imagine a right triangle with `d` being hypotenuse. We will use [trigonometric formulas](https://www2.clarku.edu/faculty/djoyce/trig/formulas.html) and solve for `Δx` and `Δy`:
 
-![](http://mathurl.com/y9552b8p.png)
-{: .text-center }
+$$\large sin(\omega)=\frac{\Delta y}{d} \qquad cos(\omega)=\frac{\Delta x}{d}$$
 
-![](http://mathurl.com/yblzcqqf.png)
-{: .text-center }
+$$\large \Delta y = d \cdot sin(\omega) \qquad \Delta x = d \cdot cos(\omega)$$
 
 
 ## Implementation
