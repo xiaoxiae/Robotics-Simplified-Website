@@ -12,7 +12,7 @@ permalink: motor-controllers/dead-reckoning/
 ## Introduction
 One of the simplest ways of controlling the robot autonomously is using dead reckoning.
 
-It is essentially what most people do in their very first physics class: calculate, how long it takes something to go a certain distance based on its average speed.
+It uses one of the first equations you learned in physics: `time = distance / average velocity`. We use it to calculate, how long it takes the robot to go a certain distance based on its average speed.
 
 Let's look at an example: say our robot drives an average of `v = 2.5m/s`. We want it to drive a distance of `d = 10m`. To calculate, how long it will take the robot, all you have to do is divide distance by velocity: `t = d/v = 10/2.5 = 4s`.
 
@@ -76,7 +76,7 @@ Notice how we used our previously implemented `tank_drive` function to set both 
 
 
 ## Closing remarks
-Although this is quite a simple controller to implement, you might realize that it is not accurate nor practical. If the robot hits a bump on the road or slips on a banana peel, there is nothing it can do to correct the error (since it doesn't know where it is and where it's going).
+Although this is quite a simple controller to implement, you might realize that it is neither accurate nor practical. If the robot hits a bump on the road or slips on a banana peel, there is nothing it can do to correct the error (since it doesn't know where it is and where it's going).
 
 Another important thing to keep in mind when using this controller is that if you want to change how fast the robot is driving/turning, you will need to re-calculate the speed of the robot to match said speed, which is very tedious.
 

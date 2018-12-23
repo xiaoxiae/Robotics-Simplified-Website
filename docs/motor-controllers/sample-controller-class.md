@@ -30,7 +30,7 @@ class SampleControllerClass:
 
 Let's break it down function by function:
 - `__init__` is called when we want to create the controller object. In the actual controller implementations, `...` will be replaced by the parameters that the controller takes.
-- `set_goal` is called to set the controller's goal, where goal has to be a number. Note that we will need to call this function before we try to get a value from the controller, or things will start to break. This makes logical sense, because the controller can't really help you to reach a goal if you haven't specified the goal.
+- `set_goal` is called to set the controller's goal, where goal has to be a number. Note that we will need to call this function before we try to get a value from the controller, or things will break. This makes logical sense, because the controller can't really help you to reach the goal if you haven't specified the goal.
 - `get_value` will return the value that the controller thinks we should set the motors to to achieve our goal. **All controllers will return a value between -1 and 1** (including 1 and -1).
 
 All of this will make more sense as we go through each of the controllers.

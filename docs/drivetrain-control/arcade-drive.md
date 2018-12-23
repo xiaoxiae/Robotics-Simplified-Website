@@ -19,7 +19,7 @@ Suppose that we have a joystick with an `x` (horizontal) and a `y` (vertical) ax
 
 There are many ways to get to the resulting arcade drive equations (for example by using [linear interpolation](https://www.chiefdelphi.com/media/papers/download/3495) for all of the 4 quadrants of the joystick input).
 
-Here is what the implementation that we get by splitting the values into quadrants:
+Here is the implementation we get by splitting the values into quadrants:
 
 ```python
 def arcade_drive(rotate, drive, left_motor, right_motor):

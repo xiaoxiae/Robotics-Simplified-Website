@@ -26,7 +26,7 @@ It is also recommended to know a little about [object-oriented programming](http
 
 
 ## Libraries and Classes
-Throughout the project, there will be a lot of made-up classes like `Motor`, `Joystick` and `Gyro`. They are only used as placeholders for real classes that you would (likely) have, if you were implementing some of the concepts covered on this website on a microcontroller of your choosing.
+Throughout the project, there will be a lot of made-up classes like `Motor`, `Joystick` and `Gyro`. They are only used as placeholders for real classes that you would (likely) have, if you were implementing some of the concepts covered on this website on a platform of your choosing.
 
 
 ## About comments
@@ -36,6 +36,6 @@ However, since the purpose of the code on this website is educational and not to
 
 
 ## Running the code
-All of the code on this website has been tested on a [VEX EDR](https://www.vexrobotics.com/vexedr) robot programmed in Python using [RobotMesh](https://www.robotmesh.com/). If you want to try out the code, doing the same would be easiest - all you'd have to do is substitute the made-up classes and methods for real ones from the vex library and run the code.
+All of the code on this website has been tested on a [VEX EDR](https://www.vexrobotics.com/vexedr) robot programmed in Python using [RobotMesh](https://www.robotmesh.com/). If you want to try out the code yourself, doing the same would be the easiest way - all you'd have to do is substitute the made-up classes and methods for real ones from the vex library and run the code.
 
 If you don't have a VEX EDR robot at your disposal, an alternative is to use methods from [`utilities.py`](https://github.com/xiaoxiae/Robotics-Simplified/blob/master/Code/algorithms/utilities.py) to test out the values the objects/methods return.

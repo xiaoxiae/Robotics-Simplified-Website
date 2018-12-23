@@ -14,7 +14,7 @@ Autonomous control of the robot using [motor controllers](https://en.wikipedia.o
 
 ---
 
-It's nice to be able to drive around with the robot _using an algorithm to control the drivetrain_ of our choosing, but it would be much nicer if the robot could drive **autonomously** (without any external assistance). This is where controllers come in.
+It's nice to be able to drive the robot around using a joystick, but it would sometimes be more useful if the robot could drive **autonomously** (without any external assistance). This is where controllers come in.
 
 A controller is essentially a box that takes in information about the robot and a goal that we want the robot to achieve (like drive a certain distance / turn a certain angle...) and, when asked, spits out values it thinks the robot should set its motors to to achieve that goal.
 
@@ -23,4 +23,4 @@ The are a lot of various controllers to choose from that differ in many ways suc
 - **Input** - what of information does the controller needs to function properly (and accurately)?
 - **Complexity** - how difficult is it to implement/configure said controller?
 
-Although there is a whole field of study called [control theory](https://en.wikipedia.org/wiki/Control_theory) that examines the controllers at great lengths, we're going to talk about only a select few (namely the most frequently used ones in FRC).
+There is a whole field of study called [control theory](https://en.wikipedia.org/wiki/Control_theory) that examines the controllers much more comprehensively than we can in a few short articles. That's why we're only going to talk about a select few.
