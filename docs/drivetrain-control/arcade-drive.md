@@ -13,7 +13,7 @@ Arcade drive is a method of controlling the motors of a robot using two axes of 
 
 
 ## Implementation
-Suppose that we have a joystick with an `x` (horizontal) and a `y` (vertical) axis.
+Suppose that we have a joystick with an $$x$$ (horizontal) and a $$y$$ (vertical) axis.
 
 There are many ways to get to the resulting arcade drive equations (for example by using [linear interpolation](https://www.chiefdelphi.com/media/papers/download/3495) for all of the 4 quadrants of the joystick input).
 
@@ -64,7 +64,7 @@ while True:
 
 
 ## Visualization
-Here is a quick interactive visualization of the sorts of values our function sets the motors to for different values of `x` and `y`:
+Here is a quick interactive visualization of the sorts of values our function sets the motors to for different values of $$x$$ and $$y$$:
 
 <div id="sketch-holder"></div>
 <script src="../../assets/js/p5.min.js"></script>

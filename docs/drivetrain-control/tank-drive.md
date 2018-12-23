@@ -13,9 +13,9 @@ Tank drive is a method of controlling the motors of a robot using two axes of a 
 
 
 ## Implementation
-Suppose that we have objects of the `Motor` class that set the speed of the motors by calling them with values from -1 to 1. We also have a `Joystick` object that returns the values of the axes `y1` and `y2`.
+Suppose that we have objects of the `Motor` class that set the speed of the motors by calling them with values from -1 to 1. We also have a `Joystick` object that returns the values of the axes $$y_1$$ and $$y_2$$.
 
-Implementing tank drive is really quite straightforward: simply set the left motor to whatever the `y1` axis value is, and the right motor to whatever the `y2` axis value is:
+Implementing tank drive is really quite straightforward: simply set the left motor to whatever the $$y_1$$ axis value is, and the right motor to whatever the $$y_2$$ axis value is:
 
 ```python
 def tank_drive(l_motor_speed, r_motor_speed, left_motor, right_motor):

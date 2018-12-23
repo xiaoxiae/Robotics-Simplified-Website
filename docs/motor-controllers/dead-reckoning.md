@@ -9,9 +9,9 @@ permalink: motor-controllers/dead-reckoning/
 # Dead reckoning ([wiki](https://en.wikipedia.org/wiki/Dead_reckoning))
 One of the simplest ways of controlling the robot autonomously is using dead reckoning.
 
-It uses one of the first equations you learned in physics: `time = distance / average velocity`. We use it to calculate, how long it takes the robot to go a certain distance based on its average speed.
+It uses one of the first equations you learned in physics: $$time = distance / velocity$$. We use it to calculate, how long it takes the robot to go a certain distance based on its average speed.
 
-Let's look at an example: say our robot drives an average of `v = 2.5m/s`. We want it to drive a distance of `d = 10m`. To calculate, how long it will take the robot, all you have to do is divide distance by velocity: `t = d/v = 10/2.5 = 4s`.
+Let's look at an example: say our robot drives an average of $$v = 2.5 \frac{m}{s}$$. We want it to drive a distance of $$d = 10m$$. To calculate, how long it will take the robot, all you have to do is divide distance by velocity: $$t = d/v = 10/2.5 = 4s$$.
 
 This is exactly what dead reckoning does - it calculates the time it will take the robot to drive the distance to the goal. When asked, returns 1 if the time hasn't elapsed yet and 0 if it has.
 

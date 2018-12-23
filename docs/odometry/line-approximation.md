@@ -7,7 +7,7 @@ permalink: odometry/line-approximation/
 ---
 
 # Line Approximation
-For our first approximation, let's make an assumption that will simplify our equations: instead of an arc, the robot will first turn an angle `ω`, and only then drive the distance `d` in a straight line:
+For our first approximation, let's make an assumption that will simplify our equations: instead of an arc, the robot will first turn an angle $$ω$$, and only then drive the distance $$d$$ in a straight line:
 
 ![Line Approximation]({{site.url}}/assets/images/odometry/line-approximation.png "Line Approximation")
 
@@ -15,9 +15,9 @@ This is quite a reasonable assumption to make for smaller angles, and since we a
 
 
 ## Deriving the equations
-The robot just moved a distance `d` and we measured that it is currently at an angle `ω`. We want to calculate, what the new coordinates `x` and `y` are after this change. In other words, we want to calculate `Δx` and `Δy` (as seen on the diagram) and add it to the current `x` and `y`.
+The robot just moved a distance $$d$$ and we measured that it is currently at an angle $$ω$$. We want to calculate, what the new coordinates $$x$$ and $$y$$ are after this change. In other words, we want to calculate $$Δx$$ and $$Δy$$ (as seen on the diagram) and add it to the current $$x$$ and $$y$$.
 
-One of the ways to do this is to imagine a right triangle with `d` being hypotenuse. We will use [trigonometric formulas](https://www2.clarku.edu/faculty/djoyce/trig/formulas.html) and solve for `Δx` and `Δy`:
+One of the ways to do this is to imagine a right triangle with $$d$$ being hypotenuse. We will use [trigonometric formulas](https://www2.clarku.edu/faculty/djoyce/trig/formulas.html) and solve for $$Δx$$ and $$Δy$$:
 
 $$\large sin(\omega)=\frac{\Delta y}{d} \qquad cos(\omega)=\frac{\Delta x}{d}$$
 

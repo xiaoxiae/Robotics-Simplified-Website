@@ -11,12 +11,12 @@ Our previous attempt at creating a controller that used feedback from the robot 
 
 Let's introduce a new term called **error.** Error is the difference between feedback value and the goal and tells us, how far off the robot is from the goal.
 
-With error in mind, let's talk about that the terms P, I and D mean:
-- `P` stands for **proportional** - how large is the error now (in the **present**).
-- `I` stands for **integral** - how large the error (accumulatively) was in the **past.**
-- `D` stands for **derivative** - what will the error likely be in the **future.**
+With error in mind, let's talk about that the terms $$P$$, $$I$$ and $$D$$ mean:
+- $$P$$ stands for **proportional** - how large is the error now (in the **present**).
+- $$I$$ stands for **integral** - how large the error (accumulatively) was in the **past.**
+- $$D$$ stands for **derivative** - what will the error likely be in the **future.**
 
-The controller takes into account what happened, what is happening, and what will likely happen and produces a value based on that information. To do this, it needs the `p`, `i` and `d` constants to know, how important each of the aforementioned parts (proportional, integral, derivative) are.
+The controller takes into account what happened, what is happening, and what will likely happen and produces a value based on that information. To do this, it needs the $$p$$, $$i$$ and $$d$$ constants to know, how important each of the aforementioned parts (proportional, integral, derivative) are.
 
 Besides the constants, the controller will also need the feedback function and, to correctly calculate the integral and derivative, a function that returns the current time.
 
@@ -124,7 +124,7 @@ Auto-correcting the heading of a robot is something PID is great for. What we wa
 
 We could either use values from the encoders on the left and the right side to calculate the angle, but a more elegant (and accurate) solution is to use a gyro. Let's therefore assume that we have a `Gyro` class whose objects give us the current heading of the robot.
 
-One thing we have to think about is what to set the motors to when we get the value from the controller, because to turn the robot, both of the motors will be going in opposite directions. Luckily, `arcade_drive` is our savior: we can plug our PID values directly into the turning part of arcade drive (the `x` axis) to steer the robot. Refer back to the [Arcade Drive article]({{site.baseurl }}drivetrain-control/arcade-drive/) (especially the visualization) if you are unsure about how/why this works.
+One thing we have to think about is what to set the motors to when we get the value from the controller, because to turn the robot, both of the motors will be going in opposite directions. Luckily, `arcade_drive` is our savior: we can plug our PID values directly into the turning part of arcade drive (the `x` axis) to steer the robot. Refer back to the [Arcade Drive article]({{site.baseurl}}drivetrain-control/arcade-drive/) (especially the visualization) if you are unsure about how/why this works.
 
 ```python
 # create robot's motors and the gyro
