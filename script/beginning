@@ -1,0 +1,31 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{amsmath}
+\usepackage[total={17cm,25cm}, top=2.5cm, left=2cm, includefoot]{geometry}
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{color}
+
+\setlist[itemize]{topsep=0pt}
+\setlength{\itemindent}{0cm}
+\setlength{\parskip}{9pt}
+\setlength\parindent{0pt}
+
+\lstset{
+	language=Python,
+	basicstyle=\small\sffamily,
+	numbers=left,
+ 	numberstyle=\tiny,
+	frame=tb,
+	tabsize=4,
+	columns=fixed,
+	showstringspaces=false,
+	showtabs=false,
+	keepspaces,
+	commentstyle=\color{red},
+	keywordstyle=\color{blue}
+}
+
+\begin{document}
