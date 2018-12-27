@@ -11,6 +11,7 @@ subRegex = [
     ("\[(.+?)\]\((.+?)\)", "\\\\href{\g<2>}{\g<1>}"),   # href
     ("(.+?)\$(\$.*?\$)\$(.+?)", "\g<1>\g<2>\g<3>"),     # $$.$$ math to $.$ math
     ("`([^`\n]+?)`","\\\\texttt{\g<1>}"),   # `` md highlights
+    ("ttt{([^}]+?)_([^{]+?)}","ttt{\g<1>\_\g<2>}"),     # escape _ in texttt
     ("^(- .+\n)+", "\\\\begin{itemize}\n\g<0>\\\\end{itemize}"),    # itemize
     ("(^- (.+)\n)+?", "\\\\item \g<2>\n")   # - to \item
 ]
