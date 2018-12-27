@@ -1,4 +1,4 @@
-from re import sub, match, search
+from re import sub, match, search, MULTILINE
 import os
 
 
@@ -18,9 +18,9 @@ for path, subdirs, files in os.walk("../docs/"):
                         sub("\[(.+?)\]\((.+?)\)", "\\\\href{\g<2>}{\g<1>}",\
                         sub("(.+?)\$(\$.*?\$)\$(.+?)", "\g<1>\g<2>\g<3>",\
                         sub("`([^`\n]+?)`","\\\\texttt{\g<1>}",\
-                            fileContents)))))))
-
-        convertedContent.append(fileContents)
+                        sub("(^- (.+)\n)+?", "\\\\item \g<2>\n",\
+                        sub("^(- .+\n)+", "\\\\begin{itemize}\n\g<0>\\\\end{itemize}", \
+                            fileContents, flags=MULTILINE), flags=MULTILINE))))))))
 
 
 output = open("output.tex", "w")
