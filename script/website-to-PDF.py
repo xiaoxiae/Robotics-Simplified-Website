@@ -1,6 +1,19 @@
 from re import sub, match, search, MULTILINE
 import os
 
+# regular expressions and their substitution results
+subRegex = [
+    ("---\n(.+\n)+---", ""),    # remove config
+    ("```python(\n(.*\n)+?)```",    # code highlights with lstlisting
+     "\\\\begin{lstlisting}\g<1>\\\\end{lstlisting}"),
+    ("\*\*(.+?)\*\*", "\\\\textbf{\g<1>}"),     # bold text
+    ("\*(.+?)\*", "\\\\textit{\g<1>}"),     # italics
+    ("\[(.+?)\]\((.+?)\)", "\\\\href{\g<2>}{\g<1>}"),   # href
+    ("(.+?)\$(\$.*?\$)\$(.+?)", "\g<1>\g<2>\g<3>"),     # $$.$$ math to $.$ math
+    ("`([^`\n]+?)`","\\\\texttt{\g<1>}"),   # `` md highlights
+    ("^(- .+\n)+", "\\\\begin{itemize}\n\g<0>\\\\end{itemize}"),    # itemize
+    ("(^- (.+)\n)+?", "\\\\item \g<2>\n")   # - to \item
+]
 
 # read through all of the files
 for path, subdirs, files in os.walk("../docs/"):
@@ -9,18 +22,9 @@ for path, subdirs, files in os.walk("../docs/"):
         fileContents = open(fileName, 'r').read()
         fileOrder = search("nav_order: ([0-9]+)", fileContents).group(1)
 
-        # convert the file to a latex file
-        fileContents =  sub("---\n(.+\n)+---", "",\
-                        sub("```python(\n(.*\n)+?)```",\
-                            "\\\\begin{lstlisting}\g<1>\\\\end{lstlisting}",\
-                        sub("\*(.+?)\*", "\\\\textit{\g<1>}",
-                        sub("\*\*(.+?)\*\*", "\\\\textbf{\g<1>}",
-                        sub("\[(.+?)\]\((.+?)\)", "\\\\href{\g<2>}{\g<1>}",\
-                        sub("(.+?)\$(\$.*?\$)\$(.+?)", "\g<1>\g<2>\g<3>",\
-                        sub("`([^`\n]+?)`","\\\\texttt{\g<1>}",\
-                        sub("(^- (.+)\n)+?", "\\\\item \g<2>\n",\
-                        sub("^(- .+\n)+", "\\\\begin{itemize}\n\g<0>\\\\end{itemize}", \
-                            fileContents, flags=MULTILINE), flags=MULTILINE))))))))
+        # run the file through the substitution regexes
+        for regex in subRegex:
+            fileContents = sub(*regex, fileContents, flags=MULTILINE)
 
 
 output = open("output.tex", "w")
