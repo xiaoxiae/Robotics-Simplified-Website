@@ -14,6 +14,8 @@
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 
+\UseRawInputEncoding
+
 \setlist[itemize]{topsep=0pt}
 \setlength{\itemindent}{0cm}
 \setlength{\parskip}{9pt}
