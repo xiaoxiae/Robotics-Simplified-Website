@@ -4,16 +4,21 @@ import os
 # regular expressions and their substitution results
 subRegex = [
     ("---\n(.+\n)+---", ""),                            # remove config
-    ("```python(\n(.*\n)+?)```",            # code highlights with lstlisting
+    ("^---\n", ""),                                     # remove linebreaks
+    ("#+ Visualization\n(.*\n)+#", "#"),                # remove visualizations
+    ("```python(\n(.*\n)+?)```",                        # code highlights
      "\\\\begin{lstlisting}\g<1>\\\\end{lstlisting}"),
     ("\*\*(.+?)\*\*", "\\\\textbf{\g<1>}"),             # bold text
-    ("\*(.+?)\*", "\\\\textit{\g<1>}"),                 # italics
+    ("\*(.+?)\*", "\\\\textit{\g<1>}"),                 # * italics
     ("\[(.+?)\]\((.+?)\)", "\\\\href{\g<2>}{\g<1>}"),   # href
     ("(.+?)\$(\$.*?\$)\$(.+?)", "\g<1>\g<2>\g<3>"),     # $$.$$ to $.$
     ("`([^`\n]+?)`","\\\\texttt{\g<1>}"),               # `` md highlights
-    ("ttt{([^}]+?)_([^{]+?)}","ttt{\g<1>\_\g<2>}"),     # escape _ in texttt
+    ("ttt{[^}]*?_[^{]*?}", lambda x:x.group(0).replace("_", "\\_")), # escape _
+    ("ref{[^}]*?%[^{]*?}", lambda x:x.group(0).replace("%", "\\%")), # escape %
     ("^(- .+\n)+", "\\\\begin{itemize}\n\g<0>\\\\end{itemize}"),    # itemize
-    ("(^- (.+)\n)+?", "\\\\item \g<2>\n")               # - to \item
+    ("(^- (.+)\n)+?", "\\\\item \g<2>\n"),              # - to \item
+    ("{:.+?}", "")                                      # delete {:...} lines
+
 ]
 
 # read through all of the files
