@@ -6,10 +6,16 @@ subRegex = [
     ("---\n(.+\n)+---", ""),                            # remove config
     ("^---\n", ""),                                     # remove linebreaks
     ("#+ Visualization\n(.*\n)+#", "#"),                # remove visualizations
-    ("```python(\n(.*\n)+?)```",                        # code highlights
-     "\\\\begin{lstlisting}\g<1>\\\\end{lstlisting}"),
+    ("```python(\n(.*\n)+?)```",
+     "\\\\begin{lstlisting}\g<1>\\\\end{lstlisting}"),  # code highlights
     ("\*\*(.+?)\*\*", "\\\\textbf{\g<1>}"),             # bold text
     ("\*(.+?)\*", "\\\\textit{\g<1>}"),                 # * italics
+    ("!\[.+\]\({{.+}}(.+) \"(.+)\"\)", \
+     "\\\\begin{figure}\n\
+      \\\\centering\n\
+      \\\\includegraphics[width=0.8\\\\textwidth]{..\g<1>}\n\
+      \\\\caption{\g<2>}\n\
+      \\\\end{figure}\n"),                              # images
     ("\[(.+?)\]\((.+?)\)", "\\\\href{\g<2>}{\g<1>}"),   # href
     ("(.+?)\$(\$.*?\$)\$(.+?)", "\g<1>\g<2>\g<3>"),     # $$.$$ to $.$
     ("`([^`\n]+?)`","\\\\texttt{\g<1>}"),               # `` md highlights
@@ -18,7 +24,6 @@ subRegex = [
     ("^(- .+\n)+", "\\\\begin{itemize}\n\g<0>\\\\end{itemize}"),    # itemize
     ("(^- (.+)\n)+?", "\\\\item \g<2>\n"),              # - to \item
     ("{:.+?}", "")                                      # delete {:...} lines
-
 ]
 
 # read through all of the files

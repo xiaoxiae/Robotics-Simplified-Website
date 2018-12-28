@@ -7,6 +7,7 @@
 \usepackage{hyperref}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{graphicx}
 
 \setlist[itemize]{topsep=0pt}
 \setlength{\itemindent}{0cm}
