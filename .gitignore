@@ -3,6 +3,9 @@
 _site
 bin/
 
+# Binary files
+assets/images
+
 # Ruby files
 *.gem
 node_modules
