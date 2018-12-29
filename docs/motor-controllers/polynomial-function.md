@@ -88,7 +88,7 @@ while True:
 
 
 ## Generating a polynomial
-An alternative to "stretching" the polynomial to fit the goal is to specify the points the polynomial passes through and generate the coefficients _after_ the goal is specified.
+An alternative to "stretching" the polynomial to fit the goal is to specify the points the polynomial passes through and generate the coefficients *after* the goal is specified.
 
 Say you have points $$\left(0,\ 0.2\right)$$, $$\left(0.4,\ 1\right)$$, $$\left(0.6,\ 1\right)$$ and $$\left(1,0\right)$$. Since there are 4 points, the general form of the polynomial is $$y=ax^3+bx^2+cx+d$$ Using this information, we can create a system of linear equations:
 
