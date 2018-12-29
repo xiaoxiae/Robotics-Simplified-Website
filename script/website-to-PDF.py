@@ -52,7 +52,7 @@ for path, subdirs, files in os.walk("../docs/"):
 
         # replace the headings based on the file depth - the further it is in,
         # the more sub will be added in in front of section{...}
-        fileContents = sub("^(#+) (.+)",\
+        fileContents = sub("^(#+) ([A-Z].+)",\
             lambda x: "\\"\
                 + (len(x.group(1)) + fileDepth - 1 - int(isMainTopic)) * "sub"\
                 + "section{" + x.group(2)\
