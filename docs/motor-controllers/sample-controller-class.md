@@ -10,22 +10,7 @@ permalink: motor-controllers/sample-controller-class/
 Let's look at how classes of each of the controllers described in the sections above will look like:
 
 ```python
-class SampleControllerClass:
-    """Description of the class."""
-
-    def __init__(self, ...):
-        """Creates a controller object."""
-        pass
-
-
-    def set_goal(self, goal):
-        """Sets the goal of the controller."""
-        pass
-
-
-    def get_value(self):
-        """Returns the current controller value"""
-        pass
+{% include code/algorithms/motor-controllers/sample-controller-class.py %}
 ```
 
 Let's break it down function by function:
