@@ -5,7 +5,8 @@ import os
 subRegex = [
     ("---\n(.+\n)+---", ""),                            # remove config
     ("^---\n", ""),                                     # remove linebreaks
-    ("#+ Visualization\n(.*\n)+#", "#"),                # remove visualizations
+    ("\\\\(sub)*section{Visualization}\n(.*\n)+^\\\\",\
+     "\\\\"),                                           # remove visualizations
     ("```python(\n(.*\n)+?)```",
      "\\\\begin{lstlisting}\g<1>\\\\end{lstlisting}"),  # code highlights
     ("\*\*(.+?)\*\*", "\\\\textbf{\g<1>}"),             # bold text
@@ -46,18 +47,18 @@ for path, subdirs, files in os.walk("../docs/"):
         # the "depth" of the file - how many levels of folders it is in
         fileDepth = filePath[8:].count(os.sep)
 
-        # run the file through the substitution regexes
-        for regex in subRegex:
-            fileContents = sub(*regex, fileContents, flags=MULTILINE)
-
         # replace the headings based on the file depth - the further it is in,
         # the more sub will be added in in front of section{...}
-        fileContents = sub("^(#+) ([A-Z].+)",\
+        fileContents = sub("^(#+) ([A-Z\[].+)",\
             lambda x: "\\"\
                 + (len(x.group(1)) + fileDepth - 1 - int(isMainTopic)) * "sub"\
                 + "section{" + x.group(2)\
                 + "}",\
             fileContents, flags=MULTILINE)
+
+        # run the file through the substitution regexes
+        for regex in subRegex:
+            fileContents = sub(*regex, fileContents, flags=MULTILINE)
 
         # if it's at depth 0 by default - files like about.md, preface.md...,
         # convertedGroups[fileOrder] will be the file itself
