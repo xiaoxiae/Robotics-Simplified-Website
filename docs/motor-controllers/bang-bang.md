@@ -18,44 +18,14 @@ Bang-bang is the very first idea that comes to mind when we have real-time data.
 The only thing the Bang-bang controller needs is the feedback function returning information about the state of whatever we're trying to control.
 
 ```python
-class Bangbang:
-    """A class implementing a bang-bang controller."""
-
-    def __init__(self, get_feedback_value):
-        """Create the bang-bang controller object from the feedback function."""
-        self.get_feedback_value = get_feedback_value
-
-
-    def set_goal(self, goal):
-        """Sets the goal of the bang-bang controller."""
-        self.goal = goal
-
-
-    def get_value(self):
-        """Returns +1 or -1 (depending on the value of the goal) when the robot
-        should be driving and 0 when it reaches the destination."""
-        if self.get_feedback_value() < self.goal:
-            return 1
-        else:
-            return 0
+{% include code/algorithms/motor-controllers/bang-bang/implementation.py %}
 ```
 
 ## Examples
 For this example, we need an `Encoder` class to measure how far the robot has driven. The objects of this class will return the average of the distance driven by the left wheel and by the right wheel. Her is how a program that drives the robot 10 meters will look like:
 
 ```python
-# create robot's motors and the encoder
-left_motor = Motor(1)
-right_motor = Motor(2)
-encoder = Encoder()
-
-# create the controller object and set its goal
-controller = Bangbang(encoder)
-controller.set_goal(10)
-
-# while the controller is telling us to drive forward, drive forward
-while controller.get_value() == 1:
-    tank_drive(1, 1, left_motor, right_motor)
+{% include code/algorithms/motor-controllers/bang-bang/example.py %}
 ```
 
 Notice that pretty much nothing changed between this and the dead reckoning example. This is the main advantage of all of the controllers having the same functions - we can use controller objects almost interchangeably, allowing us to easily try out and compare the accuracies of each of the controllers, without messing with the rest of our code.

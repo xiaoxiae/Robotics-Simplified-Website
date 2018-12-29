@@ -20,31 +20,7 @@ This is exactly what dead reckoning does - it calculates the time it will take t
 There are two things that the controller needs: the average speed of the robot and a way to measure how much time had passed. Taking this into consideration, this is how a class implementing dead reckoning could look like:
 
 ```python
-class DeadReckoning:
-    """A class implementing a dead reckoning controller."""
-
-    def __init__(self, speed, get_current_time):
-        """Takes the average speed and a function that returns current time."""
-        self.get_current_time = get_current_time
-        self.speed = speed
-
-
-    def set_goal(self, goal):
-        """Sets the goal of the controller (and also starts the controller)."""
-        self.goal = goal
-        self.start_time = self.get_current_time()
-
-
-    def get_value(self):
-        """Return the current value the controller is returning."""
-        # at what time should we reach the destination (d=d_0 + s/v)
-        arrival_time = self.start_time + (self.goal / self.speed)
-
-        # if current time is less than the arrival time, we should be driving
-        if self.get_current_time() < arrival_time:
-            return 1
-        else:
-            return 0
+{% include code/algorithms/motor-controllers/dead-reckoning/implementation.py %}
 ```
 
 As we see, the parameters the `__init__` function is expecting to get are:
@@ -56,17 +32,7 @@ As we see, the parameters the `__init__` function is expecting to get are:
 Let's implement the example mentioned in Introduction and make the robot drive 10 meters:
 
 ```python
-# create robot's motors
-left_motor = Motor(1)
-right_motor = Motor(2)
-
-# create the controller object and set its goal
-controller = DeadReckoning(2.5, get_current_time)
-controller.set_goal(10)
-
-# while the controller is telling us to drive forward, drive forward
-while controller.get_value() == 1:
-    tank_drive(1, 1, left_motor, right_motor)
+{% include code/algorithms/motor-controllers/dead-reckoning/example.py %}
 ```
 
 Notice how we used our previously implemented `tank_drive` function to set both motors to drive forward at a maximum speed. We could have just written `left_motor(1)` and `right_motor(1)`, but this is a cleaner way of writing it.

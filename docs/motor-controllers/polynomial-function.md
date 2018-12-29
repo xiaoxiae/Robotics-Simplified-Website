@@ -31,37 +31,7 @@ This trick can be performed on a polynomial of any size, this is just an example
 The controller only needs the coefficients of the polynomial that we modeled, and a feedback function. Here is how the implementation would look like with Horner's method:
 
 ```python
-class PolynomialFunction:
-    """A class implementing a polynomial function controller."""
-
-    def __init__(self, coefficients, get_feedback_value):
-        """Initialises the polynomial function controller from the polynomial
-        coefficients and the feedback value."""
-        self.coefficients = coefficients    # the coefficients of the function
-        self.get_feedback_value = get_feedback_value   # the feedback function
-
-
-    def get_value(self):
-        """Returns the polynomial function value at feedback function value."""
-        # calculate the x coordinate (by "stretching" the function by goal)
-        x = self.get_feedback_value() / abs(self.goal)
-
-        # calculate function value using Horner's method
-        value = self.coefficients[0]
-        for i in range(1, len(self.coefficients)):
-            value = x * value + self.coefficients[i]
-
-        # if the value is over 1, set it to 1
-        if value > 1:
-            value = 1
-
-        # if goal is negative, function value is negative
-        return value if self.goal > 0 else -value
-
-
-    def set_goal(self, goal):
-        """Sets the goal of the controller."""
-        self.goal = goal
+{% include code/algorithms/motor-controllers/polynomial-function/implementation.py %}
 ```
 
 
@@ -71,19 +41,7 @@ class PolynomialFunction:
 Once again, the code is almost the exact same as the examples from nearly all of the other controllers, the only difference is that a `PolynomialFunction` controller takes a list of coefficients of the polynomial to calculate the controller value, compared to the inputs of other controllers:
 
 ```python
-# create robot's motors, gyro and the encoder
-left_motor = Motor(1)
-right_motor = Motor(2)
-encoder = Encoder()
-
-# create the controller (with encoder as the feedback function)
-controller = PolynomialFunction([-15.69, 30.56, -21.97, 6.91, 0.2], encoder)
-controller.set_goal(10)
-
-while True:
-    # get the speed from the controller and apply it using tank drive
-    value = controller.get_value()
-    tank_drive(value, value, left_motor, right_motor)
+{% include code/algorithms/motor-controllers/polynomial-function/example.py %}
 ```
 
 
