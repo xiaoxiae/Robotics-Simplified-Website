@@ -15,7 +15,7 @@ Polynomial function is a great candidate for this task. We can pick points that 
 
 As you can see, it returns all sorts of values from 0 to 1.
 
-One thing you should also notice is that the function starts at `x = 0` and ends at `x = 1`. This is deliberate - it makes it easy for us to "stretch" the function a little wider if we want to drive some other distance.
+One thing you should also notice is that the function starts at $$x = 0$$ and ends at $$x = 1$$. This is deliberate - it makes it easy for us to "stretch" the function a little wider if we want to drive some other distance.
 
 
 ## [Horner's method](https://en.wikipedia.org/wiki/Horner%27s_method)
@@ -85,3 +85,24 @@ while True:
     value = controller.get_value()
     tank_drive(value, value, left_motor, right_motor)
 ```
+
+
+## Generating a polynomial
+An alternative to "stretching" the polynomial to fit the goal is to specify the points the polynomial passes through and generate the coefficients _after_ the goal is specified.
+
+Say you have points $$\left(0,\ 0.2\right)$$, $$\left(0.4,\ 1\right)$$, $$\left(0.6,\ 1\right)$$ and $$\left(1,0\right)$$. Since there are 4 points, the general form of the polynomial is $$y=ax^3+bx^2+cx+d$$ Using this information, we can create a system of linear equations:
+
+$$
+\begin{align*}
+0.2&=a(0)^3+b(0)^2+c(0)+d \\
+1&=a(0.4)^3+b(0.4)^2+c(0.4)+d \\
+1&=a(0.6)^3+b(0.6)^2+c(0.6)+d \\
+0&=a(1)^3+b(1)^2+c(1)+d
+\end{align*}
+$$
+
+Solving this system of linear equations will give us the coefficients of the polynomial. We can apply this method to a polynomial of any degree, given enough points (if $$d$$ is the degree of the polynomial and $$n$$ is the number of unique points, the degree of the polynomial the points form is $$d=n-1$$).
+
+
+## Closing remarks
+Although this controller isn't as widely used as PID, it can frequently perform better than PID, namely in situations where the ranges of movement of the motors are restricted - forks of a forklift/robot arm.

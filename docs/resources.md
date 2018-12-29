@@ -38,7 +38,6 @@ Links to resources used in writing this project.
 - [Mecanum drive](http://controls.coderedrobotics.com/programminglessons/11.html) explained
 
 ## Odometry
-- [Differential Steering System of Robot Wheel Actuators](http://rossum.sourceforge.net/papers/DiffSteer/)
 - [Kinematics Equations for Differential Drive and Articulated Steering](http://www8.cs.umu.se/kurser/5DV122/HT13/material/Hellstrom-ForwardKinematics.pdf)
 - [Position Estimation](http://people.scs.carleton.ca/~lanthier/teaching/COMP4807/Notes/5%20-%20PositionEstimation.pdf)
 
