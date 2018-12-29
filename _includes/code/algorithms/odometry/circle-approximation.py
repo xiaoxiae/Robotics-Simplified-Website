@@ -1,8 +1,9 @@
 from math import cos, sin
 
-class LineApproximation:
+class CircleApproximation:
     """A class to track the position of the robot in a system of coordinates
-    using only encoders as feedback, using the line approximation method."""
+    using only encoders as feedback, using a combination of line and circle
+    approximation methods."""
 
     def __init__(self, axis_width, l_encoder, r_encoder):
         """Saves input values, initializes class variables."""
@@ -27,9 +28,18 @@ class LineApproximation:
         # calculate ω
         h_delta = (r_delta - l_delta) / self.axis_width
 
-        # approximate the position using the line approximation method
-        self.x += l_delta * cos(heading + h_delta)
-        self.y += r_delta * sin(heading + h_delta)
+        # either approximate if we're going (almost) straight or calculate arc
+        if abs(l_delta - r_delta) < 1e-5:
+            self.x += l_delta * cos(heading)
+            self.y += r_delta * sin(heading)
+        else:
+            # calculate the radius of ICC
+            R = (self.axis_width / 2) * (r_delta + l_delta) / (r_delta - l_delta)
+
+            # calculate the robot position by finding a point that is rotated
+            # around ICC by heading delta
+            self.x +=   R * sin(h_delta + heading) - R * sin(heading)
+            self.y += - R * cos(h_delta + heading) + R * cos(heading)
 
         # set previous values to current values
         self.prev_l, self.prev_r, self.prev_heading = l, r, heading + h_delta

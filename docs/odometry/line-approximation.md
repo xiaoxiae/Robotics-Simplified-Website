@@ -23,7 +23,7 @@ $$\large sin(\theta + \omega)=\frac{\Delta y}{d} \qquad cos(\theta + \omega)=\fr
 
 $$\large \Delta y = d \cdot sin(\theta + \omega) \qquad \Delta x = d \cdot cos(\theta + \omega)$$
 
-Now we simply adjust $$x=x+Δx$$ and $$y=y+Δy$$ and we're done.
+The resulting coordinates $$(x,y)$$ are $$x=x_0+Δx$$ and $$y=y_0+Δy$$.
 
 
 ## Implementation
