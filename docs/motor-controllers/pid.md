@@ -23,67 +23,7 @@ Besides the constants, the controller will also need the feedback function and, 
 
 ## Implementation
 ```python
-class PID:
-    """A class implementing a PID controller."""
-
-    def __init__(self, p, i, d, get_current_time, get_feedback_value):
-        """Initialises PID controller object from P, I, D constants, a function
-        that returns current time and the feedback function."""
-        # p, i, and d constants
-        self.p, self.i, self.d = p, i, d
-
-        # saves the functions that return the time and the feedback
-        self.get_current_time = get_current_time
-        self.get_feedback_value = get_feedback_value
-
-
-    def reset(self):
-        """Resets/creates variables for calculating the PID values."""
-        # reset PID values
-        self.proportional, self.integral, self.derivative = 0, 0, 0
-
-        # reset previous time and error variables
-        self.previous_time, self.previous_error = 0, 0
-
-
-    def get_value(self):
-        """Calculates and returns the PID value."""
-        # calculate the error (how far off the goal are we)
-        error = self.goal - self.get_feedback_value()
-
-        # get current time
-        time = self.get_current_time()
-
-        # time and error differences to the previous get_value call
-        delta_time = time - self.previous_time
-        delta_error = error - self.previous_error
-
-        # calculate proportional (just error times the p constant)
-        self.proportional = self.p * error
-
-        # calculate integral (error accumulated over time times the constant)
-        self.integral += error * delta_time * self.i
-
-        # calculate derivative (rate of change of the error)
-        # for the rate of change, delta_time can't be 0 (divison by zero...)
-        self.derivative = 0
-        if delta_time > 0:
-            self.derivative = delta_error / delta_time * self.d
-
-        # update previous error and previous time values to the current values
-        self.previous_time, self.previous_error = time, error
-
-        # add past, present and future
-        pid = self.proportional + self.integral + self.derivative
-
-        # return pid adjusted to values from -1 to +1
-        return 1 if pid > 1 else -1 if pid < -1 else pid
-
-
-    def set_goal(self, goal):
-        """Sets the goal and resets the controller variables."""
-        self.goal = goal
-        self.reset()
+{% include code/algorithms/motor-controllers/pid/implementation.py %}
 ```
 
 To fully understand how the controller works, I suggest you closely examine the `get_value()` function - that's where all the magic happens.
@@ -103,19 +43,7 @@ There is a [whole section](https://en.wikipedia.org/wiki/PID_controller#Loop_tun
 Here is an example that makes the robot drive 10 meters forward. The constants are values that I used on the VEX EDR robot that I built to test the PID code, you will likely have to use different ones:
 
 ```python
-# create robot's motors, gyro and the encoder
-left_motor = Motor(1)
-right_motor = Motor(2)
-encoder = Encoder()
-
-# create the PID controller (with encoder being the feedback function)
-controller = PID(0.07, 0.001, 0.002, time, encoder)
-controller.set_goal(10)
-
-while True:
-    # get the speed from the controller and apply it using tank drive
-    value = controller.get_value()
-    tank_drive(value, value, left_motor, right_motor)
+{% include code/algorithms/motor-controllers/pid/example1.py %}
 ```
 
 
@@ -127,21 +55,7 @@ We could either use values from the encoders on the left and the right side to c
 One thing we have to think about is what to set the motors to when we get the value from the controller, because to turn the robot, both of the motors will be going in opposite directions. Luckily, `arcade_drive` is our savior: we can plug our PID values directly into the turning part of arcade drive (the `x` axis) to steer the robot. Refer back to the [Arcade Drive article]({{site.baseurl}}drivetrain-control/arcade-drive/) (especially the visualization) if you are unsure about how/why this works.
 
 ```python
-# create robot's motors and the gyro
-left_motor = Motor(1)
-right_motor = Motor(2)
-gyro = Gyro()
-
-# create the PID controller with gyro being the feedback function
-controller = PID(0.2, 0.002, 0.015, time, gyro)
-controller.set_goal(0)  # the goal is 0 - we want the heading to be 0
-
-while True:
-    # get the value from the controller
-    value = controller.get_value()
-
-    # set the turning component of arcade drive to the controller value
-    arcade_drive(controller.get_value(), 0, left_motor, right_motor)
+{% include code/algorithms/motor-controllers/pid/example2.py %}
 ```
 
 
@@ -153,27 +67,7 @@ We will create two controllers - one for driving straight by a certain distance 
 Arcade drive will again be our dear friend, since we can plug values from the controller that controls driving directly into the driving part of arcade drive, and the controller that controls heading directly into the turning part of arcade drive:
 
 ```python
-# create robot's motors, gyro and the encoder
-left_motor = Motor(1)
-right_motor = Motor(2)
-gyro = Gyro()
-encoder = Encoder()
-
-# create separate controllers for turning and driving
-drive_controller = PID(0.07, 0.001, 0.002, time, encoder)
-turn_controller = PID(0.2, 0.002, 0.015, time, gyro)
-
-# we want to stay at the 0° angle and drive 10 meters at the same time
-turn_controller.set_goal(0)
-drive_controller.set_goal(10)
-
-while True:
-    # get the values from both controllers
-    turn_value = turn_controller.get_value()
-    drive_value = drive_controller.get_value()
-
-    # drive/turn using arcade drive
-    arcade_drive(turn_value, drive_value, left_motor, right_motor)
+{% include code/algorithms/motor-controllers/pid/example3.py %}
 ```
 
 ## Closing remarks

@@ -18,10 +18,7 @@ Suppose that we have objects of the `Motor` class that set the speed of the moto
 Implementing tank drive is really quite straightforward: simply set the left motor to whatever the $$y_1$$ axis value is, and the right motor to whatever the $$y_2$$ axis value is:
 
 ```python
-def tank_drive(l_motor_speed, r_motor_speed, left_motor, right_motor):
-    """Sets the speed of the left and the right motor."""
-    left_motor(l_motor_speed)
-    right_motor(r_motor_speed)
+{% include code/algorithms/drivetrain-control/tank-drive/implementation.py %}
 ```
 
 
@@ -29,19 +26,7 @@ def tank_drive(l_motor_speed, r_motor_speed, left_motor, right_motor):
 Here's a program that makes the robot drive using the values from the joystick:
 
 ```python
-# create robot's motors and the joystick
-left_motor = Motor(1)
-right_motor = Motor(2)
-joystick = Joystick()
-
-# continuously set motors to the values on the axes
-while True:
-    # get axis values
-    y1 = joystick.get_y1()
-    y2 = joystick.get_y2()
-
-    # drive the robot using tank drive
-    tank_drive(y1, y2, left_motor, right_motor)
+{% include code/algorithms/drivetrain-control/tank-drive/example.py %}
 ```
 
 
