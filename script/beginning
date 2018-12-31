@@ -23,11 +23,11 @@
 
 \lstset{
 	language=Python,
-	basicstyle=\small\sffamily,
+	basicstyle=\fontsize{10}{12}\sffamily,
 	numbers=left,
  	numberstyle=\tiny,
 	frame=tb,
-	tabsize=4,
+	tabsize=3,
 	columns=fixed,
 	showstringspaces=false,
 	showtabs=false,
