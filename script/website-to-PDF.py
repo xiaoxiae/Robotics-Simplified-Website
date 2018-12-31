@@ -7,6 +7,10 @@ subRegex = [
     ("^---\n", ""),                                     # remove linebreaks
     ("\\\\(sub)*section{Visualization}\n(.*\n)+^\\\\",\
      "\\\\"),                                           # remove visualizations
+    ("(```python\n){% +include +(.+?) +%}(\n```)",\
+        lambda x: x.group(1) + \
+        open(".."+os.sep+"_includes"+os.sep+x.group(2), "r").read() + \
+        x.group(3)),                                    # insert code snippet
     ("```python(\n(.*\n)+?)```",
      "\\\\begin{lstlisting}\g<1>\\\\end{lstlisting}"),  # code highlights
     ("\*\*(.+?)\*\*", "\\\\textbf{\g<1>}"),             # bold text
@@ -49,7 +53,7 @@ for path, subdirs, files in os.walk("../docs/"):
 
         # replace the headings based on the file depth - the further it is in,
         # the more sub will be added in in front of section{...}
-        fileContents = sub("^(#+) ([A-Z\[].+)",\
+        fileContents = sub("^(#+) (.+)",\
             lambda x: "\\"\
                 + (len(x.group(1)) + fileDepth - 1 - int(isMainTopic)) * "sub"\
                 + "section{" + x.group(2)\
