@@ -46,3 +46,6 @@
 		Generated \today
 	\end{center}
 \end{titlepage}
+
+\tableofcontents
+\newpage
