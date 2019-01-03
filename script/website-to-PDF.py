@@ -41,55 +41,56 @@ for path, subdirs, files in os.walk("../docs/"):
     convertedFiles = {}
 
     for name in files:
-        filePath = os.path.join(path, name)
-        fileContents = open(filePath, 'r').read()
-        fileOrder = int(search("nav_order: ([0-9]+)", fileContents).group(1))
+        fPath = os.path.join(path, name)
+        fContent = open(fPath, 'r').read()
+        fileOrder = int(search("nav_order: ([0-9]+)", fContent).group(1))
 
         # if the file is in the form of \topic\topic.md - the main topic file
         isMainTopic = search("(.+)"+os.sep+"\\\\1\.", filePath) != None
 
         # the "depth" of the file - how many levels of folders it is in
-        fileDepth = filePath[8:].count(os.sep)
+        fDepth = fPath[8:].count(os.sep)
 
         # replace the headings based on the file depth - the further it is in,
         # the more sub will be added in in front of section{...}
-        fileContents = sub("^(#+) (.+)",\
+        fContent = sub("^(#+) (.+)",\
             lambda x: "\\"\
-                + (len(x.group(1)) + fileDepth - 1 - int(isMainTopic)) * "sub"\
+                + (len(x.group(1)) + fDepth - 1 - int(isMainTopic)) * "sub"\
                 + "section{" + x.group(2)\
                 + "}",\
-            fileContents, flags=MULTILINE)
+            fContent, flags=MULTILINE)
 
         # run the file through the substitution regexes
         for regex in subRegex:
-            fileContents = sub(*regex, fileContents, flags=MULTILINE)
+            fContent = sub(*regex, fContent, flags=MULTILINE)
 
         # if it's at depth 0 by default - files like about.md, preface.md...,
         # convertedGroups[fileOrder] will be the file itself
-        if fileDepth == 0:
-            convertedGroups[fileOrder] = fileContents
+        if fDepth == 0:
+            convertedGroups[fileOrder] = (fContent, fPath)
 
         # if it's at depth 0 because it is the main topic,
         # convertedGroups[fileOrder] will be the group of files
-        elif fileDepth - int(isMainTopic) == 0:
+        elif fDepth - int(isMainTopic) == 0:
             convertedGroups[fileOrder] = convertedFiles
 
         # add the converted file to the fileOrder position
-        convertedFiles[fileOrder if not isMainTopic else 0] = fileContents
+        convertedFiles[fileOrder if not isMainTopic else 0] = (fContent, fPath)
 
 
-output = open("output.tex", "w")
+# the converted latex file
+latexOut = open("latexOut.tex", "w")
 
 # write beginning
-output.write(open("beginning", "r").read())
+latexOut.write(open("tex-generation-files" + os.sep + "beginning", "r").read())
 
 # write the converted articles in their respective order
 for k1, v1 in sorted(convertedGroups.items()):
-    if type(v1) == str:
-        output.write(v1 + "\n")
+    if type(v1[0]) == str:
+        latexOut.write(v1[0] + "\n")
     else:
         for k2, v2 in sorted(v1.items()):
-            output.write(v2 + "\n")
+            latexOut.write(v2[0] + "\n")
 
 # write ending
-output.write(open("ending", "r").read())
+latexOut.write(open("tex-generation-files" + os.sep + "ending", "r").read())
