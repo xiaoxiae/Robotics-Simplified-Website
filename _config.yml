@@ -1,7 +1,7 @@
 title: Robotics Simplified
-description: Explanation of robotics concepts using Python.
+description: Intuitive explanation of robotics concepts.
 baseurl: "/" # site subpath
-# url: "" # the base hostname & protocol for the site
+url: "http://robotics-simplified.com/" # the base hostname & protocol for the site
 
 permalink: pretty
 exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"]
