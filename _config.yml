@@ -11,6 +11,8 @@ search_enabled: true
 
 # Aux links for the upper right navigation
 aux_links:
+  "PDF Version":
+    - "assets/pdf/website.pdf"
   "Project GitHub":
     - "https://github.com/xiaoxiae/Robotics-Simplified-Website"
 
