@@ -151,3 +151,7 @@ for k1, v1 in sorted(convertedGroups.items()):
 
 # write ending
 sitemapOut.write(open("xml-generation-files" + os.sep + "ending", "r").read())
+
+# properly close the files
+latexOut.close()
+sitemapOut.close()
