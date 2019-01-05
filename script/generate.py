@@ -79,12 +79,8 @@ for path, subdirs, files in os.walk(".." + os.sep + "docs" + os.sep):
         convertedFiles[fileOrder if not isMainTopic else 0] = (fContent, fPath)
 
 
-# create folder where tex output will go
-if not os.path.exists("latex-out" + os.sep):
-    os.makedirs("latex-out"  + os.sep)
-
 # the converted latex file
-latexOut = open("latex-out" + os.sep + "website.tex", "w")
+latexOut = open("website.tex", "w")
 
 # write beginning
 latexOut.write(open("tex-generation-files" + os.sep + "beginning", "r").read())
