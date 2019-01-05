@@ -1,4 +1,5 @@
 from regex import sub, match, search, MULTILINE
+from datetime import datetime
 import os
 
 # regular expressions and their substitution results
@@ -94,3 +95,51 @@ for k1, v1 in sorted(convertedGroups.items()):
 
 # write ending
 latexOut.write(open("tex-generation-files" + os.sep + "ending", "r").read())
+
+
+def writeURL(url, subpath, xmlFile, priority, lastmod = None):
+    """Writes information about a specific URL to the sitemap.xml file."""
+    address = url + subpath.replace(".md", "/")[8:].replace("\\", "/")
+
+    # if lastmod wasn't specified, generate it from the path
+    if lastmod == None:
+        lastmod = (datetime\
+            .utcfromtimestamp(os.path.getmtime(subpath))\
+            .strftime('%Y-%m-%dT%H:%M:%S+00:00'))
+
+    contents = ["<url>",
+                "\t<loc>" + address + "</loc>",
+                "\t<lastmod>" + lastmod + "</lastmod>",
+                "\t<priority>" + priority + "</priority>",
+                "</url>"]
+
+    for line in contents:
+        xmlFile.write(line + "\n")
+
+
+# the generated sitemap
+sitemapOut = open("sitemap.xml", "w")
+
+# write beginning
+sitemapOut.write(open("xml-generation-files" + os.sep + "beginning", "r").read())
+
+# get the url of the website from _config.yml
+url = search("^url: \"(.+)\".*\n",\
+    open(".." + os.sep + "_config.yml", "r").read(),\
+    MULTILINE).group(1)
+
+# write information about the main page
+writeURL(url, "", sitemapOut, "1.00",\
+    datetime.utcfromtimestamp(os.path.getmtime("../index.md"))\
+            .strftime('%Y-%m-%dT%H:%M:%S+00:00'))
+
+# write all of the URLs to the .xml file
+for k1, v1 in sorted(convertedGroups.items()):
+    if type(v1[1]) == str:
+        writeURL(url, v1[1], sitemapOut, "0.80")
+    else:
+        for k2, v2 in sorted(v1.items()):
+            writeURL(url, v2[1], sitemapOut, "0.80")
+
+# write ending
+sitemapOut.write(open("xml-generation-files" + os.sep + "ending", "r").read())
