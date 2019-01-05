@@ -3,8 +3,9 @@ scratch and to deploy it with FTP."""
 import os
 import subprocess
 
-# build website
+# clean and build website
 os.chdir("..")
+os.system("jekyll clean")
 os.system("jekyll build")
 os.chdir("script")
 
