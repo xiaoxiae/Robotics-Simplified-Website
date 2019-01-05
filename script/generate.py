@@ -1,4 +1,4 @@
-from re import sub, match, search, MULTILINE
+from regex import sub, match, search, MULTILINE
 import os
 
 # regular expressions and their substitution results
