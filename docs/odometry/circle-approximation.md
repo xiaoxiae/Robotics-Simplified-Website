@@ -11,10 +11,12 @@ Although the approximation with the assumption that the robot first turns and on
 
 ![Circle Approximation]({{site.url}}/assets/images/odometry/circle-approximation.png "Circle Approximation")
 
+The robot just moved in an arch, the left encoder measured a distance $$l$$ and the right wheel a distance $$r$$. It was previously at an angle $$θ$$ and is now at an angle $$θ + ω$$. We want to calculate, what the new position of the robot is after this move.
+
 ## Deriving the equations
 Deriving equations for this model will be a little more difficult than the previous one, but they should still be relatively simple to follow.
 
-The way to calculate the new coordinates is to find the radius $$R$$ of ICC ([*Instantaneous Center of Curvature*](https://en.wikipedia.org/wiki/Instant_centre_of_rotation) - the point around which the robot is turning) and then rotate $$x_0$$ and $$y_0$$ around it.
+The way to calculate the new coordinates is to find the radius $$R$$ of [ICC](https://en.wikipedia.org/wiki/Instant_centre_of_rotation) (*Instantaneous Center of Curvature* - the point around which the robot is turning) and then rotate $$x_0$$ and $$y_0$$ around it.
 
 
 ### Calculating R
