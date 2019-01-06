@@ -28,3 +28,4 @@ I would like to thank the following people for their help in making this project
 - **Kateřina Sulková** for being loving, supportive, and especially helpful in writing the SOČ paper.
 - **Matěj Halama** (*matejhalama.cz*) for an insightful consultation about the website logo.
 - **Jan Hladík** for help in designing the logo of the website.
+- **VCT** for kindly lending me a VEX EDR kit.
