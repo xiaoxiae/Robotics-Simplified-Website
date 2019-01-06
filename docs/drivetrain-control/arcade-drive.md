@@ -11,6 +11,9 @@ Arcade drive is a method of controlling the motors of a robot using two axes of 
 
 ![Arcade Drive]({{site.url}}/assets/images/drivetrain-control/arcade-drive.png "Arcade Drive")
 
+[Robot image source](http://www.ic0nstrux.com/image/data/products/robots/wheels/sparkfun/Wild-Thumper-6WD-Chassis/11056-02.jpg), [Controller image source](https://target.scene7.com/is/image/Target/GUEST_1e4c1fcb-6962-4533-b961-4e760355db27?wid=488&hei=488&fmt=pjpeg)
+{: .fs-1 style="text-align: right;" }
+
 
 ## Implementation
 Suppose that we have a joystick with an $$x$$ (horizontal) and a $$y$$ (vertical) axis.

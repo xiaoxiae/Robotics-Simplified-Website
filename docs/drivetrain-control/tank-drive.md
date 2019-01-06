@@ -11,6 +11,9 @@ Tank drive is a method of controlling the motors of a robot using two axes of a 
 
 ![Tank Drive]({{site.url}}/assets/images/drivetrain-control/tank-drive.png "Tank Drive")
 
+[Robot image source](http://www.ic0nstrux.com/image/data/products/robots/wheels/sparkfun/Wild-Thumper-6WD-Chassis/11056-02.jpg), [Controller image source](https://target.scene7.com/is/image/Target/GUEST_1e4c1fcb-6962-4533-b961-4e760355db27?wid=488&hei=488&fmt=pjpeg)
+{: .fs-1 style="text-align: right;" }
+
 
 ## Implementation
 Suppose that we have objects of the `Motor` class that set the speed of the motors by calling them with values from -1 to 1. We also have a `Joystick` object that returns the values of the axes $$y_1$$ and $$y_2$$.
