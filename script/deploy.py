@@ -14,7 +14,7 @@ import generate
 
 # convert latex file to pdf (twice, so Contents are generated properly)
 for _i in range(2):
-    subprocess.call("pdflatex -interaction=nonstopmode website.tex")
+    subprocess.call(r"pdflatex -interaction=nonstopmode website.tex", shell=True)
 
 # move the PDF file to assets of the website
 destination = os.path.join("..", "_site", "assets", "pdf")
