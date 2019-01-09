@@ -11,7 +11,7 @@ Tank drive is a method of controlling the motors of a robot using two axes of a 
 
 ![Tank Drive]({{site.url}}/assets/images/drivetrain-control/tank-drive.png "Tank Drive")
 
-[Robot image source](http://www.ic0nstrux.com/image/data/products/robots/wheels/sparkfun/Wild-Thumper-6WD-Chassis/11056-02.jpg), [Controller image source](https://target.scene7.com/is/image/Target/GUEST_1e4c1fcb-6962-4533-b961-4e760355db27?wid=488&hei=488&fmt=pjpeg)
+[Robot CAD model](https://grabcad.com/library/wild-thumper-6wd-chassis-1), [Controller image source](https://target.scene7.com/is/image/Target/GUEST_1e4c1fcb-6962-4533-b961-4e760355db27?wid=488&hei=488&fmt=pjpeg)
 {: .fs-1 style="text-align: right;" }
 
 
