@@ -39,3 +39,6 @@ However, since the purpose of the code on this website is educational and not to
 All of the code on this website has been tested on a [VEX EDR](https://www.vexrobotics.com/vexedr) robot programmed in Python using [RobotMesh](https://www.robotmesh.com/). If you want to try out the code yourself, doing the same would be the easiest way - all you'd have to do is substitute the made-up classes and methods for real ones from the vex library and run the code.
 
 If you don't have a VEX EDR robot at your disposal, an alternative is to use methods from [`utilities.py`](https://github.com/xiaoxiae/Robotics-Simplified/blob/master/Code/algorithms/utilities.py) to test out the values the objects/methods return.
+
+Modified {% last_modified_at %B %-d, %Y %}
+{: .fs-2 style="text-align: right;" }

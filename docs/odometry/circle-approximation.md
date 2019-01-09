@@ -73,3 +73,6 @@ Here is the implementation, combining both of the approximation methods:
 ```python
 {% include code/algorithms/odometry/circle-approximation.py %}
 ```
+
+Modified {% last_modified_at %B %-d, %Y %}
+{: .fs-2 style="text-align: right;" }

@@ -24,3 +24,6 @@ The are a lot of various controllers to choose from that differ in many ways suc
 - **Complexity** - how difficult is it to implement/configure said controller?
 
 There is a whole field of study called [control theory](https://en.wikipedia.org/wiki/Control_theory) that examines the controllers much more comprehensively than we can in a few short articles. That's why we're only going to talk about a select few.
+
+Modified {% last_modified_at %B %-d, %Y %}
+{: .fs-2 style="text-align: right;" }

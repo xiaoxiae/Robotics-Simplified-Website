@@ -34,3 +34,6 @@ Here is how one could go about implementing a class that tracks the current posi
 ```
 
 Note that for the position estimation to be accurate, the `update()` function of the class needs to be called multiple times per second.
+
+Modified {% last_modified_at %B %-d, %Y %}
+{: .fs-2 style="text-align: right;" }

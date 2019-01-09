@@ -17,3 +17,6 @@ aux_links:
     - "https://github.com/xiaoxiae/Robotics-Simplified-Website"
 
 color_scheme: nil
+
+gems:
+  - jekyll-last-modified-at

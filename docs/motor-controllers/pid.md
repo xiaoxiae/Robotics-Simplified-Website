@@ -80,3 +80,6 @@ Arcade drive will again be our dear friend, since we can plug values from the co
 PID is one of the most widely used controllers not just in robotics, but in many industries (controlling a boiler/thermostat) because it is reliable, relatively easy to implement and quite precise for most use cases.
 
 For motivation, here is a [great video](https://www.youtube.com/watch?v=4Y7zG48uHRo) demonstrating the power of a correctly configured PID controller.
+
+Modified {% last_modified_at %B %-d, %Y %}
+{: .fs-2 style="text-align: right;" }

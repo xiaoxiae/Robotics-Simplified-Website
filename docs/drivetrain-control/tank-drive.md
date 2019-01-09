@@ -35,3 +35,6 @@ Here's a program that makes the robot drive using the values from the joystick:
 
 ## Closing remarks
 Tank drive is a very basic and easy way to control the robot. When it comes to FRC, it is a frequently used method for its simplicity, and because it is easier for some drivers to control the robot this way, compared to the other discussed methods.
+
+Modified {% last_modified_at %B %-d, %Y %}
+{: .fs-2 style="text-align: right;" }

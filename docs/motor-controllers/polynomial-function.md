@@ -63,3 +63,6 @@ Solving this system of linear equations will give us the coefficients of the pol
 
 ## Closing remarks
 Although this controller isn't as widely used as PID, it can frequently perform better than PID, namely in situations where the ranges of movement of the motors are restricted - forks of a forklift/robot arm.
+
+Modified {% last_modified_at %B %-d, %Y %}
+{: .fs-2 style="text-align: right;" }

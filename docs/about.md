@@ -29,3 +29,6 @@ I would like to thank the following people for their help in making this project
 - **Matěj Halama** (*matejhalama.cz*) for an insightful consultation about the website logo.
 - **Jan Hladík** for help in designing the logo of the website.
 - **VCT** for kindly lending me a VEX EDR kit.
+
+Modified {% last_modified_at %B %-d, %Y %}
+{: .fs-2 style="text-align: right;" }
