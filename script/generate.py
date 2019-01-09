@@ -47,7 +47,7 @@ for path, subdirs, files in os.walk(".." + os.sep + "docs" + os.sep):
         fileOrder = int(search("nav_order: ([0-9]+)", fContent).group(1))
 
         # if the file is in the form of \topic\topic.md - the main topic file
-        isMainTopic = search(r"(.+)[^\p{L}]\1\.", fPath) != None
+        isMainTopic = search(r"(.+)[\\\/]\1\.", fPath) != None
 
         # the "depth" of the file - how many levels of folders it is in
         fDepth = fPath[8:].count(os.sep)
