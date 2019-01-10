@@ -6,6 +6,8 @@ import os
 subRegex = [
     ("---\n(.+\n)+---", ""),                            # remove config
     ("^---\n", ""),                                     # remove linebreaks
+    ("^Modified.+", ""),                                # remove last modified
+    ("(^!\[.+?\]\(.+?\))\n(.*?\n)*\[.+\]\(.+\)\n{.+}", "\g<1>"), # remove srcs
     ("\\\\(sub)*section{Visualization}\n(.*\n)+^\\\\",\
      "\\\\"),                                           # remove visualizations
     ("(```python\n){% +include +(.+?) +%}(\n```)",\
