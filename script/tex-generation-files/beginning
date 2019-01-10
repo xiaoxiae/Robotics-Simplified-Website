@@ -3,18 +3,22 @@
 \usepackage{amsmath}
 \usepackage[total={17cm,25cm}, top=2.5cm, left=2cm, includefoot]{geometry}
 \usepackage{enumitem}
-\usepackage[T1]{fontenc}
 \usepackage{hyperref}
 \usepackage{listings}
 \usepackage{color}
 \usepackage{graphicx}
 \usepackage{titlesec}
 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\DeclareUnicodeCharacter{0394}{\Delta}
+\DeclareUnicodeCharacter{03C9}{\omega}
+\DeclareUnicodeCharacter{03B8}{\theta}
+
 \newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
-
-\UseRawInputEncoding
 
 \setlist[itemize]{topsep=0pt}
 \setlength{\itemindent}{0cm}

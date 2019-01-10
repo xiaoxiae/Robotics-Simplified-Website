@@ -25,7 +25,7 @@ class CircleApproximation:
         # calculate encoder deltas (differences from this and previous readings)
         l_delta, r_delta = l - self.prev_l, r - self.prev_r
 
-        # calculate ω
+        # calculate omega
         h_delta = (r_delta - l_delta) / self.axis_width
 
         # either approximate if we're going (almost) straight or calculate arc

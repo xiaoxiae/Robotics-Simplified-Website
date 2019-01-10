@@ -24,7 +24,7 @@ class LineApproximation:
         # calculate encoder deltas (differences from this and previous readings)
         l_delta, r_delta = l - self.prev_l, r - self.prev_r
 
-        # calculate ω
+        # calculate omega
         h_delta = (r_delta - l_delta) / self.axis_width
 
         # approximate the position using the line approximation method

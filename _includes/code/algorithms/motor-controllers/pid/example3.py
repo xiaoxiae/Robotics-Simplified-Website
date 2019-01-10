@@ -8,7 +8,7 @@ encoder = Encoder()
 drive_controller = PID(0.07, 0.001, 0.002, time, encoder)
 turn_controller = PID(0.2, 0.002, 0.015, time, gyro)
 
-# we want to stay at the 0° angle and drive 10 meters at the same time
+# we want to stay at 0 degrees and drive 10 meters at the same time
 turn_controller.set_goal(0)
 drive_controller.set_goal(10)
 
