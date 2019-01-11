@@ -10,14 +10,14 @@ subRegex = [
     ("(^!\[.+?\]\(.+?\))\n(.*?\n)*\[.+\]\(.+\)\n{.+}", "\g<1>"), # remove srcs
     ("\\\\(sub)*section{Visualization}\n(.*\n)+^\\\\",\
      "\\\\"),                                           # remove visualizations
+    ("\*\*(.+?)\*\*", "\\\\textbf{\g<1>}"),             # bold text
+    ("\*(.+?)\*", "\\\\textit{\g<1>}"),                 # * italics
     ("(```python\n){% +include +(.+?) +%}(\n```)",\
         lambda x: x.group(1) + \
         open(".."+os.sep+"_includes"+os.sep+x.group(2), "r").read() + \
         x.group(3)),                                    # insert code snippet
     ("```python(\n(.*\n)+?)```",
      "\\\\begin{lstlisting}\g<1>\\\\end{lstlisting}"),  # code highlights
-    ("\*\*(.+?)\*\*", "\\\\textbf{\g<1>}"),             # bold text
-    ("\*(.+?)\*", "\\\\textit{\g<1>}"),                 # * italics
     ("!\[.+\]\({{.+}}(.+) \"(.+)\"\)", \
      "\\\\begin{figure}\n\
       \\\\centering\n\
