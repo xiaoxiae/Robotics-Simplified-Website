@@ -14,7 +14,7 @@ Although you don't need to know any robotics before reading through this website
 
 ## Programming Language
 Understand basic concepts of programming will definitely come in handy before reading through the project. There are lots of great resources for learning programming:
-- [Reddit r/learnprogramming](https://www.reddit.com/r/learnprogramming/).
+- Reddit's [r/learnprogramming](https://www.reddit.com/r/learnprogramming/) forum.
 - [Codeacademy](https://www.codecademy.com/) and their [Learn Python 3](https://www.codecademy.com/learn/learn-python-3) course.
 - [Project Euler](https://projecteuler.net/) for practicing programming on fun math-based problems.
 
@@ -22,7 +22,7 @@ Knowing syntax of Python would also be helpful, since all of the code examples d
 
 It is also recommended to know a little about [object-oriented programming](https://en.wikipedia.org/wiki/Object-oriented_programming), since we will be basing most of the programs on objects of various classes.
 
-**If you don't know anything about programming** (and don't have the time to learn) **but are interested in learning about robotics anyway, you can still read through the chapters.** The code is there mainly as examples to those interested in implementations of the discussed concepts.
+**If you don't know anything about programming** (and don't have the time to learn) **but are interested in learning about robotics anyway, you can still read through the chapters.** The code is included mainly as possible implementations of the discussed concepts.
 
 
 ## Libraries and Classes
@@ -37,8 +37,6 @@ However, since the purpose of the code on this website is educational and not to
 
 ## Running the code
 All of the code on this website has been tested on a [VEX EDR](https://www.vexrobotics.com/vexedr) robot programmed in Python using [RobotMesh](https://www.robotmesh.com/). If you want to try out the code yourself, doing the same would be the easiest way - all you'd have to do is substitute the made-up classes and methods for real ones from the vex library and run the code.
-
-If you don't have a VEX EDR robot at your disposal, an alternative is to use methods from [`utilities.py`](https://github.com/xiaoxiae/Robotics-Simplified/blob/master/Code/algorithms/utilities.py) to test out the values the objects/methods return.
 
 Modified {% last_modified_at %B %-d, %Y %}
 {: .fs-2 style="text-align: right;" }

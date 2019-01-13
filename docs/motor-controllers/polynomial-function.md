@@ -9,7 +9,7 @@ permalink: motor-controllers/polynomial-function/
 # Polynomial Function
 Another way that we can get values that aren't just 1's and 0's is to model a function from points and get the speed of the robot from it - for example: let's say that we start at speed 0.2, drive at full speed when we're at half the distance and slow down to 0 when we're at the end.
 
-Polynomial function is a great candidate for this task. We can pick points that we want the function to pass through and then use [polynomial regression](https://en.wikipedia.org/wiki/Polynomial_regression) to get the coefficients of the function. [MyCurveFit.com](https://mycurvefit.com/) is a great website to use for this exact purpose. Here is how a modeled polynomial function could look like:
+Polynomial function is a great candidate for this task. We can pick points that we want the function to pass through and then use [polynomial regression](https://en.wikipedia.org/wiki/Polynomial_regression) to get the coefficients of the function. [MyCurveFit.com](https://mycurvefit.com/) is a great website to use for this exact purpose.
 
 ![Polynomial function]({{site.url}}/assets/images/motor-controllers/polynomial-function.png "Polynomial function")
 
@@ -19,7 +19,7 @@ One thing you should also notice is that the function starts at $$x = 0$$ and en
 
 
 ## Horner's method
-When it comes to programming, exponentiation tends to be quite imprecise and slow. [Horner's method](https://en.wikipedia.org/wiki/Horner%27s_method) is a neat solution to this problem. The concept is simple - algebraically change the expression so there is no exponentiation:
+When it comes to programming, exponentiation tends to be quite imprecise and slow. [Horner's method](https://en.wikipedia.org/wiki/Horner%27s_method) is a neat solution to this problem. The concept is simple - algebraically change the expression so there is no exponentiation.
 
 $$\large 2x^3 + 4x^2 -x + 5 \quad \rightarrow \quad x(x(x(2) + 4) - 1) + 5$$
 
@@ -27,7 +27,7 @@ This trick can be performed on a polynomial of any size, this is just an example
 
 
 ## Implementation
-The controller only needs the coefficients of the polynomial that we modeled, and a feedback function. Here is how the implementation would look like with Horner's method:
+The controller only needs the coefficients of the polynomial that we modeled, and a feedback function.
 
 ```python
 {% include code/algorithms/motor-controllers/polynomial-function/implementation.py %}
@@ -37,11 +37,11 @@ The controller only needs the coefficients of the polynomial that we modeled, an
 ## Examples
 
 ### Driving a distance
-Once again, the code is almost the exact same as the examples from nearly all of the other controllers, the only difference is that a `PolynomialFunction` controller takes a list of coefficients of the polynomial to calculate the controller value, compared to the inputs of other controllers:
-
 ```python
 {% include code/algorithms/motor-controllers/polynomial-function/example.py %}
 ```
+
+Once again, the code is almost the exact same as the examples from nearly all of the other controllers.
 
 
 ## Generating a polynomial
@@ -58,11 +58,11 @@ $$
 \end{align*}
 $$
 
-Solving this system of linear equations will give us the coefficients of the polynomial. We can apply this method to a polynomial of any degree, given enough points (if $$d$$ is the degree of the polynomial and $$n$$ is the number of unique points, the degree of the polynomial the points form is $$d=n-1$$).
+Solving this system of linear equations will give us the coefficients of the polynomial. We can apply this method to a polynomial of any degree, given enough points. To be more precise: if $$d$$ is the degree of the polynomial and $$n$$ is the number of unique points, the degree of the polynomial the points form is $$d=n-1$$.
 
 
 ## Closing remarks
-Although this controller isn't as widely used as PID, it can frequently perform better than PID, namely in situations where the ranges of movement of the motors are restricted - forks of a forklift/robot arm.
+Although this controller isn't as widely used as PID, it can sometimes outperform PID, namely in situations where the ranges of movement of the motors are restricted - forks of a forklift/robot arm.
 
 Modified {% last_modified_at %B %-d, %Y %}
 {: .fs-2 style="text-align: right;" }
