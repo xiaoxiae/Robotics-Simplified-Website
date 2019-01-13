@@ -16,7 +16,7 @@ Links to resources either directly used by the website (such as libraries), or t
 The website uses [MathJax](https://www.mathjax.org/) to render Latex equations. It previously used [mathURL](http://mathurl.com/), but it was way more effort to include them, and they weren't interactive.
 
 ## Images
-The images used to illustrate the concepts on this website are modified using [Inkscape](https://inkscape.org/cs/) (free vector graphics editor) and [GIMP](https://www.gimp.org/) (free bitmap graphics editor). CAD model images are generated with [Fusion 360](https://www.autodesk.com/products/fusion-360/students-teachers-educators) (free CAD design software, assuming you are a student).
+The images used to illustrate the concepts on this website are modified using [Inkscape](https://inkscape.org/cs/) (free vector graphics editor) and [GIMP](https://www.gimp.org/) (free bitmap graphics editor). CAD model images are generated with [Fusion 360](https://www.autodesk.com/products/fusion-360/students-teachers-educators) (free CAD design software, assuming you are a student). I also used the [TinyPNG](https://tinypng.com/) website to compress the images.
 
 ## p5.js
 Visualizations on the website are created using the [p5.js](https://p5js.org/) library. This [example]((https://raw.githubusercontent.com/KevinWorkman/HappyCoding/gh-pages/examples/p5js/_posts/2018-07-04-fireworks.md) helped me understand how it worked with Jekyll. I use the [p5js web editor](https://editor.p5js.org/) to edit the visualizations before I put them on the website.
