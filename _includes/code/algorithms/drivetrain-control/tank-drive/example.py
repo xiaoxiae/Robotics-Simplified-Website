@@ -1,9 +1,9 @@
-# create robot's motors and the joystick
+# initialize objects that control robot components
 left_motor = Motor(1)
 right_motor = Motor(2)
 joystick = Joystick()
 
-# continuously set motors to the values on the axes
+# repeatedly set motors to the values of the axes
 while True:
     # get axis values
     y1 = joystick.get_y1()

@@ -1,9 +1,10 @@
 def arcade_drive(rotate, drive, left_motor, right_motor):
+    """Drives the robot using arcade drive."""
     # variables to determine the quadrants
     maximum = max(abs(drive), abs(rotate))
     total, difference = drive + rotate, drive - rotate
 
-    # set speed according to the quadrant that we're in.
+    # set speed according to the quadrant that the values are in
     if drive >= 0:
         if rotate >= 0: # I quadrant
             left_motor(maximum)

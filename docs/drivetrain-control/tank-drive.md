@@ -7,7 +7,7 @@ permalink: drivetrain-control/tank-drive/
 ---
 
 # Tank drive
-Tank drive is a method of controlling the motors of a robot using two axes of a controller, where each of the axes operates motors on one side of the robot (see image below or [a video](https://www.youtube.com/watch?v=vK2CGj8gAWc)).
+Tank drive is a method of controlling the motors of a robot using two axes of a controller, where each of the axes operate motors on one side of the robot (see image below, or [this video](https://www.youtube.com/watch?v=vK2CGj8gAWc)).
 
 ![Tank Drive]({{site.url}}/assets/images/drivetrain-control/tank-drive.png "Tank Drive")
 
@@ -16,9 +16,9 @@ Tank drive is a method of controlling the motors of a robot using two axes of a 
 
 
 ## Implementation
-Suppose that we have objects of the `Motor` class that set the speed of the motors by calling them with values from -1 to 1. We also have a `Joystick` object that returns the values of the axes $$y_1$$ and $$y_2$$.
+Suppose that we have objects of the `Motor` class that set the speed of the motors that take values from -1 to 1. We also have a `Joystick` object that returns the values of the $$y_1$$ and $$y_2$$ axes.
 
-Implementing tank drive is really quite straightforward: simply set the left motor to whatever the $$y_1$$ axis value is, and the right motor to whatever the $$y_2$$ axis value is:
+Implementing tank drive is quite straightforward: set the left motor to the $$y_1$$ axis value, and the right motor to the $$y_2$$ axis value:
 
 ```python
 {% include code/algorithms/drivetrain-control/tank-drive/implementation.py %}
@@ -26,11 +26,11 @@ Implementing tank drive is really quite straightforward: simply set the left mot
 
 
 ## Examples
-Here's a program that makes the robot drive using the values from the joystick:
-
 ```python
 {% include code/algorithms/drivetrain-control/tank-drive/example.py %}
 ```
+
+This example demonstrates, how to make the robot drive using tank drive controlled by a joystick.
 
 
 ## Closing remarks

@@ -7,7 +7,7 @@ permalink: drivetrain-control/arcade-drive/
 ---
 
 # Arcade drive
-Arcade drive is a method of controlling the motors of a robot using two axes of a controller, where one of the axes operates the "turning" component of the robot, and one the "driving" component of the robot (as if you were playing a game at an *arcade*).
+Arcade drive is a method of controlling the motors of a robot using two axes of a controller, where one of the axes controls the speed of the robot, and the other the steering of the robot.
 
 ![Arcade Drive]({{site.url}}/assets/images/drivetrain-control/arcade-drive.png "Arcade Drive")
 
@@ -15,13 +15,13 @@ Arcade drive is a method of controlling the motors of a robot using two axes of 
 {: .fs-1 style="text-align: right;" }
 
 
-## Implementation
+## Deriving the equations
 Suppose that we have a joystick with an $$x$$ (horizontal) and a $$y$$ (vertical) axis.
 
 There are many ways to get to the resulting arcade drive equations (for example by using [linear interpolation](https://www.chiefdelphi.com/media/papers/download/3495) for all of the 4 quadrants of the joystick input).
 
-Here is the implementation we get by splitting the values into quadrants:
 
+## Implementation
 ```python
 {% include code/algorithms/drivetrain-control/arcade-drive/implementation.py %}
 ```

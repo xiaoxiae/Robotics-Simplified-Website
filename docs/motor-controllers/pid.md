@@ -6,15 +6,15 @@ parent: Motor Controllers
 permalink: motor-controllers/pid/
 ---
 
-# PID ([wiki](https://en.wikipedia.org/wiki/PID_controller))
+# PID
 Our previous attempt at creating a controller that used feedback from the robot could be further improved by considering how the **error** (difference between feedback value and the goal) changes over time.
 
-Since PID is an abbreviation, let's talk about that the terms $$P$$, $$I$$ and $$D$$ mean:
+Since [PID](https://en.wikipedia.org/wiki/PID_controller) is an abbreviation, let's talk about that the terms $$P$$, $$I$$ and $$D$$ mean:
 - $$P$$ stands for **proportional** - how large is the error now (in the **present**).
 - $$I$$ stands for **integral** - how large the error (accumulatively) was in the **past.**
 - $$D$$ stands for **derivative** - what will the error likely be in the **future.**
 
-The controller takes into account what happened, what is happening, and what will likely happen and continuously calculates each of the terms as the error changes:
+The controller takes into account what happened, what is happening, and what will likely happen and continuously calculates each of the terms as the error changes.
 
 ![PID]({{site.url}}/assets/images/motor-controllers/pid.png "PID")
 
@@ -23,7 +23,7 @@ The controller takes into account what happened, what is happening, and what wil
 
 
 ## Implementation
-The controller will need $$p$$, $$i$$ and $$d$$ constants to know, how important each of the aforementioned parts (proportional, integral, derivative) are. It will also need a feedback function and, to correctly calculate the integral and derivative, a function that returns the current time:
+The controller will need $$p$$, $$i$$ and $$d$$ constants to know, how important each of the aforementioned parts (proportional, integral, derivative) are. It will also need a feedback function and, to correctly calculate the integral and derivative, a function that returns the current time.
 
 ```python
 {% include code/algorithms/motor-controllers/pid/implementation.py %}
@@ -31,7 +31,7 @@ The controller will need $$p$$, $$i$$ and $$d$$ constants to know, how important
 
 To fully understand how the controller works, I suggest you closely examine the `get_value()` function - that's where all the computation happens.
 
-Notice a new function called `reset`, that we haven't seen in any of the other controllers. It is called every time we set the goal, because the controller accumulates error over time in the `self.integral` variable, and it would therefore take longer to adjust to the new goal.
+Notice a new function called `reset` that we haven't seen in any of the other controllers. It is called every time we set the goal, because the controller accumulates error over time in the `integral` variable, and it would therefore take longer to adjust to the new goal.
 
 It doesn't change the versatility of the controller classes, because we don't need to call it in order for the controller to function properly, it's just a useful function to have if we want to call it manually.
 
@@ -55,7 +55,7 @@ Here is an example that makes the robot drive 10 meters forward. The constants a
 ### Auto-correct heading
 Auto-correcting the heading of a robot is something PID is great for. What we want is to program the robot so that if something (like an evil human) pushes it, the robot adjusts itself to head the way it was heading before the push.
 
-We could either use values from the encoders on the left and the right side to calculate the angle, but a more elegant (and accurate) solution is to use a gyro. Let's therefore assume that we have a `Gyro` class whose objects give us the current heading of the robot.
+We could either use values from the encoders on the left and the right side to calculate the angle, but a more accurate way is to use a gyro. Let's therefore assume that we have a `Gyro` class whose objects give us the current heading of the robot.
 
 One thing we have to think about is what to set the motors to when we get the value from the controller, because to turn the robot, both of the motors will be going in opposite directions. Luckily, `arcade_drive` is our savior: we can plug our PID values directly into the turning part of arcade drive (the `x` axis) to steer the robot. Refer back to the [Arcade Drive article]({{site.baseurl}}drivetrain-control/arcade-drive/), if you are unsure as to how/why this works.
 
@@ -65,11 +65,11 @@ One thing we have to think about is what to set the motors to when we get the va
 
 
 ### Two controller combination
-What's even nicer is that we can combine the two examples that we just implemented into ONE - a robot that drives forward and corrects itself when it isn't heading the right way.
+What's even nicer is that we can combine the two examples that we just implemented into one - a robot that drives forward and corrects itself when it isn't heading the right way.
 
 We will create two controllers - one for driving straight by a certain distance and one for turning to correct possible heading errors.
 
-Arcade drive will again be our dear friend, since we can plug values from the controller that controls driving directly into the driving part of arcade drive, and the controller that controls heading directly into the turning part of arcade drive:
+Arcade drive will again be our dear friend, since we can plug values from the controller that controls driving directly into the driving part of arcade drive, and the controller that controls heading directly into the turning part of arcade drive.
 
 ```python
 {% include code/algorithms/motor-controllers/pid/example3.py %}
@@ -77,9 +77,9 @@ Arcade drive will again be our dear friend, since we can plug values from the co
 
 
 ## Closing remarks
-PID is one of the most widely used controllers not just in robotics, but in many industries (controlling a boiler/thermostat) because it is reliable, relatively easy to implement and quite precise for most use cases.
+PID is one of the most widely used controllers not just in robotics, but in many other industries, because it is reliable, relatively easy to implement and quite precise for most use cases.
 
-For motivation, here is a [great video](https://www.youtube.com/watch?v=4Y7zG48uHRo) demonstrating the power of a correctly configured PID controller.
+For motivation, here is a [video](https://www.youtube.com/watch?v=4Y7zG48uHRo) demonstrating the power of a correctly configured PID controller.
 
 Modified {% last_modified_at %B %-d, %Y %}
 {: .fs-2 style="text-align: right;" }
