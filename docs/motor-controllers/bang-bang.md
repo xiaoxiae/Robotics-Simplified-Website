@@ -6,10 +6,10 @@ parent: Motor Controllers
 permalink: motor-controllers/bang-bang/
 ---
 
-# Bang–bang ([wiki](https://en.wikipedia.org/wiki/Bang%E2%80%93bang_control))
+# Bang–bang
 Although our previous controller was quite easy to implement and use, there is no way for it to know whether it reached the target or not. It pretty much just turns the motors on for a while and hopes for the best.
 
-Bang-bang aims to fix this problem by using [`feedback`](https://en.wikipedia.org/wiki/Feedback) from our robot. Feedback could be values from its [encoders](https://en.wikipedia.org/wiki/Encoder) (to measure how far it has gone), [gyro](https://en.wikipedia.org/wiki/Gyroscope) (to measure where it's heading), or really anything else that we want to control. The important thing is that the data are **real-time** - the robot constantly gives feedback about what is happening to the controller, so the controller can act accordingly.
+[Bang-bang](https://en.wikipedia.org/wiki/Bang%E2%80%93bang_control) aims to fix this problem by using [`feedback`](https://en.wikipedia.org/wiki/Feedback) from our robot. Feedback could be values from its [encoders](https://en.wikipedia.org/wiki/Encoder) (to measure how far it has gone), [gyro](https://en.wikipedia.org/wiki/Gyroscope) (to measure where it's heading), or really anything else that we want to control. The important thing is that the data are **real-time** - the robot constantly gives feedback about what is happening to the controller, so the controller can act accordingly.
 
 Bang-bang is the very first idea that comes to mind when we have real-time data. The controller will return 1 if we haven't passed the goal yet and 0 if we have.
 

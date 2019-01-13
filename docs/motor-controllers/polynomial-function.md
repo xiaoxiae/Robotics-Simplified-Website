@@ -18,8 +18,8 @@ As you can see, it returns all sorts of values from 0 to 1.
 One thing you should also notice is that the function starts at $$x = 0$$ and ends at $$x = 1$$. This is deliberate - it makes it easy for us to "stretch" the function a little wider if we want to drive some other distance, not just 1 meter.
 
 
-## Horner's method ([wiki](https://en.wikipedia.org/wiki/Horner%27s_method))
-When it comes to programming, exponentiation tends to be quite imprecise and slow. Horner's method is a neat solution to this problem. The concept is simple - algebraically change the expression so there is no exponentiation:
+## Horner's method
+When it comes to programming, exponentiation tends to be quite imprecise and slow. [Horner's method](https://en.wikipedia.org/wiki/Horner%27s_method) is a neat solution to this problem. The concept is simple - algebraically change the expression so there is no exponentiation:
 
 $$\large 2x^3 + 4x^2 -x + 5 \quad \rightarrow \quad x(x(x(2) + 4) - 1) + 5$$
 
