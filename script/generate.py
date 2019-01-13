@@ -19,11 +19,11 @@ subRegex = [
     ("```python(\n(.*\n)+?)```",
      "\\\\begin{lstlisting}\g<1>\\\\end{lstlisting}"),  # code highlights
     ("!\[.+\]\({{.+}}(.+) \"(.+)\"\)", \
-     "\\\\begin{figure}\n\
-      \\\\centering\n\
-      \\\\includegraphics[width=0.8\\\\textwidth]{..\g<1>}\n\
-      \\\\caption{\g<2>}\n\
-      \\\\end{figure}\n"),                              # images
+     "\\\\begin{figure}\n" + \
+     "\\\\centering\n" + \
+     "\\\\includegraphics[width=0.8\\\\textwidth]{..\g<1>}\n" + \
+     "\\\\caption{\g<2>}\n" + \
+     "\\\\end{figure}"),
     ("\[(.+?)\]\((.+?)\)", "\\\\href{\g<2>}{\g<1>}"),   # href
     ("(.+?)\$(\$.*?\$)\$(.+?)", "\g<1>\g<2>\g<3>"),     # $$.$$ to $.$
     ("`([^`\n]+?)`","\\\\texttt{\g<1>}"),               # `` md highlights
