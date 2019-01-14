@@ -1,6 +1,6 @@
-from ftplib import FTP
+from ftplib import FTP, error_perm
 import os
-import getpass
+from getpass import getpass
 
 def remove_content():
     """Recursively removes all content that isn't on the permanent list."""
@@ -51,17 +51,25 @@ def add_content():
 
 
 permanent_content = ["info.php", "subdom", "domains", ".htaccess", ".gitkeep"]
+ip = "89.221.213.4"
 
-# connect to the server
-with FTP("89.221.213.4", input("Login: "), getpass.getpass("Password: ")) as ftp:
-    print("Connected!")
-    print(ftp.cwd('www'))
+# repeatedly attempt to connect to the server
+while True:
+    try:
+        with FTP(ip, input("Login: "), getpass("Password: ")) as ftp:
+            print("Connected!")
+            print(ftp.cwd('www'))
 
-    # remove all content that isn't permanent
-    remove_content()
+            # remove all content that isn't permanent
+            remove_content()
 
-    # add all content from _site folder
-    add_content()
+            # add all content from _site folder
+            add_content()
 
-    # disconnect from the server
-    print(ftp.quit())
+            # disconnect from the server and terminate the script
+            print(ftp.quit())
+            quit()
+    except error_perm:
+        print("Incorrect username or password!")
+
+
