@@ -13,8 +13,6 @@
 
     textSize(26)
     fill(200)
-    textAlign(CENTER, TOP)
-    text("Arcade drive visualisation", width / 2, 20)
 	  textAlign(CENTER, CENTER)
     text("II", width/4, height/4)
     text("I", width * 3/4, height/4)
