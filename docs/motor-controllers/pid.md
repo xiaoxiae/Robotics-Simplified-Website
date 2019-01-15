@@ -9,21 +9,22 @@ permalink: motor-controllers/pid/
 # PID
 Our previous attempt at creating a controller that used feedback from the robot could be further improved by considering how the **error** (difference between feedback value and the goal) changes over time.
 
+![PID]({{site.url}}/assets/images/motor-controllers/pid.png "PID")
+[PID image source](https://upload.wikimedia.org/wikipedia/commons/4/40/Pid-feedback-nct-int-correct.png)
+{: .fs-1 style="text-align: right;" }
+
 Since [PID](https://en.wikipedia.org/wiki/PID_controller) is an abbreviation, let's talk about that the terms $$P$$, $$I$$ and $$D$$ mean:
 - $$P$$ stands for **proportional** - how large is the error now (in the **present**).
-- $$I$$ stands for **integral** - how large the error (accumulatively) was in the **past.**
+- $$I$$ stands for **integral** - how large the error was in the **past.**
 - $$D$$ stands for **derivative** - what will the error likely be in the **future.**
 
 The controller takes into account what happened, what is happening, and what will likely happen and continuously calculates each of the terms as the error changes.
 
-![PID]({{site.url}}/assets/images/motor-controllers/pid.png "PID")
 
-[PID image source](https://upload.wikimedia.org/wikipedia/commons/4/40/Pid-feedback-nct-int-correct.png)
-{: .fs-1 style="text-align: right;" }
 
 
 ## Implementation
-The controller will need $$p$$, $$i$$ and $$d$$ constants to know, how important each of the aforementioned parts (proportional, integral, derivative) are. It will also need a feedback function and, to correctly calculate the integral and derivative, a function that returns the current time.
+The controller will need $$p$$, $$i$$ and $$d$$ constants. It will also need a feedback function and, to correctly calculate the integral and derivative, a function that returns the current time.
 
 ```python
 {% include code/algorithms/motor-controllers/pid/implementation.py %}
@@ -37,7 +38,7 @@ It doesn't change the versatility of the controller classes, because we don't ne
 
 
 ## Tuning the controller
-PID is the first discussed controller that needs to be tuned correctly to perform well, because if you set the constants to the wrong values, the controller will perform [poorly](https://www.youtube.com/watch?v=MxALJU_hp34).
+PID is the first discussed controller that needs to be tuned correctly to perform well. Tuning is done by adjusting the $$p$$, $$i$$ and $$d$$ constants, until the controller is performing the way we want it to. Setting the constants to the wrong values and the controller will perform [poorly](https://www.youtube.com/watch?v=MxALJU_hp34).
 
 There is a [whole section](https://en.wikipedia.org/wiki/PID_controller#Loop_tuning) on Wikipedia about PID tuning. We won't go into details (read through the Wikipedia article if you're interested), but it is just something to keep in mind when using PID.
 
