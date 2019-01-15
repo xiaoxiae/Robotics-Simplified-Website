@@ -4,7 +4,7 @@ This file includes the changes that will (likely) be made to the content on the 
 
 ## Changes to articles
 - Arcade drive - add the derivation of the equations
-- PID - add sections about windup and continuous PID values
+- PID - add sections about windup and continuous PID values; add a better explanation of the formulas - calculating proportional, integral and derivative
 
 
 ## Future articles
