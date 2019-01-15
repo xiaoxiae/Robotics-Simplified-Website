@@ -12,7 +12,11 @@ Although you don't need to know any robotics before reading through this website
 
 ---
 
-## Programming Language
+## Math
+To understand the math on this website, it is best to understand basic algebra, trigonometry, geometry. None of the math should exceed high-school level and if it does, there will be links to resources to explain them. **If math isn't your strong suit, it doesn't mean you won't learn anything from the website** - even if you skipped all the equations, you would still learn a lot.
+
+
+## Programming
 Understand basic concepts of programming will definitely come in handy before reading through the project. There are lots of great resources for learning programming:
 - Reddit's [r/learnprogramming](https://www.reddit.com/r/learnprogramming/) forum.
 - [Codeacademy](https://www.codecademy.com/) and their [Learn Python 3](https://www.codecademy.com/learn/learn-python-3) course.
@@ -22,7 +26,7 @@ Knowing syntax of Python would also be helpful, since all of the code examples d
 
 It is also recommended to know a little about [object-oriented programming](https://en.wikipedia.org/wiki/Object-oriented_programming), since we will be basing most of the programs on objects of various classes.
 
-**If you don't know anything about programming** (and don't have the time to learn) **but are interested in learning about robotics anyway, you can still read through the chapters.** The code is included mainly as possible implementations of the discussed concepts.
+**If you don't know anything about programming but are interested in learning robotics anyway, you can still read through the chapters** - the code is included mainly to showcase possible implementations of the discussed concepts.
 
 
 ## Libraries and Classes

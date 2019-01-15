@@ -3,7 +3,6 @@ This file includes the changes that will (likely) be made to the content on the 
 
 
 ## Changes to articles
-- Preface - add section about math
 - Arcade drive - add the derivation of the equations
 - PID - add sections about windup and continuous PID values
 
