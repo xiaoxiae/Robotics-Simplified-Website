@@ -98,7 +98,7 @@ for k1, v1 in sorted(convertedGroups.items()):
 latexOut.write(open(path.join("tex-generation-files", "ending"), "r").read())
 
 
-def writeURL(url, subpath, xmlFile, priority = 0.8, lastmod = None):
+def writeURL(url, subpath, xmlFile, priority = "0.8", lastmod = None):
     """Writes information about a specific URL to the sitemap.xml file."""
     address = url + "/" + subpath.replace(".md", "/")[8:].replace("\\", "/")
 
