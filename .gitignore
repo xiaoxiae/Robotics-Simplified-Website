@@ -3,10 +3,13 @@
 _site
 bin/
 
-# Binary files
+# Binary files (at least for now)
 assets/images
 
 # Ruby files
 *.gem
 node_modules
 .bundle
+
+# Compiled Python
+__pycache__
