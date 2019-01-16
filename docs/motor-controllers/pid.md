@@ -9,21 +9,66 @@ permalink: motor-controllers/pid/
 # PID
 Our previous attempt at creating a controller that used feedback from the robot could be further improved by considering how the **error** (difference between feedback value and the goal) changes over time.
 
-Since [PID](https://en.wikipedia.org/wiki/PID_controller) is an abbreviation, let's talk about that the terms $$P$$, $$I$$ and $$D$$ mean:
-- $$P$$ stands for **proportional** - how large is the error now (in the **present**).
-- $$I$$ stands for **integral** - how large the error (accumulatively) was in the **past.**
-- $$D$$ stands for **derivative** - what will the error likely be in the **future.**
-
-The controller takes into account what happened, what is happening, and what will likely happen and continuously calculates each of the terms as the error changes.
-
 ![PID]({{site.url}}/assets/images/motor-controllers/pid.png "PID")
-
 [PID image source](https://upload.wikimedia.org/wikipedia/commons/4/40/Pid-feedback-nct-int-correct.png)
 {: .fs-1 style="text-align: right;" }
 
+Since [PID](https://en.wikipedia.org/wiki/PID_controller) is an abbreviation, let's talk about that the terms $$P$$, $$I$$ and $$D$$ mean:
+- $$P$$ stands for **proportional** - how large is the error now (in the **present**).
+- $$I$$ stands for **integral** - how large the error was in the **past.**
+- $$D$$ stands for **derivative** - what will the error likely be in the **future.**
+
+The controller takes into account what happened, what is happening, and what will likely happen, and combine these things to produce the controller value.
+
+
+## Deriving the equations
+Before diving into the equations, we need to define a terms to build the equations from:
+- $$e$$ - the current error (difference between robot position and its goal).
+- $$\Delta e$$ - difference between the current and the previous error.
+- $$\Delta t$$ - time elapsed since the last measurement.
+- $$p, i, d$$ - constants to determine, how important each of the terms are. Their values range from $$0$$ to $$\infty$$. This make it so that we can put more emphasis on some parts of the controller than others (or ignore them entirely).
+
+
+### Proportional
+Proportional is quite straight forward - it only takes into account, how big the error is right now.
+
+$$\large P = e$$
+
+The problem with only using only $$P$$ is that the closer we get to the goal, the smaller the value of this term is. The robot's movement would feel stiff and there is a chance that it wouldn't even reach the goal (on some occasions). That's why it needs to be complemented by the other parts, to be effective.
+
+
+### Integral
+Integral adds the extra push that the proportional was missing, because it doesn't just react to what is happening right now, but to what was happening in the past, by accumulating the error.
+
+![Integral]({{site.url}}/assets/images/motor-controllers/integral.png "Integral")
+
+Calculating an [integral](https://en.wikipedia.org/wiki/Integral) means calculating area under a curve (in our case, the curve is error over time). With real-world measurements, we can't calculate the actual area, because we can only call the code so many times a second. That's why we will approximate the area by calculating rectangles that closely resemble the curve.
+
+For each computation, the height of the rectangle is the error $$e$$, and width is the elapsed time $$\Delta t$$ since the last measurement. To calculate the rectangular area, we multiply these two numbers together. $$I$$ itself is the sum of all of these values.
+
+$$\large I \mathrel{+}= e \cdot \Delta t$$
+
+This can, however, introduce additional instability to the controller, since the values can accumulate and cause overshoot, and the reaction could also potentially be slow, due to [windup](https://en.wikipedia.org/wiki/Integral_windup).
+
+
+### Derivative
+Derivative aims to further improve the controller by damping the values. We will calculate the rate of change of the error to predict its future behavior - the faster the robot goes, the bigger $$\Delta e$$ is, and the more it will push back against the $$P$$ term.
+
+$$\large D = \frac{\Delta e}{\Delta t}$$
+
+A note to be made is that if $$\Delta t = 0$$, the derivative can't be calculated, because we would be dividing by zero (just something to keep in mind for the implementation).
+
+
+### Result
+As we have previously said, the result is adding all of those terms, multiplied by their constants (determines the importance of the terms in the result).
+
+$$P \cdot p + I \cdot i + D \cdot d$$
+
+The only thing we need to keep in mind is that the values could exceed $$1$$ (or $$-1$$). If they do, we will ignore these values and return $$1$$ (or $$-1$$).
+
 
 ## Implementation
-The controller will need $$p$$, $$i$$ and $$d$$ constants to know, how important each of the aforementioned parts (proportional, integral, derivative) are. It will also need a feedback function and, to correctly calculate the integral and derivative, a function that returns the current time.
+The controller will need the $$p$$, $$i$$ and $$d$$ constants. It will also need a feedback function and, to correctly calculate the integral and derivative, a function that returns the current time.
 
 ```python
 {% include code/algorithms/motor-controllers/pid/implementation.py %}
@@ -37,7 +82,7 @@ It doesn't change the versatility of the controller classes, because we don't ne
 
 
 ## Tuning the controller
-PID is the first discussed controller that needs to be tuned correctly to perform well, because if you set the constants to the wrong values, the controller will perform [poorly](https://www.youtube.com/watch?v=MxALJU_hp34).
+PID is the first discussed controller that needs to be tuned correctly to perform well. Tuning is done by adjusting the $$p$$, $$i$$ and $$d$$ constants, until the controller is performing the way we want it to. Setting the constants to the wrong values and the controller will perform [poorly](https://www.youtube.com/watch?v=MxALJU_hp34).
 
 There is a [whole section](https://en.wikipedia.org/wiki/PID_controller#Loop_tuning) on Wikipedia about PID tuning. We won't go into details (read through the Wikipedia article if you're interested), but it is just something to keep in mind when using PID.
 
