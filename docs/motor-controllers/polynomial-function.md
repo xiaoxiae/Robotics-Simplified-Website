@@ -21,7 +21,7 @@ One thing you should also notice is that the function starts at $$x = 0$$ and en
 ## Horner's method
 When it comes to programming, exponentiation tends to be quite imprecise and slow. [Horner's method](https://en.wikipedia.org/wiki/Horner%27s_method) is a neat solution to this problem. The concept is simple - algebraically change the expression so there is no exponentiation.
 
-$$\large 2x^3 + 4x^2 -x + 5 \quad \rightarrow \quad x(x(x(2) + 4) - 1) + 5$$
+$$2x^3 + 4x^2 -x + 5 \quad \rightarrow \quad x(x(x(2) + 4) - 1) + 5$$
 
 This trick can be performed on a polynomial of any size, this is just an example of how the method works.
 

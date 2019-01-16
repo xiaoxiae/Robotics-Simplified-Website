@@ -25,13 +25,13 @@ Say the robot drove a small arc. The left encoder measured a distance $$l$$ and 
 
 Let's derive the equations for the lengths of the arches $$l$$ and $$r$$ (here is an article about [arc length](https://www.mathopenref.com/arclength.html), if you need further clarification):
 
-$$\large l=x\cdot\omega\qquad r=\left(c+x\right)\cdot\omega$$
+$$l=x\cdot\omega\qquad r=\left(c+x\right)\cdot\omega$$
 
 We can then combine the equations, simplify, and solve for $$\omega$$:
 
-$$\large \frac{l}{\omega} = \frac{r}{\omega} - c$$
+$$\frac{l}{\omega} = \frac{r}{\omega} - c$$
 
-$$\large \omega = \frac{r - l}{c}$$
+$$\omega = \frac{r - l}{c}$$
 
 And that's it! The angle can be calculated from the difference of the readings of the encoders, divided by the length of the axis.
 

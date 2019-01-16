@@ -32,7 +32,7 @@ Before diving into the equations, we need to define a terms to build the equatio
 ### Proportional
 Proportional is quite straight forward - it only takes into account, how big the error is right now.
 
-$$\large P = e$$
+$$P = e$$
 
 The problem with only using only $$P$$ is that the closer we get to the goal, the smaller the value of this term is. The robot's movement would feel stiff and there is a chance that it wouldn't even reach the goal (on some occasions). That's why it needs to be complemented by the other parts, to be effective.
 
@@ -46,7 +46,7 @@ Calculating an [integral](https://en.wikipedia.org/wiki/Integral) means calculat
 
 For each computation, the height of the rectangle is the error $$e$$, and width is the elapsed time $$\Delta t$$ since the last measurement. To calculate the rectangular area, we multiply these two numbers together. $$I$$ itself is the sum of all of these values.
 
-$$\large I \mathrel{+}= e \cdot \Delta t$$
+$$I \mathrel{+}= e \cdot \Delta t$$
 
 This can, however, introduce additional instability to the controller, since the values can accumulate and cause overshoot, and the reaction could also potentially be slow, due to [windup](https://en.wikipedia.org/wiki/Integral_windup).
 
@@ -54,7 +54,7 @@ This can, however, introduce additional instability to the controller, since the
 ### Derivative
 Derivative aims to further improve the controller by damping the values. We will calculate the rate of change of the error to predict its future behavior - the faster the robot goes, the bigger $$\Delta e$$ is, and the more it will push back against the $$P$$ term.
 
-$$\large D = \frac{\Delta e}{\Delta t}$$
+$$D = \frac{\Delta e}{\Delta t}$$
 
 A note to be made is that if $$\Delta t = 0$$, the derivative can't be calculated, because we would be dividing by zero (just something to keep in mind for the implementation).
 

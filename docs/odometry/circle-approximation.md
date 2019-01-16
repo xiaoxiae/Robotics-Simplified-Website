@@ -22,15 +22,15 @@ The way to calculate the new coordinates is to find the radius $$R$$ of [ICC](ht
 ### Calculating R
 Let's start by finding the formula for calculating $$R$$. We will derive it from the formulas for calculating $$l$$ and $$r$$:
 
-$$\large l = \omega \cdot \left(R - \frac{c}{2}\right) \qquad \large r = \omega \cdot \left(R + \frac{c}{2}\right)$$
+$$l = \omega \cdot \left(R - \frac{c}{2}\right) \qquad r = \omega \cdot \left(R + \frac{c}{2}\right)$$
 
 Combining the equations and solving for R gives us:
 
-$$\large R = \left(\frac{r+l}{\omega \cdot 2} \right)$$
+$$R = \left(\frac{r+l}{\omega \cdot 2} \right)$$
 
 From our previous article about [Sensor Values]({{site.baseurl}}odometry/sensor-values/), we know that $$\omega = \frac{r - l}{c}$$. If we don't have a gyro, we can just plug that into our newly derived formula and get:
 
-$$\large R = \frac{r+l}{\frac{r - l}{c} \cdot 2} = \frac{r+l}{r - l} \cdot \frac{c}{2}$$
+$$R = \frac{r+l}{\frac{r - l}{c} \cdot 2} = \frac{r+l}{r - l} \cdot \frac{c}{2}$$
 
 
 ### Rotating $$(x_0, y_0)$$ around ICC
@@ -38,25 +38,25 @@ For this section, we will assume that you know how to rotate a point around the 
 
 First of, we will need the coordinates of the $$ICC$$. Since it's perpendicular to the left of the robot, we will use a [trick](https://stackoverflow.com/questions/4780119/2d-euclidean-vector-rotations): switch $$x_0$$ and $$y_0$$ and negate the first coordinate to rotate the coordinates 90 degrees.
 
-$$\large ICC_x=x_0-R \; sin(\theta) \qquad ICC_y=y_0+R \cdot cos(\theta)$$
+$$ICC_x=x_0-R \; sin(\theta) \qquad ICC_y=y_0+R \cdot cos(\theta)$$
 
 To rotate $$(x_0, y_0)$$ around ICC (and therefore find $$(x, y)$$), we will first translate ICC to the origin, then rotate, and then translate back.
 
-$$\large x = (x_0 - ICC_x) \cdot cos(\omega) - (y_0 - ICC_y) \cdot sin(\omega) + ICC_x$$
+$$x = (x_0 - ICC_x) \cdot cos(\omega) - (y_0 - ICC_y) \cdot sin(\omega) + ICC_x$$
 
-$$\large y = (x_0 - ICC_x) \cdot sin(\omega) - (y_0 - ICC_y) \cdot cos(\omega) + ICC_y$$
+$$y = (x_0 - ICC_x) \cdot sin(\omega) - (y_0 - ICC_y) \cdot cos(\omega) + ICC_y$$
 
 We are then going to plug in the values for $$ICC_x$$, $$ICC_y$$ and simplify.
 
-$$\large x = R \; sin(\theta) \cdot cos(\omega) + R \cdot cos(\theta) \cdot sin(\omega) + x_0 - R \; sin(\theta)$$
+$$x = R \; sin(\theta) \cdot cos(\omega) + R \cdot cos(\theta) \cdot sin(\omega) + x_0 - R \; sin(\theta)$$
 
-$$\large y = R \; sin(\theta) \cdot sin(\omega) - R \cdot cos(\theta) \cdot cos(\omega) + y_0 + R \; cos(\theta)$$
+$$y = R \; sin(\theta) \cdot sin(\omega) - R \cdot cos(\theta) \cdot cos(\omega) + y_0 + R \; cos(\theta)$$
 
 Using trigonometric rules, the equations can be simplified further.
 
-$$\large x = x_0 + R \; sin(\theta + \omega) - R \; sin(\theta)$$
+$$x = x_0 + R \; sin(\theta + \omega) - R \; sin(\theta)$$
 
-$$\large y = y_0 - R \; cos(\theta + \omega) + R \; cos(\theta)$$
+$$y = y_0 - R \; cos(\theta + \omega) + R \; cos(\theta)$$
 
 
 ### Edge cases
