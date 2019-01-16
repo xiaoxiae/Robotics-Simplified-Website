@@ -50,12 +50,12 @@ An alternative to "stretching" the polynomial to fit the goal is to specify the 
 Say you have points $$\left(0,\ 0.2\right)$$, $$\left(0.4,\ 1\right)$$, $$\left(0.6,\ 1\right)$$ and $$\left(1,0\right)$$. Since there are 4 points, the general form of the polynomial is $$y=ax^3+bx^2+cx+d$$ Using this information, we can create a system of linear equations:
 
 $$
-\begin{align*}
+\begin{aligned}
 0.2&=a(0)^3+b(0)^2+c(0)+d \\
 1&=a(0.4)^3+b(0.4)^2+c(0.4)+d \\
 1&=a(0.6)^3+b(0.6)^2+c(0.6)+d \\
 0&=a(1)^3+b(1)^2+c(1)+d
-\end{align*}
+\end{aligned}
 $$
 
 Solving this system of linear equations will give us the coefficients of the polynomial. We can apply this method to a polynomial of any degree, given enough points. To be more precise: if $$d$$ is the degree of the polynomial and $$n$$ is the number of unique points, the degree of the polynomial the points form is $$d=n-1$$.
