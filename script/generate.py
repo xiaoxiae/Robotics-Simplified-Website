@@ -100,7 +100,11 @@ latexOut.write(open(path.join("tex-generation-files", "ending"), "r").read())
 
 def writeURL(url, subpath, xmlFile, priority = "0.8", lastmod = None):
     """Writes information about a specific URL to the sitemap.xml file."""
+    # creates the url
     address = url + "/" + subpath.replace(".md", "/")[8:].replace("\\", "/")
+
+    # if it's the main topic article, remove the repeating name
+    address = sub(r"\/(.+)\/\1\/$", "/\g<1>/", address)
 
     # if lastmod wasn't specified, generate it from the path
     if lastmod == None:
