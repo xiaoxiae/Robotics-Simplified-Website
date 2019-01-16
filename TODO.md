@@ -11,7 +11,3 @@ This file includes the changes that will (likely) be made to the content on the 
 - Swerve Drive
 - Joysticks
 - Autonomous robot control
-
-
-## Code changes
-- add a substitution regex to `generate.py` to remove short descriptions from main topic articles

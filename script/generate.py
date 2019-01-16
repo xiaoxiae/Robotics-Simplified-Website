@@ -6,12 +6,14 @@ from os import walk, path, sep, makedirs
 substitutions = [
     ("---\n(.+\n)+---", ""),                            # remove config
     ("^---\n", ""),                                     # remove linebreaks
-    ("^Modified.+", ""),                                # remove last modified
-    ("(^!\[.+?\]\(.+?\))\n(.*?\n)*\[.+\]\(.+\)\n{.+}", "\g<1>"), # remove srcs
+    ("^Modified *{.+", ""),                             # remove last modified
+    ("(^!\[.+?\]\(.+?\))\n(.*?\n)*\[.+\]\(.+\)\n{.+}",\
+     "\g<1>"),                                          # remove image sources
+    (".+\n*{: *\.fs-6 *\.fw-300 *}", ""),    # remove topic description sentence
     ("\\\\(sub)*section{Visualization}\n(.*\n)+^\\\\",\
      "\\\\"),                                           # remove visualizations
     ("\*\*(.+?)\*\*", "\\\\textbf{\g<1>}"),             # bold text
-    ("\*(.+?)\*", "\\\\textit{\g<1>}"),                 # * italics
+    ("\*(.+?)\*", "\\\\textit{\g<1>}"),                 # italics
     ("(```python\n){% +include +(.+?) +%}(\n```)",\
         lambda x: x.group(1) + \
         open(path.join("..", "_includes", x.group(2)), "r").read() + \
