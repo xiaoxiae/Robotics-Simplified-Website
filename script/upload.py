@@ -1,17 +1,20 @@
 from ftplib import FTP, error_perm
 import os
+from modules.crypto import decrypt
 from getpass import getpass
 
 def remove_content():
-    """Recursively removes all content that isn't on the permanent list."""
+    """Recursively removes all non-permanent content."""
+    permanent = ["info.php", "subdom", "domains", ".htaccess", ".gitkeep"]
+
     # for all subdirectories of the current directory
     for content in ftp.nlst():
         # if the content isn't permanent
-        if content not in permanent_content:
+        if content not in permanent:
             if "." in content:
                 # if it's a file, delete it immediately
                 ftp.delete(content)
-                print("DELETED FILE: "+ftp.pwd()+"/"+content)
+                print("DELETED FILE: " + ftp.pwd() + "/" + content)
             else:
                 # move down to the directory and call remove_content
                 ftp.cwd(content)
@@ -20,7 +23,7 @@ def remove_content():
                 # move up a directory and delete the folder
                 ftp.cwd("..")
                 ftp.rmd(content)
-                print("DELETED FOLDER: "+ftp.pwd()+"/"+content)
+                print("DELETED FOLDER: " + ftp.pwd() + "/" + content)
 
 
 def add_content():
@@ -37,7 +40,7 @@ def add_content():
     # upload all directories
     for directory in sorted(directories):
         ftp.mkd(directory)
-        print("CREATED DIRECTORY: "+directory)
+        print("CREATED DIRECTORY: " + directory)
 
     # get all files
     files = [os.path.join(root, name)[2:].replace("\\", "/")
@@ -46,30 +49,35 @@ def add_content():
 
     # upload all files
     for file in files:
-        ftp.storbinary('STOR '+file, open(file, "rb"))
-        print("CREATED FILE: "+file)
+        ftp.storbinary('STOR ' + file, open(file, "rb"))
+        print("CREATED FILE: " + file)
 
 
-permanent_content = ["info.php", "subdom", "domains", ".htaccess", ".gitkeep"]
-ip = "89.221.213.4"
+# an AES-encrypted IP to the FTP server
+encrypted_ip = b'gAAAAABcRxS1mc-1IjZFzPEJAeeyLUsBTHMj909m2mAIDtL1T-3M_DvHbaz2shds5W1QGQnruOXgp7whJskdYhkivm-OhJoS2A=='
 
 # repeatedly attempt to connect to the server
 while True:
     try:
-        with FTP(ip, input("Login: "), getpass("Password: ")) as ftp:
-            print("Connected!")
-            print(ftp.cwd('www'))
+        # get all the necessary login credentials
+        login = input("Login: ")
+        password = getpass("Password: ")
+        ip = decrypt(bytes(password, "utf-8"), encrypted_ip).decode("utf-8")
 
-            # remove all content that isn't permanent
-            remove_content()
+        # if the IP was successfully decrypted, attempt to connect
+        if ip != None:
+            with FTP(ip, login, password) as ftp:
+                print("Connected!")
+                print(ftp.cwd('www'))
 
-            # add all content from _site folder
-            add_content()
+                # remove all content that isn't permanent
+                remove_content()
 
-            # disconnect from the server and terminate the script
-            print(ftp.quit())
-            quit()
+                # add all content from _site folder
+                add_content()
+
+                # disconnect from the server and terminate the script
+                print(ftp.quit())
+                quit()
     except error_perm:
         print("Incorrect username or password!")
-
-

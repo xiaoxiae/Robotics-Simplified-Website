@@ -3,6 +3,7 @@
 from regex import sub, search, MULTILINE
 from datetime import datetime
 from os import path, makedirs
+from modules.structure import get_docs_structure
 
 
 def writeURL(url, subpath, file, priority = "0.8", lastmod = None):
@@ -36,7 +37,7 @@ if not path.exists(path.join("..", "_site")):
 
 # open the file and write the beginning
 sitemap = open(path.join("..", "_site", "sitemap.xml"), "w")
-sitemap.write(open(path.join("xml-generation-files", "beginning"), "r").read())
+sitemap.write(open(path.join("genfiles", "beginning.xml"), "r").read())
 
 # get the url of the website from _config.yml
 url = search("^url: \"(.+)\".*\n",\
@@ -48,9 +49,9 @@ writeURL(url, "", sitemap, "1.00",\
             .strftime('%Y-%m-%dT%H:%M:%S+00:00'))
 
 # write each article in docs/
-for subpath in open('structure', 'r').read().splitlines():
-    writeURL(url, subpath, sitemap)
+for subpath in get_docs_structure():
+    writeURL(url, path.join("..", "docs", subpath), sitemap)
 
 # write the ending and close the file
-sitemap.write(open(path.join("xml-generation-files", "ending"), "r").read())
+sitemap.write(open(path.join("genfiles", "ending.xml"), "r").read())
 sitemap.close()

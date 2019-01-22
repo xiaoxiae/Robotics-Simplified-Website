@@ -2,6 +2,7 @@
 
 from regex import sub, search, MULTILINE
 from os import path, sep
+from modules.structure import get_docs_structure
 
 # regular expressions and their substitution results
 substitutions = [
@@ -40,9 +41,12 @@ substitutions = [
 
 # open the file and write the beginning
 latex = open("website.tex", "w")
-latex.write(open(path.join("tex-generation-files", "beginning"), "r").read())
+latex.write(open(path.join("genfiles", "beginning.tex"), "r").read())
 
-for file in open('structure', 'r').read().splitlines():
+for file in get_docs_structure():
+    # adjust the path to the file
+    file = path.join("..", "docs", file)
+
     # the contents of the file
     content = open(file, 'r').read()
 
@@ -67,5 +71,5 @@ for file in open('structure', 'r').read().splitlines():
     latex.write(content)
 
 # write the ending and close the file
-latex.write(open(path.join("tex-generation-files", "ending"), "r").read())
+latex.write(open(path.join("genfiles", "ending.tex"), "r").read())
 latex.close()
