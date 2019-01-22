@@ -10,12 +10,11 @@ os.system("jekyll clean")
 os.system("jekyll build")
 os.chdir("script")
 
-# generate necessary files
-import generate_docs_structure
-import generate_sitemap
-import generate_tex_file
+# generate the sitemap
+import sitemap
 
-# convert latex file to pdf (twice, so contents are generated properly)
+# generate and convert the latex file to pdf (twice, so TOC generates correctly)
+import tex
 for _i in range(2):
     subprocess.call(r"pdflatex -interaction=nonstopmode website.tex", shell=True)
 
