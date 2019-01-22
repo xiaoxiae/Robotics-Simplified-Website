@@ -16,9 +16,19 @@ Arcade drive is a method of controlling the motors of a robot using two axes of 
 
 
 ## Deriving the equations
-Suppose that we have a joystick with an $$x$$ (horizontal) and a $$y$$ (vertical) axis.
+The equations used in the implementation are derived using [linear interpolation](https://en.wikipedia.org/wiki/Linear_interpolation). This allows us to transition from one coordinate to the other in a linear fashion, which provides a pleasant driving experience.
 
-There are many ways to get to the resulting arcade drive equations (for example by using [linear interpolation](https://www.chiefdelphi.com/media/papers/download/3495) for all of the 4 quadrants of the joystick input).
+I won't show the derivation here, since it isn't too exciting (if you're interested, it can be found in [this post](https://www.chiefdelphi.com/t/paper-arcade-drive/168720) on Chief Delphi), but rather an illustration to help you understand the derivation more intuitively.
+
+![Arcade Drive Illustration]({{site.url}}/assets/images/drivetrain-control/arcade-drive-illustration.png "Arcade Drive Illustration")
+
+What we want is to transform our $$x$$ and $$y$$ coordinates to the speeds of the motor. To do this, let's focus on the values we would *like* to be getting in the 1st quadrant. The left rectangle in the illustration represents the joystick values (in the 1st quadrant) and right one the speeds of the left and right motor (in the 1st quadrant). I would suggest you see the visualization at the end of the article, it demonstrates this nicely. 
+
+The speeds of the left motor $$l$$ are $$1$$ in all of the corners (besides the origin). Using $$x, y$$, we can achieve the same values by saying that $$l$$ is the bigger of the two... $$l = \text{max}(x, y)$$.
+
+As for the right motor $$r$$, As the $$x$$ and $$y$$ change their values, $$r$$ goes from $$1$$ (top left) to $$-1$$ (bottom right). We can model the same values using difference... $$r = y - x$$.
+
+A similar observation can be made about the other quadrants. This is mostly to show that you can think about the derivations more intuitively (since this particular one it isn't too complicated).
 
 
 ## Implementation
