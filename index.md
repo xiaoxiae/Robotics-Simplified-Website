@@ -25,12 +25,5 @@ The purpose of this projects is to provide resources for learning about concepts
 
 After reading through the articles on this website, you should have a solid understanding of the principles on which robots (like the ones in [FRC](https://www.firstinspires.org/robotics/frc)/[FTC](https://www.firstinspires.org/robotics/ftc)) operate, and be able to use them in practice.
 
----
-
-## Contributions
-I accept any and all recommendations/suggestions about this project. If there is anything you think should be changed/corrected, or you have a topic that you wish there was an article about, feel free to let me know.
-
-You can do so either by email found in the [About]({{site.baseurl }}about/) section, or by starting an issue on either of the GitHub repositories (see links in the top right of this page).
-
 Modified {% last_modified_at %B %-d, %Y %}
 {: .fs-2 style="text-align: right;" }
