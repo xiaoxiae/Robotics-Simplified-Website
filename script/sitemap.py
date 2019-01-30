@@ -6,13 +6,19 @@ from os import path, makedirs
 from modules.structure import get_docs_structure
 
 
-def writeURL(url, subpath, file, priority = "0.8", lastmod = None):
+def writeURL(url, subpath, file, lastmod = None):
     """Writes information about a specific URL to a file."""
-    # creates the url
-    address = url + "/" + subpath.replace(".md", "/")[8:].replace("\\", "/")
+    # converts the file subpath to a website path
+    converted_subpath = subpath.replace(".md", "/")[8:].replace("\\", "/")
 
     # if it's the main topic article, remove the repeating name
-    address = sub(r"\/(.+)\/\1\/$", "/\g<1>/", address)
+    converted_subpath = sub(r"(.+)\/\1\/$", "\g<1>/", converted_subpath)
+
+    # priority is the deeper the page is
+    priority = str(1.0 - converted_subpath.count("/") * 0.2)
+
+    # creates the url
+    address = url + "/" + converted_subpath
 
     # if lastmod wasn't specified, generate it from the path
     if lastmod == None:
@@ -44,7 +50,7 @@ url = search("^url: \"(.+)\".*\n",\
     open(path.join("..", "_config.yml"), "r").read(), MULTILINE).group(1)
 
 # write information about the main page
-writeURL(url, "", sitemap, "1.00",\
+writeURL(url, "", sitemap,\
     datetime.utcfromtimestamp(path.getmtime(path.join("..", "index.md")))\
             .strftime('%Y-%m-%dT%H:%M:%S+00:00'))
 
