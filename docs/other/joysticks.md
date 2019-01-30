@@ -41,6 +41,8 @@ This way is quick and easy, but the controls could feel a little weird, because 
 ### Scaling by distance to the edge
 Another method that would solve our problem is to find the maximum distance that the joystick could reach in the direction that it is pointing, and divide its position by this distance to scale it down so it never exceeds 1 (and we use all of the values).
 
+![Scaling by distance to the edge](/assets/images/other/joysticks/scaling-by-distance.png "Scaling by distance to the edge")
+
 The edge coordinates $$x_e$$ and $$y_e$$ can be calculated by "stretching" the current joystick values so they end up on the edge of the square. To do this, we will find the bigger of the absolute values of $$x$$ and $$y$$, and divide both the coordinates by this number.
 
 $$x_e = \frac{x}{max(|x|, |y|)}$$
@@ -64,3 +66,15 @@ The last method that we're going to discuss is a little heavier on math, so we a
 $$x', y' = \left(x\sqrt{1-\frac{y^2}{2}}, y\sqrt{1-\frac{x^2}{2}}\right)$$
 
 The coordinates that this method produces end up a little closer to what our actual value is, but it doesn't preserve the direction in which the joystick is pointing.
+
+
+### Visualization
+{% include code/visualization/js/other/joystick/visualization.js %}
+
+Each of the dots in the visualization represent a different approach:
+- **red** represents the first method (cutting values)
+- **green** represents the second method (scaling by edge)
+- **blue** represents the third method (line-ellipse method)
+- **black** is your cursor position
+
+Each of the aforementioned methods have their upsides and downsides. They all have their use cases and bring a different perspective to the problem we are trying to solve.
