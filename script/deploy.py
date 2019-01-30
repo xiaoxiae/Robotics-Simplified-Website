@@ -6,8 +6,8 @@ import subprocess
 
 # clean and build website
 os.chdir("..")
-os.system("jekyll clean")
-os.system("jekyll build")
+os.system("bundle exec jekyll clean")
+os.system("bundle exec jekyll build")
 os.chdir("script")
 
 # generate the sitemap
@@ -30,8 +30,11 @@ for f in os.listdir('.'):
     if os.path.isfile(f) and not f.endswith("py"):
         os.remove(f)
 
-# compress images larger than 100 KB
+# compress all images
 import compress
+
+# minify website's source code
+import minify
 
 # upload the website
 import upload
