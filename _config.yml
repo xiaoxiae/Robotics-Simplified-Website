@@ -1,19 +1,18 @@
 title: Robotics Simplified
-description: Intuitive explanation of robotics concepts.
-baseurl: "/" # site subpath
-url: "http://robotics-simplified.com" # the base hostname & protocol for the site
+description: Intuitive explanations of robotics concepts.
+baseurl: "/"
+url: "http://robotics-simplified.com"
 
 permalink: pretty
 exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"]
 
-# Enable or disable the site search
 search_enabled: true
 
-# Aux links for the upper right navigation
+# the upper right navigation
 aux_links:
   "PDF Version":
     - "http://robotics-simplified.com/assets/pdf/website.pdf"
-  "Project GitHub":
+  "GitHub":
     - "https://github.com/xiaoxiae/Robotics-Simplified-Website"
 
 color_scheme: nil
