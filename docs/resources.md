@@ -19,7 +19,7 @@ The website uses [MathJax](https://www.mathjax.org/) to render Latex equations. 
 The images used to illustrate the concepts on this website are modified using [Inkscape](https://inkscape.org/cs/) (free vector graphics editor) and [GIMP](https://www.gimp.org/) (free bitmap graphics editor). CAD model images are generated with [Fusion 360](https://www.autodesk.com/products/fusion-360/students-teachers-educators) (free CAD design software, assuming you are a student). I also used the [TinyPNG](https://tinypng.com/) website to compress the images.
 
 ## p5.js
-Visualizations on the website are created using the [p5.js](https://p5js.org/) library. This [example]((https://raw.githubusercontent.com/KevinWorkman/HappyCoding/gh-pages/examples/p5js/_posts/2018-07-04-fireworks.md) helped me understand how it worked with Jekyll. I use the [p5js web editor](https://editor.p5js.org/) to edit the visualizations before I put them on the website.
+Visualizations on the website are created using the [p5.js](https://p5js.org/) library. This [example](https://raw.githubusercontent.com/KevinWorkman/HappyCoding/gh-pages/examples/p5js/_posts/2018-07-04-fireworks.md) helped me understand how it worked with Jekyll. I use the [p5js web editor](https://editor.p5js.org/) to edit the visualizations before I put them on the website.
 
 ## VEX EDR
 To test the algorithms, I built a custom VEX EDR robot using [this kit](https://www.vexrobotics.com/276-3000.html) that the educational center [VCT](http://www.vctu.cz/) kindly lent me. The robot is programed in Python using [RobotMesh studio](https://www.robotmesh.com/studio) (for more information, see the Python [documentation](https://www.robotmesh.com/docs/vexcortex-python/html/namespaces.html)).
