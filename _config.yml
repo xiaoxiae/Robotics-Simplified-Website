@@ -17,5 +17,5 @@ aux_links:
 
 color_scheme: nil
 
-gems:
+plugins:
   - jekyll-last-modified-at
