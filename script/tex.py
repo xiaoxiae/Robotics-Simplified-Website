@@ -38,7 +38,7 @@ substitutions = [
     ("(^- (.+)\n)+?", "\\\\item \g<2>\n"),              # itemize
     ("^([0-9]\\. .+\n)+", "\\\\begin{enumerate}\n\g<0>\\\\end{enumerate}\n"),
     ("(^[0-9]\\. (.+)\n)+?", "\\\\item \g<2>\n"),       # enumerate
-    ("{:.+?}", "")                                      # delete liquid commands
+    ("{:.+?}", "")]                                     # delete liquid commands
 
 
 # open the file and write the beginning
