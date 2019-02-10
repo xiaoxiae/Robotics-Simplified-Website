@@ -14,9 +14,9 @@ substitutions = [
     (".+\n*{: *\.fs-6 *\.fw-300 *}", ""),    # remove topic description sentence
     ("\\\\(sub)*section{Visualization}\n(.*\n)+^\\\\",\
      "\\\\"),                                           # remove visualizations
-    ("\*{3}(.+?)\*{3}", "\\\\textbf{\\\\textit{\g<1>}}"),      # bold italics
-    ("\*{2}(.+?)\*{2}", "\\\\textbf{\g<1>}"),             # bold
-    ("\*{1}(.+?)\*{1}", "\\\\textit{\g<1>}"),                 # italics
+    ("\*{3}(.+?)\*{3}", "\\\\textbf{\\\\textit{\g<1>}}"), # bold italics
+    ("\*{2}(.+?)\*{2}", "\\\\textbf{\g<1>}"),           # bold
+    ("\*{1}(.+?)\*{1}", "\\\\textit{\g<1>}"),           # italics
     ("(```python\n){% +include +(.+?) +%}(\n```)",\
         lambda x: x.group(1) + \
         open(path.join("..", "_includes", x.group(2)), "r").read() + \
@@ -30,7 +30,7 @@ substitutions = [
      "\\\\caption{\g<2>}\n" + \
      "\\\\end{figure}"),
     ("\[(.+?)\]\((.+?)\)", "\\\\href{\g<2>}{\g<1>}"),   # href
-    ("(\$(\$.+?\$)\$)(?!^\1$)", "\g<2>"),               # $$.$$ to $.$
+    ("(?!^\$\$.+?\$\$$)(\$(\$.+?\$)\$)", "\g<2>"),      # $$.$$ to $.$
     ("`([^`\n]+?)`","\\\\texttt{\g<1>}"),               # `` md highlights
     ("ttt{[^}]*?_[^{]*?}", lambda x:x.group(0).replace("_", "\\_")), # escape _
     ("ref{[^}]*?%[^{]*?}", lambda x:x.group(0).replace("%", "\\%")), # escape %
