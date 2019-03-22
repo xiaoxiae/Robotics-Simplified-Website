@@ -2,6 +2,7 @@
 
 from regex import sub, search, MULTILINE
 from os import path, sep
+import subprocess
 from modules.structure import get_docs_structure
 
 # regular expressions and their substitution results
@@ -76,3 +77,7 @@ for file in get_docs_structure():
 # write the ending and close the file
 latex.write(open(path.join("genfiles", "ending.tex"), "r").read())
 latex.close()
+
+# convert the file to PDF
+for _i in range(2):
+    subprocess.call(r"pdflatex -interaction=nonstopmode website.tex", shell=True)
