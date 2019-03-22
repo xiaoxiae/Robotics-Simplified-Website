@@ -24,7 +24,7 @@ substitutions = [
     ("```python(\n(.*\n)+?)```",
      "\\\\begin{lstlisting}\g<1>\\\\end{lstlisting}"),  # code highlights
     ("!\[.+\]\({{.+}}(.+) \"(.+)\"\)", \
-     "\\\\begin{figure}\n" + \
+     "\\\\begin{figure}[H]\n" + \
      "\\\\centering\n" + \
      "\\\\includegraphics[width=0.8\\\\textwidth]{..\g<1>}\n" + \
      "\\\\caption{\g<2>}\n" + \
