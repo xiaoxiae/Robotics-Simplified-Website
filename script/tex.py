@@ -78,6 +78,6 @@ for file in get_docs_structure():
 latex.write(open(path.join("genfiles", "ending.tex"), "r").read())
 latex.close()
 
-# convert the file to PDF
+# convert the file to PDF using LuaLaTeX
 for _i in range(2):
-    subprocess.call(r"pdflatex -interaction=nonstopmode website.tex", shell=True)
+    subprocess.call(r"lualatex -shell-escape website.tex", shell=True)
