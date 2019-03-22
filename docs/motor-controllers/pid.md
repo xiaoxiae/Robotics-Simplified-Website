@@ -14,23 +14,23 @@ Our previous attempt at creating a controller that used feedback from the robot 
 {: .fs-1 style="text-align: right;" }
 
 Since [PID](https://en.wikipedia.org/wiki/PID_controller) is an abbreviation, let's talk about that the terms $$P$$, $$I$$ and $$D$$ mean:
-- $$P$$ stands for **proportional** - how large is the error now (in the **present**).
-- $$I$$ stands for **integral** - how large the error was in the **past.**
-- $$D$$ stands for **derivative** - what will the error likely be in the **future.**
+- $$P$$ stands for **proportional** -- how large is the error now (in the **present**).
+- $$I$$ stands for **integral** -- how large the error was in the **past.**
+- $$D$$ stands for **derivative** -- what will the error likely be in the **future.**
 
 The controller takes into account what happened, what is happening, and what will likely happen, and combine these things to produce the controller value.
 
 
 ## Deriving the equations
 Before diving into the equations, we need to define a terms to build the equations from:
-- $$e$$ - the current error (difference between robot position and its goal).
-- $$\Delta e$$ - difference between the current and the previous error.
-- $$\Delta t$$ - time elapsed since the last measurement.
-- $$p, i, d$$ - constants to determine, how important each of the terms are. Their values range from $$0$$ to $$\infty$$. This make it so that we can put more emphasis on some parts of the controller than others (or ignore them entirely).
+- $$e$$ -- the current error (difference between robot position and its goal).
+- $$\Delta e$$ -- difference between the current and the previous error.
+- $$\Delta t$$ -- time elapsed since the last measurement.
+- $$p, i, d$$ -- constants to determine, how important each of the terms are. Their values range from $$0$$ to $$\infty$$. This make it so that we can put more emphasis on some parts of the controller than others (or ignore them entirely).
 
 
 ### Proportional
-Proportional is quite straight forward - it only takes into account, how big the error is right now.
+Proportional is quite straight forward -- it only takes into account, how big the error is right now.
 
 $$P = e$$
 
@@ -52,7 +52,7 @@ This can, however, introduce additional instability to the controller, since the
 
 
 ### Derivative
-Derivative aims to further improve the controller by damping the values. We will calculate the rate of change of the error to predict its future behavior - the faster the robot goes, the bigger $$\Delta e$$ is, and the more it will push back against the $$P$$ term.
+Derivative aims to further improve the controller by damping the values. We will calculate the rate of change of the error to predict its future behavior -- the faster the robot goes, the bigger $$\Delta e$$ is, and the more it will push back against the $$P$$ term.
 
 $$D = \frac{\Delta e}{\Delta t}$$
 
@@ -74,7 +74,7 @@ The controller will need the $$p$$, $$i$$ and $$d$$ constants. It will also need
 {% include code/algorithms/motor-controllers/pid/implementation.py %}
 ```
 
-To fully understand how the controller works, I suggest you closely examine the `get_value()` function - that's where all the computation happens.
+To fully understand how the controller works, I suggest you closely examine the `get_value()` function -- that's where all the computation happens.
 
 Notice a new function called `reset` that we haven't seen in any of the other controllers. It is called every time we set the goal, because the controller accumulates error over time in the `integral` variable, and it would therefore take longer to adjust to the new goal.
 
@@ -110,9 +110,9 @@ One thing we have to think about is what to set the motors to when we get the va
 
 
 ### Two controller combination
-What's even nicer is that we can combine the two examples that we just implemented into one - a robot that drives forward and corrects itself when it isn't heading the right way.
+What's even nicer is that we can combine the two examples that we just implemented into one -- a robot that drives forward and corrects itself when it isn't heading the right way.
 
-We will create two controllers - one for driving straight by a certain distance and one for turning to correct possible heading errors.
+We will create two controllers -- one for driving straight by a certain distance and one for turning to correct possible heading errors.
 
 Arcade drive will again be our dear friend, since we can plug values from the controller that controls driving directly into the driving part of arcade drive, and the controller that controls heading directly into the turning part of arcade drive.
 

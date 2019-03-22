@@ -13,7 +13,7 @@ It uses one of the first equations you learned in physics: $$time = distance / v
 
 Let's look at an example: say our robot drives an average of $$v = 2.5 \frac{m}{s}$$. We want it to drive a distance of $$d = 10m$$. To calculate, how long it will take the robot, all you have to do is divide distance by velocity: $$t = d/v = 10/2.5 = 4s$$.
 
-This is exactly what dead reckoning does - it calculates the time it will take the robot to drive the distance to the goal. When asked, returns 1 if the time hasn't elapsed yet and 0 if it has.
+This is exactly what dead reckoning does -- it calculates the time it will take the robot to drive the distance to the goal. When asked, returns 1 if the time hasn't elapsed yet and 0 if it has.
 
 
 ## Implementation
@@ -24,8 +24,8 @@ There are two things that the controller needs: the average speed of the robot a
 ```
 
 As we see, the parameters the `__init__` function is expecting to get are:
-- `speed` - the average speed of the robot.
-- `get_current_time` - a function returning the current time (used to measure, whether the calculated time had elapsed).
+- `speed` -- the average speed of the robot.
+- `get_current_time` -- a function returning the current time (used to measure, whether the calculated time had elapsed).
 
 
 ## Example

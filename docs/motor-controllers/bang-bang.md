@@ -28,7 +28,7 @@ To make the robot drive a distance using this controller, we need a new `Encoder
 {% include code/algorithms/motor-controllers/bang-bang/example.py %}
 ```
 
-Notice that pretty much nothing changed between this and the dead reckoning example. This is the main advantage of all of the controllers having the same functions - we can use controller objects almost interchangeably, allowing us to easily try out and compare the accuracies of each of the controllers, without messing with the rest of our code.
+Notice that pretty much nothing changed between this and the dead reckoning example. This is the main advantage of all of the controllers having the same functions -- we can use controller objects almost interchangeably, allowing us to easily try out and compare the accuracies of each of the controllers, without messing with the rest of our code.
 
 
 ## Closing remarks

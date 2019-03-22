@@ -8,8 +8,8 @@ permalink: odometry/sensor-values/
 
 # Sensor Values
 There are two things we need to know to approximate the position:
-- **Distance $$\Delta$$** - how much did we move by?
-- **Heading $$\Delta$$** - which way are we heading?
+- **Distance $$\Delta$$** -- how much did we move by?
+- **Heading $$\Delta$$** -- which way are we heading?
 
 Assuming we have encoders on both sides of the robot, the distance is easy to calculate: we can read the values the encoders on both of the sides are reading and average them. Assuming we also have a gyro, heading is easy too: we can get the heading directly as the values the gyro is returning.
 

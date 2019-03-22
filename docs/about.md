@@ -16,7 +16,7 @@ Additional information about the project.
 ## Motivation
 When I joined the FRC team [Metal Moose](https://www.metalmoose.org/) and started learning about robotics, I didn't find many beginner-friendly resources for people like me. They were hard to find and scattered all around the web. One had to be quite persistent to actually learn something on their own.
 
-That is the main reason for the creation of this website - to serve as a resource for people that want to learn the concepts of robotics, without having to go though all the trouble of finding quality resources.
+That is the main reason for the creation of this website -- to serve as a resource for people that want to learn the concepts of robotics, without having to go though all the trouble of finding quality resources.
 
 ---
 

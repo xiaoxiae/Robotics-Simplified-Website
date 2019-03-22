@@ -13,7 +13,7 @@ Although you don't need to know any robotics before reading through this website
 ---
 
 ## Math
-To understand the math on this website, it is best to understand basic algebra, trigonometry, geometry. None of the math should exceed high-school level and if it does, there will be links to resources to explain them. **If math isn't your strong suit, it doesn't mean you won't learn anything from the website** - even if you skipped all the equations, you would still learn a lot.
+To understand the math on this website, it is best to understand basic algebra, trigonometry, geometry. None of the math should exceed high-school level and if it does, there will be links to resources to explain them. **If math isn't your strong suit, it doesn't mean you won't learn anything from the website** -- even if you skipped all the equations, you would still learn a lot.
 
 
 ## Programming
@@ -26,7 +26,7 @@ Knowing syntax of Python would also be helpful, since all of the code examples d
 
 It is also recommended to know a little about [object-oriented programming](https://en.wikipedia.org/wiki/Object-oriented_programming), since we will be basing most of the programs on objects of various classes.
 
-**If you don't know anything about programming but are interested in learning robotics anyway, you can still read through the chapters** - the code is included mainly to showcase possible implementations of the discussed concepts.
+**If you don't know anything about programming but are interested in learning robotics anyway, you can still read through the chapters** -- the code is included mainly to showcase possible implementations of the discussed concepts.
 
 
 ## Libraries and Classes
@@ -40,7 +40,7 @@ However, since the purpose of the code on this website is educational and not to
 
 
 ## Running the code
-All of the code on this website has been tested on a [VEX EDR](https://www.vexrobotics.com/vexedr) robot programmed in Python using [RobotMesh](https://www.robotmesh.com/). If you want to try out the code yourself, doing the same would be the easiest way - all you'd have to do is substitute the made-up classes and methods for real ones from the vex library and run the code.
+All of the code on this website has been tested on a [VEX EDR](https://www.vexrobotics.com/vexedr) robot programmed in Python using [RobotMesh](https://www.robotmesh.com/). If you want to try out the code yourself, doing the same would be the easiest way -- all you'd have to do is substitute the made-up classes and methods for real ones from the vex library and run the code.
 
 Modified {% last_modified_at %B %-d, %Y %}
 {: .fs-2 style="text-align: right;" }

@@ -16,7 +16,7 @@ The robot moved in an arch, the left encoder measured a distance $$l$$ and the r
 
 Deriving equations for this model will be a little more difficult than the previous one, but they should still be relatively simple to follow.
 
-The way to calculate the new coordinates is to find the radius $$R$$ of [ICC](https://en.wikipedia.org/wiki/Instant_centre_of_rotation) (*Instantaneous Center of Curvature* - the point around which the robot is turning) and then rotate $$x_0$$ and $$y_0$$ around it.
+The way to calculate the new coordinates is to find the radius $$R$$ of [ICC](https://en.wikipedia.org/wiki/Instant_centre_of_rotation) (*Instantaneous Center of Curvature* -- the point around which the robot is turning) and then rotate $$x_0$$ and $$y_0$$ around it.
 
 
 ### Calculating R
