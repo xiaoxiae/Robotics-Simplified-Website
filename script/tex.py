@@ -21,8 +21,8 @@ substitutions = [
         lambda x: x.group(1) + \
         open(path.join("..", "_includes", x.group(2)), "r").read() + \
         x.group(3)),                                    # insert code snippet
-    ("```python(\n(.*\n)+?)```",
-     "\\\\begin{lstlisting}\g<1>\\\\end{lstlisting}"),  # code highlights
+    ("```(.+?)(\n(.*\n)+?)```",
+     "\\\\begin{minted}{\g<1>}\g<2>\\\\end{minted}"),  # code highlights
     ("!\[.+\]\({{.+}}(.+) \"(.+)\"\)", \
      "\\\\begin{figure}[H]\n" + \
      "\\\\centering\n" + \

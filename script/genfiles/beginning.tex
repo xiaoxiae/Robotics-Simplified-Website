@@ -18,8 +18,11 @@
 
 
 % CODE %
-\usepackage{listings}
-\usepackage{color}
+\usepackage{minted} % highlight code with Pygments
+
+\setminted{linenos,    % number lines
+           breaklines, % break lines that exceed the line width
+           autogobble} % remove common leading whitespace
 
 
 % GRAPHICS
@@ -45,20 +48,6 @@
 \setlength\parindent{0pt}
 
 
-\lstset{
-	language=Python,
-	basicstyle=\fontsize{10}{12}\sffamily,
-	numbers=left,
- 	numberstyle=\tiny,
-	frame=tb,
-	tabsize=3,
-	columns=fixed,
-	showstringspaces=false,
-	showtabs=false,
-	keepspaces,
-	commentstyle=\color{red},
-	keywordstyle=\color{blue}
-}
 
 \begin{document}
 
