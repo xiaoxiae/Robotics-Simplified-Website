@@ -1,41 +1,59 @@
-\documentclass[a4paper, 12pt]{article}
+\documentclass[12pt]{article}
+\usepackage[a4paper,includefoot,margin=2.54cm]{geometry}
 
+% MATH %
 \usepackage{amsmath}
-\usepackage[total={17cm,25cm}, top=2.5cm, left=2cm, includefoot]{geometry}
-\usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage{listings}
-\usepackage{color}
-\usepackage{graphicx}
-\usepackage{titlesec}
 
+
+% LISTS %
+\usepackage{enumitem}
+
+% remove top lists separation
+\setlist[itemize]{topsep=0pt}
+\setlist[enumerate]{topsep=0pt}
+
+
+% URL HIGHLIGHTING %
+\usepackage[hyphens,spaces,obeyspaces]{url} % for formatting urls
+\usepackage[hidelinks, unicode,
+						colorlinks = true,
+						linkcolor = black,
+						urlcolor  = blue,
+						citecolor = black,
+						anchorcolor = black]{hyperref}
+
+
+% CODE %
+\usepackage{minted} % highlight code with Pygments
+
+\setminted{linenos,    % number lines
+           breaklines, % break lines that exceed the line width
+           autogobble} % remove common leading whitespace
+
+
+% GRAPHICS
+\usepackage{float} % the [H] floats option
+\usepackage{graphicx}
+
+
+% FONTS %
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 
+
+% HEADINGS %
+\usepackage{titlesec}
+
+% define subsubsubsection
 \newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 
-\setlist[itemize]{topsep=0pt}
-\setlist[enumerate]{topsep=0pt}
 \setlength{\itemindent}{0cm}
 \setlength{\parskip}{9pt}
 \setlength\parindent{0pt}
 
-\lstset{
-	language=Python,
-	basicstyle=\fontsize{10}{12}\sffamily,
-	numbers=left,
- 	numberstyle=\tiny,
-	frame=tb,
-	tabsize=3,
-	columns=fixed,
-	showstringspaces=false,
-	showtabs=false,
-	keepspaces,
-	commentstyle=\color{red},
-	keywordstyle=\color{blue}
-}
+% ---------------------------------------------------------------------------- %
 
 \begin{document}
 

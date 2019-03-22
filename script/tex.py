@@ -2,43 +2,45 @@
 
 from regex import sub, search, MULTILINE
 from os import path, sep
+import subprocess
 from modules.structure import get_docs_structure
 
 # regular expressions and their substitution results
 substitutions = [
-    ("---\n(.+\n)+---", ""),                            # remove config
-    ("^---\n", ""),                                     # remove linebreaks
-    ("^Modified *{.+", ""),                             # remove last modified
+    ("---\n(.+\n)+---", ""), # remove config
+    ("^---\n", ""), # remove linebreaks
+    ("^Modified *{.+", ""), # remove last modified
     ("(^!\[.+?\]\(.+?\))\n(.*?\n)*\[.+\]\(.+\)\n{.+}",\
-     "\g<1>"),                                          # remove image sources
-    (".+\n*{: *\.fs-6 *\.fw-300 *}", ""),    # remove topic description sentence
+     "\g<1>"), # remove image sources
+    (".+\n*{: *\.fs-6 *\.fw-300 *}", ""), # remove topic description sentence
     ("\\\\(sub)*section{Visualization}\n(.*\n)+^\\\\",\
-     "\\\\"),                                           # remove visualizations
+     "\\\\"), # remove visualizations
     ("\*{3}(.+?)\*{3}", "\\\\textbf{\\\\textit{\g<1>}}"), # bold italics
-    ("\*{2}(.+?)\*{2}", "\\\\textbf{\g<1>}"),           # bold
-    ("\*{1}(.+?)\*{1}", "\\\\textit{\g<1>}"),           # italics
+    ("\*{2}(.+?)\*{2}", "\\\\textbf{\g<1>}"), # bold
+    ("\*{1}(.+?)\*{1}", "\\\\textit{\g<1>}"), # italics
     ("(```python\n){% +include +(.+?) +%}(\n```)",\
         lambda x: x.group(1) + \
         open(path.join("..", "_includes", x.group(2)), "r").read() + \
-        x.group(3)),                                    # insert code snippet
-    ("```python(\n(.*\n)+?)```",
-     "\\\\begin{lstlisting}\g<1>\\\\end{lstlisting}"),  # code highlights
+        x.group(3)), # insert code snippet
+    ("```(.+?)(\n(.*\n)+?)```",
+     "\\\\begin{minted}{\g<1>}\g<2>\\\\end{minted}"), # code highlights
     ("!\[.+\]\({{.+}}(.+) \"(.+)\"\)", \
-     "\\\\begin{figure}\n" + \
+     "\\\\begin{figure}[H]\n" + \
      "\\\\centering\n" + \
      "\\\\includegraphics[width=0.8\\\\textwidth]{..\g<1>}\n" + \
      "\\\\caption{\g<2>}\n" + \
      "\\\\end{figure}"),
-    ("\[(.+?)\]\((.+?)\)", "\\\\href{\g<2>}{\g<1>}"),   # href
-    ("(?!^\$\$.+?\$\$$)(\$(\$.+?\$)\$)", "\g<2>"),      # $$.$$ to $.$
-    ("`([^`\n]+?)`","\\\\texttt{\g<1>}"),               # `` md highlights
+    ("\[(.+?)\]\((.+?)\)", "\\\\href{\g<2>}{\g<1>}"), # href
+    ("(?!^\$\$.+?\$\$$)(\$(\$.+?\$)\$)", "\g<2>"), # inline math ($...$)
+    ("^\$\$(.+?)\$\$$", "\\\\[\g<1>\\\\]"), # display math (\[.\])
+    ("`([^`\n]+?)`","\\\\texttt{\g<1>}"), # `` md highlights
     ("ttt{[^}]*?_[^{]*?}", lambda x:x.group(0).replace("_", "\\_")), # escape _
     ("ref{[^}]*?%[^{]*?}", lambda x:x.group(0).replace("%", "\\%")), # escape %
     ("^(- .+\n)+", "\\\\begin{itemize}\n\g<0>\\\\end{itemize}\n"),
-    ("(^- (.+)\n)+?", "\\\\item \g<2>\n"),              # itemize
+    ("(^- (.+)\n)+?", "\\\\item \g<2>\n"), # itemize
     ("^([0-9]\\. .+\n)+", "\\\\begin{enumerate}\n\g<0>\\\\end{enumerate}\n"),
-    ("(^[0-9]\\. (.+)\n)+?", "\\\\item \g<2>\n"),       # enumerate
-    ("{:.+?}", "")]                                     # delete liquid commands
+    ("(^[0-9]\\. (.+)\n)+?", "\\\\item \g<2>\n"), # enumerate
+    ("{:.+?}", "")] # delete liquid commands
 
 
 # open the file and write the beginning
@@ -75,3 +77,7 @@ for file in get_docs_structure():
 # write the ending and close the file
 latex.write(open(path.join("genfiles", "ending.tex"), "r").read())
 latex.close()
+
+# convert the file to PDF using LuaLaTeX
+for _i in range(2):
+    subprocess.call(r"lualatex -shell-escape website.tex", shell=True)

@@ -2,7 +2,6 @@
 scratch and to deploy it via FTP."""
 
 import os
-import subprocess
 
 # clean and build website
 os.chdir("..")
@@ -13,10 +12,8 @@ os.chdir("script")
 # generate the sitemap
 import sitemap
 
-# generate and convert the latex file to pdf (twice, so TOC generates correctly)
+# generate and convert the latex file to pdf
 import tex
-for _i in range(2):
-    subprocess.call(r"pdflatex -interaction=nonstopmode website.tex", shell=True)
 
 # move the PDF file to assets of the website
 destination = os.path.join("..", "_site", "assets", "pdf")
