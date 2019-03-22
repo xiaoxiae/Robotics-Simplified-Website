@@ -14,6 +14,8 @@ aux_links:
     - "http://robotics-simplified.com/assets/pdf/website.pdf"
   "GitHub":
     - "https://github.com/xiaoxiae/Robotics-Simplified-Website"
+  "Whitepaper":
+    - "https://github.com/xiaoxiae/soc-paper-2019"
 
 color_scheme: nil
 
