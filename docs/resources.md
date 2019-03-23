@@ -8,7 +8,7 @@ permalink: resources/
 # Resources
 {:.no_toc}
 
-Links to resources either directly used by the website (such as libraries), or that helped me understand the concepts mentioned in the articles.
+Links to resources either directly used by the website (such as libraries), or those that helped me understand the concepts mentioned in the articles.
 
 ---
 

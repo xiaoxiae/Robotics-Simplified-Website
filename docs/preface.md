@@ -24,8 +24,6 @@ Understand basic concepts of programming will definitely come in handy before re
 
 Knowing syntax of Python would also be helpful, since all of the code examples discussed in the project are written in Python. If you don't know much about Python, but already know how to program in a different language, [Dive into Python 3](http://histo.ucsf.edu/BMS270/diveintopython3-r802.pdf) is a great place to start.
 
-It is also recommended to know a little about [object-oriented programming](https://en.wikipedia.org/wiki/Object-oriented_programming), since we will be basing most of the programs on objects of various classes.
-
 **If you don't know anything about programming but are interested in learning robotics anyway, you can still read through the chapters** -- the code is included mainly to showcase possible implementations of the discussed concepts.
 
 

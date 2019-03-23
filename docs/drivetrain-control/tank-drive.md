@@ -7,7 +7,7 @@ permalink: drivetrain-control/tank-drive/
 ---
 
 # Tank drive
-Tank drive is a method of controlling the motors of a robot using two axes of a controller, where each of the axes operate motors on one side of the robot (see image below, or [this video](https://www.youtube.com/watch?v=vK2CGj8gAWc)).
+Tank drive is a method of controlling the motors of a _tank drive drivetrain_ using two axes of a controller, where each of the axes operate motors on one side of the robot (see image below, or [this video](https://www.youtube.com/watch?v=vK2CGj8gAWc)).
 
 ![Tank Drive]({{site.url}}/assets/images/drivetrain-control/tank-drive.png "Tank Drive")
 
@@ -26,15 +26,15 @@ Implementing tank drive is quite straightforward: set the left motor to the $$y_
 
 
 ## Examples
+The following example demonstrates, how to make the robot drive using tank drive controlled by a joystick.
+
 ```python
 {% include code/algorithms/drivetrain-control/tank-drive/example.py %}
 ```
 
-This example demonstrates, how to make the robot drive using tank drive controlled by a joystick.
-
 
 ## Closing remarks
-Tank drive is a very basic and easy way to control the robot. When it comes to FRC, it is a frequently used method for its simplicity, and because it is easier for some drivers to control the robot this way, compared to the other discussed methods.
+Tank drive is a very basic and easy way to control the robot. When it comes to FRC, it is a method used frequently for its simplicity, and because it is easier for some drivers to control the robot this way, compared to the other discussed methods.
 
 Modified {% last_modified_at %B %-d, %Y %}
 {: .fs-2 style="text-align: right;" }

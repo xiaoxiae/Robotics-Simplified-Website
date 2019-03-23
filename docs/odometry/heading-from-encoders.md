@@ -17,13 +17,13 @@ But what if we didn't have a gyro?
 
 
 ## Calculate heading without gyro
-Although gyro is arguably the most precise way to measure the current heading, it's not always available. It might be too expensive, impractical to include on a small robot, or unable to be used because of other conditions. In cases like these, it is good to know how to calculate heading only from the encoders.
+Although gyro is arguably the most precise way to measure the current heading, it's not always available. It might be too expensive, impractical to include on a small robot, or not viable because of other conditions. In cases like these, it is good to know how to calculate heading only from the encoders.
 
-Say the robot drove a small arc. The left encoder measured a distance $$l$$ and the right side measured a distance $$r$$. The length between the two wheels is $$c$$, the angle by which we turned is $$\omega$$ (measured in radians), and $$x$$ is just a variable to help with our calculations.
+Say the robot drove a small arc. The left encoder measured a distance $$l$$ and the right side measured a distance $$r$$. The length between the two wheels of the drivetrain is $$c$$, the angle by which we turned is $$\omega$$ (measured in radians), and $$x$$ is just a variable to help with our calculations.
 
 ![Heading from encoders]({{site.url}}/assets/images/odometry/heading-from-encoders.png "Heading from encoders")
 
-Let's derive the equations for the lengths of the arches $$l$$ and $$r$$ (here is an article about [arc length](https://www.mathopenref.com/arclength.html), if you need further clarification):
+Let's derive the equations for the lengths of the arches $$l$$ and $$r$$ in terms of the other variables (here is an article about [arc length](https://www.mathopenref.com/arclength.html), if you need further clarification):
 
 $$l=x\cdot\omega\qquad r=\left(c+x\right)\cdot\omega$$
 

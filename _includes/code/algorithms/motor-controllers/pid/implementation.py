@@ -48,7 +48,7 @@ class PID:
         # update previous error and previous time values to the current values
         self.previous_time, self.previous_error = time, error
 
-        # add past, present and future
+        # add P, I and D
         pid = self.proportional + self.integral + self.derivative
 
         # return pid adjusted to values from -1 to +1

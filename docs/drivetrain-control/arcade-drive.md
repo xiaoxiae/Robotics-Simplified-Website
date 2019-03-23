@@ -7,7 +7,7 @@ permalink: drivetrain-control/arcade-drive/
 ---
 
 # Arcade drive
-Arcade drive is a method of controlling the motors of a robot using two axes of a controller, where one of the axes controls the speed of the robot, and the other the steering of the robot.
+Arcade drive is a method of controlling the motors of a _tank drive drivetrain_ using two axes of a controller, where one of the axes controls the speed of the robot, and the other the steering of the robot.
 
 ![Arcade Drive]({{site.url}}/assets/images/drivetrain-control/arcade-drive.png "Arcade Drive")
 
@@ -22,7 +22,7 @@ I won't show the derivation here, since it isn't too exciting (if you're interes
 
 ![Arcade Drive Illustration]({{site.url}}/assets/images/drivetrain-control/arcade-drive-illustration.png "Arcade Drive Illustration")
 
-What we want is to transform our $$x$$ and $$y$$ coordinates to the speeds of the motor. To do this, let's focus on the values we would *like* to be getting in the 1st quadrant. The left rectangle in the illustration represents the joystick values (in the 1st quadrant) and right one the speeds of the left and right motor (in the 1st quadrant). I would suggest you see the visualization at the end of the article, it demonstrates this nicely. 
+What we want is to transform our $$x$$ and $$y$$ coordinates to the speeds of the motor. To do this, let's focus on the values we would *like* to be getting in the 1st quadrant. The left rectangle in the illustration represents the joystick values (in the 1st quadrant) and right one the speeds of the left and right motor (in the 1st quadrant). I would suggest you see the visualization at the end of the article, it demonstrates this nicely.
 
 The speeds of the left motor $$l$$ are $$1$$ in all of the corners (besides the origin). Using $$x, y$$, we can achieve the same values by saying that $$l$$ is the bigger of the two... $$l = \text{max}(x, y)$$.
 
@@ -38,7 +38,7 @@ A similar observation can be made about the other quadrants. This is mostly to s
 
 
 ## Examples
-Here's a program that makes the robot drive using the values from the joystick:
+The following example demonstrates, how to make the robot drive using arcade drive controlled by a joystick.
 
 ```python
 {% include code/algorithms/drivetrain-control/arcade-drive/example.py %}
@@ -46,7 +46,7 @@ Here's a program that makes the robot drive using the values from the joystick:
 
 
 ## Visualization
-Here is a quick interactive visualization of the sorts of values our function sets the motors to for different values of $$x$$ and $$y$$:
+Here is an interactive visualization of the sorts of values our function sets the motors to for different values of $$x$$ and $$y$$:
 
 {% include code/visualization/js/drivetrain-control/arcade-drive/visualization.js %}
 

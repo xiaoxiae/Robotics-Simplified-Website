@@ -16,7 +16,7 @@ Tracking the position of the robot.
 
 Odometry is the use of data from sensors of the robot to estimate its position over time.
 
-This means that we can calculate where the robot is at the moment, by getting information from sensors such as an encoder, a gyro, or a camera, and performing calculations using said information.
+This means that we can calculate where the robot is at the moment, by getting information from sensors such as an encoder, a gyro, or a camera, and performing calculations on said information.
 
 Modified {% last_modified_at %B %-d, %Y %}
 {: .fs-2 style="text-align: right;" }

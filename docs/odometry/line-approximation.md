@@ -7,7 +7,7 @@ permalink: odometry/line-approximation/
 ---
 
 # Line Approximation
-For our first approximation, let's make an assumption: instead of an arc, the robot will first turn to the specified angle, and only then drive the distance in a straight line.
+For our first approximation, let's make an assumption: instead of driving an arc, the robot will first turn by the specified angle, and only then drive the distance in a straight line.
 
 This is quite a reasonable assumption to make for smaller angles: since we are updating the position multiple times per second, the angles aren't going to be too large.
 
