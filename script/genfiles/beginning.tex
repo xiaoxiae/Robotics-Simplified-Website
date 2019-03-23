@@ -40,7 +40,7 @@
 \usepackage[utf8]{inputenc}
 
 
-% HEADINGS %
+% TEXT FORMATTING %
 \usepackage{titlesec}
 
 % define subsubsubsection as parahraph
@@ -48,12 +48,20 @@
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 
-\setlength{\itemindent}{0cm}
-\setlength{\parskip}{9pt}
+\setlength\itemindent{0pt}
+\setlength\parskip{9pt}
 \setlength\parindent{0pt}
+
+\titlespacing{\section}      {0pt}{0pt}{6pt}
+\titlespacing{\subsection}   {0pt}{0pt}{4pt}
+\titlespacing{\subsubsection}{0pt}{0pt}{2pt}
+\titlespacing{\paragraph}    {0pt}{0pt}{0pt}
 
 % create the command subsubsubsection
 \let\subsubsubsection\paragraph
+
+% increase the baseline stretch for readability
+\renewcommand{\baselinestretch}{1.15} % baseline stretch is 1.15
 
 % ---------------------------------------------------------------------------- %
 

@@ -32,7 +32,7 @@ substitutions = [
      "\\\\end{figure}"),
     ("\[(.+?)\]\((.+?)\)", "\\\\href{\g<2>}{\g<1>}"), # href
     ("(?!^\$\$.+?\$\$$)(\$(\$.+?\$)\$)", "\g<2>"), # inline math ($...$)
-    ("^\$\$(.+?)\$\$$", "\\\\[\g<1>\\\\]"), # display math (\[.\])
+    ("^\$\$(.+?)\$\$$", "\\\\vspace{-\\\\parskip}\\\\[\g<1>\\\\]"), # display math (\[.\])
     ("`([^`\n]+?)`","\\\\texttt{\g<1>}"), # `` md highlights
     ("ttt{[^}]*?_[^{]*?}", lambda x:x.group(0).replace("_", "\\_")), # escape _
     ("ref{[^}]*?%[^{]*?}", lambda x:x.group(0).replace("%", "\\%")), # escape %
