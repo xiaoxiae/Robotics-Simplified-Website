@@ -6,12 +6,10 @@ class DeadReckoning:
         self.get_current_time = get_current_time
         self.speed = speed
 
-
     def set_goal(self, goal):
         """Sets the goal of the controller (and also starts the controller)."""
         self.goal = goal
         self.start_time = self.get_current_time()
-
 
     def get_value(self):
         """Return the current value the controller is returning."""

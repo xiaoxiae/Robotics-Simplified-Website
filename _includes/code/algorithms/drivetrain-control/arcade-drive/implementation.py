@@ -6,16 +6,16 @@ def arcade_drive(rotate, drive, left_motor, right_motor):
 
     # set speed according to the quadrant that the values are in
     if drive >= 0:
-        if rotate >= 0: # I quadrant
+        if rotate >= 0:  # I quadrant
             left_motor(maximum)
             right_motor(difference)
-        else:           # II quadrant
+        else:            # II quadrant
             left_motor(total)
             right_motor(maximum)
     else:
-        if rotate >= 0: # IV quadrant
+        if rotate >= 0:  # IV quadrant
             left_motor(total)
             right_motor(-maximum)
-        else:           # III quadrant
+        else:            # III quadrant
             left_motor(-maximum)
             right_motor(difference)

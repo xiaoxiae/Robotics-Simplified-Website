@@ -7,7 +7,6 @@ class PolynomialFunction:
         self.coefficients = coefficients    # the coefficients of the function
         self.get_feedback_value = get_feedback_value   # the feedback function
 
-
     def get_value(self):
         """Returns the polynomial function value at feedback function value."""
         # calculate the x coordinate (by "stretching" the function by goal)
@@ -24,7 +23,6 @@ class PolynomialFunction:
 
         # if goal is negative, function value is negative
         return value if self.goal > 0 else -value
-
 
     def set_goal(self, goal):
         """Sets the goal of the controller."""

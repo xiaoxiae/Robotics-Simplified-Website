@@ -7,7 +7,7 @@ encoder = Encoder()
 controller = Bangbang(encoder)
 controller.set_goal(10)
 
-while  True:
+while True:
     # get the controller value
     controller_value = controller.get_value()
 

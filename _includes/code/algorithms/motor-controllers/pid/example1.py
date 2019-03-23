@@ -7,7 +7,7 @@ encoder = Encoder()
 controller = PID(0.07, 0.001, 0.002, time, encoder)
 controller.set_goal(10)
 
-while  True:
+while True:
     # get the controller value
     controller_value = controller.get_value()
 

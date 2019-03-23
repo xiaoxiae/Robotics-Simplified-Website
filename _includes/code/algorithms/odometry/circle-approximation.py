@@ -1,5 +1,6 @@
 from math import cos, sin
 
+
 class CircleApproximation:
     """A class to track the position of the robot in a system of coordinates
     using only encoders as feedback, using a combination of line and circle
@@ -15,7 +16,6 @@ class CircleApproximation:
 
         # starting position of the robot
         self.x, self.y = 0, 0
-
 
     def update(self):
         """Update the position of the robot."""
@@ -38,12 +38,11 @@ class CircleApproximation:
 
             # calculate the robot position by finding a point that is rotated
             # around ICC by heading delta
-            self.x +=   R * sin(h_delta + heading) - R * sin(heading)
+            self.x += R * sin(h_delta + heading) - R * sin(heading)
             self.y += - R * cos(h_delta + heading) + R * cos(heading)
 
         # set previous values to current values
         self.prev_l, self.prev_r, self.prev_heading = l, r, heading + h_delta
-
 
     def get_position(self):
         """Return the position of the robot."""

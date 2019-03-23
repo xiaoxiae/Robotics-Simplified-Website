@@ -1,5 +1,6 @@
 from math import cos, sin
 
+
 class LineApproximation:
     """A class to track the position of the robot in a system of coordinates
     using only encoders as feedback, using the line approximation method."""
@@ -14,7 +15,6 @@ class LineApproximation:
 
         # starting position of the robot
         self.x, self.y = 0, 0
-
 
     def update(self):
         """Update the position of the robot."""
@@ -33,7 +33,6 @@ class LineApproximation:
 
         # set previous values to current values
         self.prev_l, self.prev_r, self.prev_heading = l, r, heading + h_delta
-
 
     def get_position(self):
         """Return the position of the robot."""

@@ -5,11 +5,9 @@ class Bangbang:
         """Create the bang-bang controller object from the feedback function."""
         self.get_feedback_value = get_feedback_value
 
-
     def set_goal(self, goal):
         """Sets the goal of the bang-bang controller."""
         self.goal = goal
-
 
     def get_value(self):
         """Returns +1 or -1 (depending on the value of the goal) when the robot

@@ -6,7 +6,7 @@ right_motor = Motor(2)
 controller = DeadReckoning(2.5, get_current_time)
 controller.set_goal(10)
 
-while  True:
+while True:
     # get the controller value
     controller_value = controller.get_value()
 

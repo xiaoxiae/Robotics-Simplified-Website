@@ -11,7 +11,6 @@ class PID:
         self.get_current_time = get_current_time
         self.get_feedback_value = get_feedback_value
 
-
     def reset(self):
         """Resets/creates variables for calculating the PID values."""
         # reset PID values
@@ -19,7 +18,6 @@ class PID:
 
         # reset previous time and error variables
         self.previous_time, self.previous_error = 0, 0
-
 
     def get_value(self):
         """Calculates and returns the PID value."""
@@ -53,7 +51,6 @@ class PID:
 
         # return pid adjusted to values from -1 to +1
         return 1 if pid > 1 else -1 if pid < -1 else pid
-
 
     def set_goal(self, goal):
         """Sets the goal and resets the controller variables."""
