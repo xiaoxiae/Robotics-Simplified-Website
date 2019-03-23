@@ -44,7 +44,7 @@ To rotate $$(x_0, y_0)$$ around ICC (and therefore find $$(x, y)$$), we will fir
 
 $$x = (x_0 - ICC_x) \cdot cos(\omega) - (y_0 - ICC_y) \cdot sin(\omega) + ICC_x$$
 
-$$y = (x_0 - ICC_x) \cdot sin(\omega) - (y_0 - ICC_y) \cdot cos(\omega) + ICC_y$$
+$$y = (x_0 - ICC_x) \cdot sin(\omega) + (y_0 - ICC_y) \cdot cos(\omega) + ICC_y$$
 
 We are then going to plug in the values for $$ICC_x$$, $$ICC_y$$ and simplify.
 
