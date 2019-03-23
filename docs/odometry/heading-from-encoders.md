@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Sensor Values
+title: Heading from Encoders
 nav_order: 1
 parent: Odometry
-permalink: odometry/sensor-values/
+permalink: odometry/heading-from-encoders/
 ---
 
-# Sensor Values
+# Heading from Encoders
 There are two things we need to know to approximate the position:
 - **Distance $$\Delta$$** -- how much did we move by?
 - **Heading $$\Delta$$** -- which way are we heading?
