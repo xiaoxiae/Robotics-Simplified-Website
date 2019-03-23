@@ -43,14 +43,17 @@
 % HEADINGS %
 \usepackage{titlesec}
 
-% define subsubsubsection
-\newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
+% define subsubsubsection as parahraph
+\titleformat{\paragraph}{\bfseries\normalsize}{\theparagraph}{1em}{}
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 
 \setlength{\itemindent}{0cm}
 \setlength{\parskip}{9pt}
 \setlength\parindent{0pt}
+
+% create the command subsubsubsection
+\let\subsubsubsection\paragraph
 
 % ---------------------------------------------------------------------------- %
 
