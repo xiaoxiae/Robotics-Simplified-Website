@@ -30,7 +30,8 @@ substitutions = [
      "\\\\includegraphics[width=0.8\\\\textwidth]{..\g<1>}\n" + \
      "\\\\caption{\g<2>}\n" + \
      "\\\\end{figure}"),
-    ("\[(.+?)\]\((.+?)\)", "\\\\href{\g<2>}{\g<1>}"), # href
+    ("\[(.+?)\]\(\{\{site\.baseurl\}\}(.+?)\)", "\g<1>"), # remove relative references
+    ("\[(.+?)\]\((.+?)\)", "\\\\href{\g<2>}{\g<1>}"), # regular website links
     ("(?!^\$\$.+?\$\$$)(\$(\$.+?\$)\$)", "\g<2>"), # inline math ($...$)
     ("^\$\$(.+?)\$\$$", "\\\\vspace{-\\\\parskip}\\\\[\g<1>\\\\]"), # display math (\[.\])
     ("`([^`\n]+?)`","\\\\texttt{\g<1>}"), # `` md highlights
