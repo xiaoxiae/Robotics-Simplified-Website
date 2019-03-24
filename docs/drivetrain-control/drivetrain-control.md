@@ -20,7 +20,7 @@ Algorithms and techniques used to control the motors of the robot's **[drivetrai
 ---
 
 The drivetrain of a vehicle is a group of components that deliver power to the driving wheels, hold them together and allow them to move. Some of the [most popular ones](http://www.simbotics.org/resources/mobility/drivetrain-selection) are:
-- **tank drive** -- left and right side motors are driven independently -- like a _tank_
+- **tank drive** -- left and right side motors are driven independently -- like a *tank*
 - **mecanum drive** -- similar to tank drive, but uses [mecanum wheels](http://www.wcproducts.net/wheels-hubs/mecanum-wheels), each of which is driven independently -- allows for more maneuverability
 - **swerve drive** -- each wheel can rotate vertically around its axis -- the robot can drive and rotate in any direction
 

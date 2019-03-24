@@ -7,7 +7,7 @@ permalink: drivetrain-control/arcade-drive/
 ---
 
 # Arcade drive
-Arcade drive is a method of controlling the motors of a _tank drive drivetrain_ using two axes of a controller, where one of the axes controls the speed of the robot, and the other the steering of the robot.
+Arcade drive is a method of controlling the motors of a *tank drive drivetrain* using two axes of a controller, where one of the axes controls the speed of the robot, and the other the steering of the robot.
 
 ![Arcade Drive]({{site.url}}/assets/images/drivetrain-control/arcade-drive.png "Arcade Drive")
 

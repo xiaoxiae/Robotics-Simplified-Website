@@ -7,7 +7,7 @@ permalink: drivetrain-control/tank-drive/
 ---
 
 # Tank drive
-Tank drive is a method of controlling the motors of a _tank drive drivetrain_ using two axes of a controller, where each of the axes operate motors on one side of the robot (see image below, or [this video](https://www.youtube.com/watch?v=vK2CGj8gAWc)).
+Tank drive is a method of controlling the motors of a *tank drive drivetrain* using two axes of a controller, where each of the axes operate motors on one side of the robot (see image below, or [this video](https://www.youtube.com/watch?v=vK2CGj8gAWc)).
 
 ![Tank Drive]({{site.url}}/assets/images/drivetrain-control/tank-drive.png "Tank Drive")
 
