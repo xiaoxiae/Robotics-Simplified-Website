@@ -26,7 +26,7 @@ Combining the equations and solving for R gives us:
 
 $$R = \left(\frac{r+l}{\omega \cdot 2} \right)$$
 
-From our previous article about [Sensor Values]({{site.baseurl}}odometry/sensor-values/), we know that $$\omega = \frac{r - l}{c}$$. If we don't have a gyro, we can just plug that into our newly derived formula and get:
+From our previous article about [Heading from Encoders]({{site.baseurl}}odometry/heading-from-encoders/), we know that $$\omega = \frac{r - l}{c}$$. If we don't have a gyro, we can just plug that into our newly derived formula and get:
 
 $$R = \frac{r+l}{\frac{r - l}{c} \cdot 2} = \frac{r+l}{r - l} \cdot \frac{c}{2}$$
 
