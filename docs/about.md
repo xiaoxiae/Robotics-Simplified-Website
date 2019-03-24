@@ -23,7 +23,7 @@ That is the main reason for the creation of this website -- to serve as a resour
 ## Contributions
 I accept any and all recommendations/suggestions about this website. If there is anything you think should be changed/corrected, or you have a topic that you wish there was an article about, feel free to let me know.
 
-You can do so either by email (`contact@robotics-simplified.com`), or by creating an issue on the website's GitHub repositories (see link on the top right of the page).
+You can do so either by email (`tomas.slama.131@gmail.com`), or by creating an issue on the website's GitHub repositories (see link on the top right of this page).
 
 ---
 
