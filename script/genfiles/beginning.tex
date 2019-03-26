@@ -25,9 +25,18 @@
 % CODE %
 \usepackage{minted} % highlight code with Pygments
 
-\setminted{linenos,    % number lines
-           breaklines, % break lines that exceed the line width
-           autogobble} % remove common leading whitespace
+\setminted{linenos,                     % number lines
+           breaklines,                  % break lines that exceed the line width
+           autogobble,                  % remove common leading whitespace
+					 baselinestretch=1,           % line stretch
+					 frame=lines,                 % add frame (top and bottom lines)
+					 framesep=6pt,			 					% text and frame separation
+					 fontsize=\footnotesize}      % decrease size to fit line widths
+
+% reduce spacing in code examples
+\usepackage{etoolbox}
+\BeforeBeginEnvironment{minted}{\vspace{-\parskip}}
+\setlength\partopsep{-\topsep}
 
 
 % GRAPHICS

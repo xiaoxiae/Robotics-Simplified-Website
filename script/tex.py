@@ -23,7 +23,7 @@ substitutions = [
         open(path.join("..", "_includes", x.group(2)), "r").read() + \
         x.group(3)), # insert code snippet
     ("```(.+?)(\n(.*\n)+?)```",
-     "{\\\\setstretch{1}\n\\\\begin{minted}{\g<1>}\g<2>\\\\end{minted}\n}"), # code highlights
+     "\\\\begin{minted}{\g<1>}\g<2>\\\\end{minted}\n"), # code highlights
     ("!\[.+\]\({{.+}}(.+) \"(.+)\"\)", \
      "\\\\begin{figure}[H]\n" + \
      "\\\\centering\n" + \
