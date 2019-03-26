@@ -13,7 +13,7 @@ Links to resources either directly used by the website (such as libraries), or t
 ---
 
 ## Math
-The website uses [KaTeX](https://katex.org/) to render Latex equations.
+The website uses [$$\text{\KaTeX}$$](https://katex.org/) to render $$\text{\LaTeX}$$ equations.
 
 ## Images
 The images used to illustrate the concepts on this website are modified using [Inkscape](https://inkscape.org/cs/) (free vector graphics editor) and [GIMP](https://www.gimp.org/) (free bitmap graphics editor). CAD model images are generated with [Fusion 360](https://www.autodesk.com/products/fusion-360/students-teachers-educators) (free CAD design software, assuming you are a student). I also used the [TinyPNG](https://tinypng.com/) website to compress the images.

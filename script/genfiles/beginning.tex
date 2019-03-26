@@ -82,6 +82,19 @@
 \widowpenalty10000 % prevent widows
 \clubpenalty10000  % prevent orphans
 
+% define KaTeX logo
+\makeatletter
+\DeclareRobustCommand{\KaTeX}{%
+  K\kern -.19em
+  {\sbox \z@ T\vbox to\ht \z@ {\hbox{%
+  \check@mathfonts
+  \fontsize\sf@size\z@
+  \selectfont A}%
+  \vss}%
+}\kern -.15em
+\TeX}
+\makeatother
+
 % ---------------------------------------------------------------------------- %
 
 \begin{document}
