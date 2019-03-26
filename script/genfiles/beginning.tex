@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[12pt,twoside]{article}
 \usepackage[a4paper,includefoot,margin=2.54cm]{geometry}
 
 % MATH %
@@ -81,6 +81,9 @@
 
 \begin{document}
 
+% suppress page numbering
+\pagenumbering{gobble}
+
 % prevent text overflow
 \sloppy
 
@@ -89,9 +92,16 @@
     \vspace*{2cm}
 		\Huge \textbf{Robotics Simplified}\\
 		\normalsize \vspace{0.5cm}
-		Generated \today
+		Generated \today.
 	\end{center}
 \end{titlepage}
 
+\cleardoublepage
+
+% resume page numbering
+\pagenumbering{arabic}
+\setcounter{page}{1}%
+
 \tableofcontents
-\newpage
+
+\cleardoublepage
