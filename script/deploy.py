@@ -22,11 +22,6 @@ if not os.path.exists(destination):
     os.makedirs(destination)
 os.rename("website.pdf", os.path.join(destination, "website.pdf"))
 
-# clean-up unnecessary tex files
-for f in os.listdir('.'):
-    if os.path.isfile(f) and not f.endswith("py"):
-        os.remove(f)
-
 # compress all images
 import compress
 

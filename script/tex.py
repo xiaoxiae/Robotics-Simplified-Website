@@ -1,7 +1,7 @@
 """Converts the website into a tex document."""
 
 from regex import sub, search, MULTILINE
-from os import path, sep
+from os import path, sep, listdir, remove
 import subprocess
 from modules.structure import get_docs_structure
 
@@ -43,6 +43,10 @@ substitutions = [
     ("(^[0-9]\\. (.+)\n)+?", "\\\\item \g<2>\n"), # enumerate
     ("{:.+?}", "")] # delete liquid commands
 
+# clean-up unnecessary tex files
+for f in listdir('.'):
+    if path.isfile(f) and not f.endswith("py"):
+        remove(f)
 
 # open the file and write the beginning
 latex = open("website.tex", "w")
