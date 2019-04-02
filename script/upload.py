@@ -55,20 +55,23 @@ def add_content():
 
 # an AES-encrypted IP to the FTP server
 encrypted_ip = b'gAAAAABcRxS1mc-1IjZFzPEJAeeyLUsBTHMj909m2mAIDtL1T-3M_DvHbaz2shds5W1QGQnruOXgp7whJskdYhkivm-OhJoS2A=='
+decrypted_ip = None
+
+# repeatedly attempt to decrypt the IP
+while decrypted_ip is None:
+    decrypted_ip = decrypt(bytes(getpass("IP Key: "), "utf-8"), encrypted_ip)
+
+ip = decrypted_ip.decode("utf-8")
 
 # repeatedly attempt to connect to the server
 while True:
-    try:
-        # get all the necessary login credentials
-        login = input("Login: ")
-        password = getpass("Password: ")
-        ip = decrypt(bytes(password, "utf-8"), encrypted_ip).decode("utf-8")
+    login = input("Login: ")
+    password = getpass("Password: ")
 
-        # if the IP was successfully decrypted, attempt to connect
-        if ip != None:
-            with FTP(ip, login, password) as ftp:
-                print("Connected!")
-                print(ftp.cwd('www'))
+    try:
+        with FTP(ip, login, password) as ftp:
+            print("Connected!")
+            print(ftp.cwd('www'))
 
                 # remove all content that isn't permanent
                 remove_content()
