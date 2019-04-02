@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Odometry
-nav_order: 5
+nav_order: 12
 has_children: true
 permalink: odometry/
 ---
