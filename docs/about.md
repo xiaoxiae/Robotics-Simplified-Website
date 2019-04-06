@@ -29,6 +29,7 @@ You can do so either by email (`tomas.slama.131@gmail.com`), or by creating an i
 
 ## Acknowledgements
 I would like to thank the following people for their help in making this project a reality:
+- **Ing. Daniel Kajzr** for insightful conversations about the project.
 - **Kateřina Sulková** for being loving, supportive, and especially helpful in writing the SOČ paper.
 - **Matěj Halama** (*matejhalama.cz*) and **Jan Hladík** for help in designing the logo of the website.
 - **VCT** for kindly lending me a VEX EDR kit to work with.
