@@ -13,7 +13,7 @@ Although you don't need to know any robotics before reading through this website
 ---
 
 ## Math
-To understand the math on this website, it is best to understand basic algebra, trigonometry, geometry. None of the math should exceed high-school level and if it does, there will be links to resources to explain them. **If math isn't your strong suit, it doesn't mean you won't learn anything from the website** -- even if you skipped all the equations, you would still learn a lot.
+To understand the math on this website, it is best to understand basic algebra, trigonometry, geometry. None of the math should exceed high-school level and if it does, there will be links to resources to explain them. **Even if math weren't your strong suit and you skipped all of the equations, you'd still learn a lot!**
 
 
 ## Programming

@@ -26,13 +26,13 @@ The resulting coordinates $$(x,y)$$ are $$x=x_0+\Delta x$$ and $$y=y_0+\Delta y$
 
 
 ## Implementation
-```python
-{% include code/algorithms/odometry/line-approximation.py %}
-```
-
 This is one of the possible implementations of a class that tracks the current position of the robot by getting information from both encoders using the aforementioned line approximation method.
 
 Note that for the position estimation to be accurate, the `update()` function of the class needs to be called multiple times per second.
+
+```python
+{% include code/algorithms/odometry/line-approximation.py %}
+```
 
 Modified {% last_modified_at %B %-d, %Y %}
 {: .fs-2 style="text-align: right;" }

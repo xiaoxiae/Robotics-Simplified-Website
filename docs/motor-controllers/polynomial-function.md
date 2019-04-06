@@ -17,7 +17,7 @@ One thing you should also notice is that the function starts at $$x = 0$$ and en
 
 
 ## Horner's method
-When it comes to programming, exponentiation tends to be quite expensive. [Horner's method](https://en.wikipedia.org/wiki/Horner%27s_method) is an elegant solution to this problem. The concept is simple -- change the expression by taking out $$x$$, so there is no exponentiation.
+When it comes to programming, exponentiation tends to be quite expensive. [Horner's method](https://en.wikipedia.org/wiki/Horner%27s_method) is an elegant solution to this problem. The concept is simple -- change the expression by repeatedly taking out $$x$$, so there is no exponentiation.
 
 $$2x^3 + 4x^2 -x + 5 \quad \rightarrow \quad x(x(x(2) + 4) - 1) + 5$$
 
@@ -35,17 +35,17 @@ The controller only needs the coefficients of the polynomial that we modeled, an
 ## Examples
 
 ### Driving a distance
+Once again, the code is almost the exact same as the examples from nearly all of the other controllers.
+
 ```python
 {% include code/algorithms/motor-controllers/polynomial-function/example.py %}
 ```
-
-Once again, the code is almost the exact same as the examples from nearly all of the other controllers.
 
 
 ## Generating a polynomial
 An alternative to "stretching" the polynomial to fit the goal is to specify the points the polynomial passes through and generate the coefficients *after* the goal is specified.
 
-Say you have points $$\left(0,\ 0.2\right)$$, $$\left(0.4,\ 1\right)$$, $$\left(0.6,\ 1\right)$$ and $$\left(1,0\right)$$. Since there are 4 points, the general form of the polynomial is $$y=ax^3+bx^2+cx+d$$ Using this information, we can create a system of linear equations:
+Say you have points $$\left(0,0.2\right)$$, $$\left(0.4,1\right)$$, $$\left(0.6,1\right)$$ and $$\left(1,0\right)$$. Since there are 4 points, the general form of the polynomial is $$y=ax^3+bx^2+cx+d$$ Using this information, we can create a system of linear equations:
 
 $$\begin{array}{rcl}
 0.2 & = & a(0)^3+b(0)^2+c(0)+d \\
