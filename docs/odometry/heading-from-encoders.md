@@ -34,6 +34,3 @@ $$\frac{l}{\omega} = \frac{r}{\omega} - c$$
 $$\omega = \frac{r - l}{c}$$
 
 And that's it! The angle can be calculated from the difference of the readings of the encoders, divided by the length of the axis.
-
-Modified {% last_modified_at %B %-d, %Y %}
-{: .fs-2 style="text-align: right;" }

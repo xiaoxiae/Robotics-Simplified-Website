@@ -13,6 +13,3 @@ The code on this website has been tested on a VEX EDR robot programmed in Python
 ![Robot Model]({{site.url}}/assets/images/robot.png "Robot Model")
 
 You can download the robot model in the STEP format from [this link](https://grabcad.com/library/vex-edr-robot-1), if you're interested!
-
-Modified {% last_modified_at %B %-d, %Y %}
-{: .fs-2 style="text-align: right;" }

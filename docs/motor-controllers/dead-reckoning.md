@@ -44,6 +44,3 @@ Although this is quite a simple controller to implement, you might realize that 
 Another important thing to keep in mind when using this controller is that if you want to change how fast the robot is driving/turning, you will need to re-calculate the average speed of the robot, which is very tedious.
 
 We'll be focusing on improving accuracy in the upcoming articles by incorporating real-time data from the robot into our controllers.
-
-Modified {% last_modified_at %B %-d, %Y %}
-{: .fs-2 style="text-align: right;" }

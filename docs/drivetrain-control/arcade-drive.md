@@ -53,6 +53,3 @@ Here is an interactive visualization of the sorts of values our function sets th
 
 ## Closing remarks
 If you are interested in reading more about this topic, I would suggest looking at [this thread on Chief Delphi](https://www.chiefdelphi.com/media/papers/2661), where I learned most of the information about the theory behind arcade drive.
-
-Modified {% last_modified_at %B %-d, %Y %}
-{: .fs-2 style="text-align: right;" }

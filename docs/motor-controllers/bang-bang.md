@@ -37,6 +37,3 @@ This is already markedly better than our previous dead reckoning approach, but i
 We could try to fix this by saying that it should start driving backward once it passed the goal, but the only thing you'd get is a robot that drives back and forth across the goal (which may be amusing, but not very helpful).
 
 In the upcoming articles, we will try to improve our approach and create controllers that don't just return 1 for driving and 0 for not driving, but also values in-between (when the robot should be driving slower and when faster).
-
-Modified {% last_modified_at %B %-d, %Y %}
-{: .fs-2 style="text-align: right;" }

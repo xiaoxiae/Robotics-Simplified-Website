@@ -40,6 +40,3 @@ There were a few helpful articles that helped me understand equations behind the
 There were two main resources that helped me write the Circle Approximation article.
 - Kinematics Equations for Differential Drive and Articulated Steering [whitepaper](http://www8.cs.umu.se/kurser/5DV122/HT13/material/Hellstrom-ForwardKinematics.pdf)
 - Position Estimation [presentation](http://people.scs.carleton.ca/~lanthier/teaching/COMP4807/Notes/5%20-%20PositionEstimation.pdf)
-
-Modified {% last_modified_at %B %-d, %Y %}
-{: .fs-2 style="text-align: right;" }

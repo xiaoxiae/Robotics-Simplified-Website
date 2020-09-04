@@ -33,6 +33,3 @@ Note that for the position estimation to be accurate, the `update()` function of
 ```python
 {% include code/algorithms/odometry/line-approximation.py %}
 ```
-
-Modified {% last_modified_at %B %-d, %Y %}
-{: .fs-2 style="text-align: right;" }

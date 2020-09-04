@@ -35,6 +35,3 @@ The following example demonstrates, how to make the robot drive using tank drive
 
 ## Closing remarks
 Tank drive is a very basic and easy way to control the robot. When it comes to FRC, it is a method used frequently for its simplicity, and because it is easier for some drivers to control the robot this way, compared to the other discussed methods.
-
-Modified {% last_modified_at %B %-d, %Y %}
-{: .fs-2 style="text-align: right;" }

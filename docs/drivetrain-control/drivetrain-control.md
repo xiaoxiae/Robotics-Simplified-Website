@@ -25,6 +25,3 @@ The drivetrain of a vehicle is a group of components that deliver power to the d
 - **swerve drive** -- each wheel can rotate vertically around its axis -- the robot can drive and rotate in any direction
 
 For the purpose of this guide, however, we will only be discussing some of the most frequently used drivetrains, and the methods to operate them.
-
-Modified {% last_modified_at %B %-d, %Y %}
-{: .fs-2 style="text-align: right;" }

@@ -1,6 +1,7 @@
 # Jekyll files
 .sass-cache
 _site
+.mypy_cache
 bin/
 
 # Binary files (at least for now)

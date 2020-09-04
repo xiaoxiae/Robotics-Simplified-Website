@@ -35,6 +35,3 @@ Throughout the project, there will be a lot of made-up classes like `Motor`, `Jo
 There are a LOT of comments in the examples of code that you are about to see. Way, way more than there should be. I agree that this is considered bad practice for practical purposes and that if you are a relative beginner, you shouldn't write code in a similar fashion.
 
 However, since the purpose of the code on this website is educational and not to serve as a part of a codebase, I would argue that it is fine to use them to such extent.
-
-Modified {% last_modified_at %B %-d, %Y %}
-{: .fs-2 style="text-align: right;" }
