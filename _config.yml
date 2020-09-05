@@ -8,6 +8,10 @@ exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "pac
 
 search_enabled: true
 
+markdown: kramdown
+kramdown:
+    math_engine: katex
+
 # the upper right navigation
 aux_links:
   "PDF Version":

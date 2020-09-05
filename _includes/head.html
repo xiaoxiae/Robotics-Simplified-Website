@@ -1,19 +1,15 @@
 <head>
   <meta charset="UTF-8">
 
-  <!-- Load jQuery -->
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-  <!-- Load KaTeX -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
 
   <title>{{ page.title }} - {{ site.title }}</title>
   <meta name="description" content="Learn robotics in a simple and intuitive way.">
   <meta name="keywords" content="robotics,education,frc,technology,programming,engineering">
 
-	<link rel="stylesheet" href="{{site.baseurl}}/assets/css/just-the-docs.css">
+  <link rel="stylesheet" href="{{site.baseurl}}/assets/css/just-the-docs.css">
   {% if site.search_enabled != nil %}
   <script type="text/javascript" src="{{site.baseurl}}/assets/js/vendor/lunr.min.js"></script>
   {% endif %}
