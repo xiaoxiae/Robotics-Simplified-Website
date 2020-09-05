@@ -9,7 +9,7 @@ permalink: odometry/circle-approximation/
 # Circle Approximation
 Although the line approximation is relatively accurate, we can make it more precise by assuming that the robot drives in an arc, which, in reality, is closer to what the robot is really doing.
 
-![Circle Approximation]({{site.url}}/assets/images/odometry/circle-approximation.png "Circle Approximation")
+![Circle Approximation]({{site.baseurl}}/assets/images/odometry/circle-approximation.png "Circle Approximation")
 
 ## Deriving the equations
 The robot moved in an arch, the left encoder measured a distance $$l$$ and the right wheel a distance $$r$$. It was previously at an angle $$\theta$$ and is now at an angle $$\theta + \omega$$. We want to calculate, what the new position of the robot is after this move.
@@ -26,7 +26,7 @@ Combining the equations and solving for R gives us:
 
 $$R = \left(\frac{r+l}{\omega \cdot 2} \right)$$
 
-From our previous article about [Heading from Encoders]({{site.baseurl}}odometry/heading-from-encoders/), we know that $$\omega = \frac{r - l}{c}$$. If we don't have a gyro, we can just plug that into our newly derived formula and get:
+From our previous article about [Heading from Encoders]({{site.baseurl}}/odometry/heading-from-encoders/), we know that $$\omega = \frac{r - l}{c}$$. If we don't have a gyro, we can just plug that into our newly derived formula and get:
 
 $$R = \frac{r+l}{\frac{r - l}{c} \cdot 2} = \frac{r+l}{r - l} \cdot \frac{c}{2}$$
 

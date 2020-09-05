@@ -9,7 +9,7 @@ permalink: drivetrain-control/arcade-drive/
 # Arcade drive
 Arcade drive is a method of controlling the motors of a *tank drive drivetrain* using two axes of a controller, where one of the axes controls the speed of the robot, and the other the steering of the robot.
 
-![Arcade Drive]({{site.url}}/assets/images/drivetrain-control/arcade-drive.png "Arcade Drive")
+![Arcade Drive]({{site.baseurl}}/assets/images/drivetrain-control/arcade-drive.png "Arcade Drive")
 
 [Robot CAD model](https://grabcad.com/library/wild-thumper-6wd-chassis-1), [Controller image source](https://target.scene7.com/is/image/Target/GUEST_1e4c1fcb-6962-4533-b961-4e760355db27?wid=488&hei=488&fmt=pjpeg)
 {: .fs-1 style="text-align: right;" }
@@ -20,7 +20,7 @@ The equations used in the implementation are derived using [linear interpolation
 
 I won't show the derivation here, since it isn't too exciting (if you're interested, it can be found in [this post](https://www.chiefdelphi.com/t/paper-arcade-drive/168720) on Chief Delphi), but rather an illustration to help you understand the derivation more intuitively.
 
-![Arcade Drive Illustration]({{site.url}}/assets/images/drivetrain-control/arcade-drive-illustration.png "Arcade Drive Illustration")
+![Arcade Drive Illustration]({{site.baseurl}}/assets/images/drivetrain-control/arcade-drive-illustration.png "Arcade Drive Illustration")
 
 What we want is to transform our $$x$$ and $$y$$ coordinates to the speeds of the motor. To do this, let's focus on the values we would *like* to be getting in the 1st quadrant. The left rectangle in the illustration represents the joystick values (in the 1st quadrant) and right one the speeds of the left and right motor (in the 1st quadrant). I would suggest you see the visualization at the end of the article, it demonstrates this nicely.
 

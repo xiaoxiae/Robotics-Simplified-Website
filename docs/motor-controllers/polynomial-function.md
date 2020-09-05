@@ -11,7 +11,7 @@ Another way that we can get values that aren't just 1's and 0's is to model a fu
 
 Polynomial function is a great candidate for this task. We can pick points that we want the function to pass through and then use [polynomial regression](https://en.wikipedia.org/wiki/Polynomial_regression) to get the coefficients of the function.
 
-![Polynomial function]({{site.url}}/assets/images/motor-controllers/polynomial-function.png "Polynomial function")
+![Polynomial function]({{site.baseurl}}/assets/images/motor-controllers/polynomial-function.png "Polynomial function")
 
 One thing you should also notice is that the function starts at $$x = 0$$ and ends at $$x = 1$$. This is deliberate -- it makes it easy for us to "stretch" the function a little wider if we want to drive some other distance, not just a distance of 1.
 

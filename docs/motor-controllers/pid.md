@@ -9,7 +9,7 @@ permalink: motor-controllers/pid/
 # PID
 Our previous attempt at creating a controller that used feedback from the robot could be further improved by considering how the **error** (difference between feedback value and the goal) changes over time.
 
-![PID]({{site.url}}/assets/images/motor-controllers/pid.png "PID")
+![PID]({{site.baseurl}}/assets/images/motor-controllers/pid.png "PID")
 [PID image source](https://upload.wikimedia.org/wikipedia/commons/4/40/Pid-feedback-nct-int-correct.png)
 {: .fs-1 style="text-align: right;" }
 
@@ -40,7 +40,7 @@ The problem with only using only $$P$$ is that the closer we get to the goal, th
 ### Integral
 Integral adds the extra push that the proportional was missing, because it doesn't react to what is happening right now, but to what was happening in the past, by accumulating the error.
 
-![Integral]({{site.url}}/assets/images/motor-controllers/integral.png "Integral")
+![Integral]({{site.baseurl}}/assets/images/motor-controllers/integral.png "Integral")
 
 Calculating an [integral](https://en.wikipedia.org/wiki/Integral) means calculating area under a curve (in our case, the curve is error over time). With real-world measurements, we can't calculate the actual area, because we can only call the code so many times a second. That's why we will approximate the area by calculating rectangles that closely resemble the curve.
 
@@ -102,7 +102,7 @@ Auto-correcting the heading of a robot is something PID is great at. What we wan
 
 We could either use values from the encoders on the left and the right side to calculate the angle, but a more accurate way is to use a gyroscope. Let's therefore assume that we have a `Gyro` class whose objects give us the current heading of the robot.
 
-One thing we have to think about is what to set the motors to when we get the value from the controller, because to turn the robot, both of the motors will be going in opposite directions. Luckily, `arcade_drive` is our savior -- we can plug our PID values directly into the turning part of arcade drive (the `x` axis) to steer the robot. Refer back to the [Arcade Drive article]({{site.baseurl}}drivetrain-control/arcade-drive/), if you are unsure as to how/why this works.
+One thing we have to think about is what to set the motors to when we get the value from the controller, because to turn the robot, both of the motors will be going in opposite directions. Luckily, `arcade_drive` is our savior -- we can plug our PID values directly into the turning part of arcade drive (the `x` axis) to steer the robot. Refer back to the [Arcade Drive article]({{site.baseurl}}/drivetrain-control/arcade-drive/), if you are unsure as to how/why this works.
 
 ```python
 {% include code/algorithms/motor-controllers/pid/example2.py %}

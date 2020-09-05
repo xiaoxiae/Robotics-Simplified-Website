@@ -11,7 +11,7 @@ For our first approximation, let's make an assumption: instead of driving an arc
 
 This is quite a reasonable assumption to make for smaller angles: since we are updating the position multiple times per second, the angles aren't going to be too large.
 
-![Line Approximation]({{site.url}}/assets/images/odometry/line-approximation.png "Line Approximation")
+![Line Approximation]({{site.baseurl}}/assets/images/odometry/line-approximation.png "Line Approximation")
 
 ## Deriving the equations
 The robot moved a distance $$d$$. It was previously at an angle $$\theta$$ and is now at an angle $$\theta + \omega$$. We want to calculate, what the new position of the robot is after this move.

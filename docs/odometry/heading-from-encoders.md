@@ -21,7 +21,7 @@ Although gyro is arguably the most precise way to measure the current heading, i
 
 Say the robot drove a small arc. The left encoder measured a distance $$l$$ and the right side measured a distance $$r$$. The length between the two wheels of the drivetrain is $$c$$, the angle by which we turned is $$\omega$$ (measured in radians), and $$x$$ is just a variable to help with our calculations.
 
-![Heading from encoders]({{site.url}}/assets/images/odometry/heading-from-encoders.png "Heading from encoders")
+![Heading from encoders]({{site.baseurl}}/assets/images/odometry/heading-from-encoders.png "Heading from encoders")
 
 Let's derive the equations for the lengths of the arches $$l$$ and $$r$$ in terms of the other variables (here is an article about [arc length](https://www.mathopenref.com/arclength.html), if you need further clarification):
 

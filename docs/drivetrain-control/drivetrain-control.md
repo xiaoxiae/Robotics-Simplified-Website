@@ -12,7 +12,7 @@ permalink: drivetrain-control/
 Algorithms and techniques used to control the motors of the robot's **[drivetrains](https://en.wikipedia.org/wiki/Drivetrain)**.
 {: .fs-6 .fw-300 }
 
-![Drivetrain]({{site.url}}/assets/images/drivetrain-control/drivetrain.png "Drivetrain")
+![Drivetrain]({{site.baseurl}}/assets/images/drivetrain-control/drivetrain.png "Drivetrain")
 
 [Drivetrain image source](https://pictures.topspeed.com/IMG/crop/201604/2017-audi-tt-rs-44_1600x0w.jpg)
 {: .fs-1 style="text-align: right;" }

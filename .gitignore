@@ -4,9 +4,6 @@ _site
 .mypy_cache
 bin/
 
-# Binary files (at least for now)
-assets/images
-
 # Private stuff
 ignored
 
