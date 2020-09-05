@@ -19,4 +19,4 @@ After reading through the articles on this website, you should have a solid unde
 
 ---
 
-<img src="{{site.url}}/assets/images/logo.png">
+<img src="{{site.baseurl}}/assets/images/logo.png">
