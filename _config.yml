@@ -18,6 +18,3 @@ aux_links:
     - "https://github.com/xiaoxiae/soc-paper-2019"
 
 color_scheme: nil
-
-plugins:
-  - jekyll-last-modified-at
