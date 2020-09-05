@@ -5,11 +5,6 @@ nav_order: 1
 permalink: /
 ---
 
-**IMPORTANT NOTICE:** This website is in early stages of development and all of the content is subject to change.
-{: .fs-6 .fw-300 .text-center }
-
----
-
 # Welcome to Robotics Simplified!
 {: .fs-9 .text-center }
 
