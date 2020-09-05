@@ -7,6 +7,9 @@ bin/
 # Binary files (at least for now)
 assets/images
 
+# Private stuff
+ignored
+
 # Ruby files
 *.gem
 node_modules

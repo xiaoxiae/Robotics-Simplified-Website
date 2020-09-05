@@ -1,7 +1,7 @@
 title: Robotics Simplified
 description: Intuitive explanations of robotics concepts.
 baseurl: "/"
-url: "https://xiaoxiae.github.io"
+url: "https://xiaoxiae.github.io/Robotics-Simplified-Website"
 
 permalink: pretty
 exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"]
